@@ -59,6 +59,16 @@ if ($pycacheDirs) {
     }
 }
 
+Write-Host ""
+Write-Host "Checking skill references..."
+$referenceChecker = Join-Path $Root "check_skill_references.ps1"
+if (Test-Path -LiteralPath $referenceChecker) {
+    & powershell -ExecutionPolicy Bypass -File $referenceChecker -Root $Root
+    if ($LASTEXITCODE -ne 0) {
+        $failed = $true
+    }
+}
+
 if ($failed) {
     Write-Host "Validation failed." -ForegroundColor Red
     exit 1

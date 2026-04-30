@@ -28,6 +28,26 @@ The validation script:
 - checks for open markers such as `TODO`, `FIXME`, `TBD`
 - removes generated `__pycache__` folders
 
+## Utility Commands
+
+Create a release zip:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\package_release.ps1
+```
+
+Prepare a forward-test run sheet:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\new_forward_test_results.ps1
+```
+
+Build a tenant mapping report from artifacts:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\new_tenant_mapping_report.ps1 -TenantName "Example" -MetadataXml ".\metadata.xml" -CsvExports ".\incidents.csv"
+```
+
 ## Install Locally
 
 Development location:

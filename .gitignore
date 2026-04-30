@@ -10,6 +10,9 @@ __pycache__/
 *.bak
 odata_catalog/
 export_profile/
+tenant-output/
+dist/
+FORWARD_TEST_RUN.md
 *_test.csv
 *_test.md
 *_test.xml

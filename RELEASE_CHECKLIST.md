@@ -10,6 +10,10 @@ Version: `v0.1.0`
 - [x] `__pycache__` cleaned.
 - [x] GitHub workflow added.
 - [x] Bundled CI validator added.
+- [x] Skill reference checker added.
+- [x] Release package script added.
+- [x] Tenant mapping pipeline added.
+- [x] Forward-test run sheet generator added.
 
 ## Documentation
 
@@ -23,7 +27,7 @@ Version: `v0.1.0`
 ## Release Notes
 
 - [x] Changelog updated.
-- [ ] Git commit created.
+- [x] Git commit created.
 - [ ] Optional tag `v0.1.0` created.
 
 ## Post-Release
