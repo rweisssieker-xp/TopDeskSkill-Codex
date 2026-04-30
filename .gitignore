@@ -10,6 +10,7 @@ __pycache__/
 *.bak
 odata_catalog/
 export_profile/
+powerbi_pack/
 tenant-output/
 dist/
 FORWARD_TEST_RUN.md

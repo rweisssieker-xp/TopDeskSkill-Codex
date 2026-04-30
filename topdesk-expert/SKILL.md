@@ -20,6 +20,7 @@ Start by classifying the task:
 - **Detailed Power BI implementation, RLS, advanced DAX, Power Query functions, report layout, or validation pack**: Load `references/powerbi-recipes.md`.
 - **Advanced Power BI dataset architecture, DAX catalog, OData incremental refresh, RLS, deployment, refresh audit, or reconciliation matrix**: Load `references/powerbi-advanced.md`.
 - **Power BI KPI catalog, report specification, PBIX/model review, DAX snippets, Power Query snippets, or reusable report templates**: Load the relevant `references/powerbi-*.md` file.
+- **Build, generate, maintain, refresh, repair, or evolve Power BI datasets/semantic models**: Load `references/powerbi-build-maintain.md`.
 - **AI/KI, machine learning, LLM, chatbot, copilot, semantic search, ticket prediction, classification, routing, summarization, or response-generation question**: Load `references/ai-features.md`.
 - **AI/KI prompt templates, JSON schemas, RAG architecture, eval datasets, or operator feedback loops**: Load `references/ai-prompts-and-evals.md`.
 - **Security, privacy, DSGVO/GDPR, PII, audit, permissions, secrets, or governance question**: Load `references/security-compliance.md`.
@@ -89,6 +90,7 @@ For schema analysis:
 - `references/powerbi-report-spec-template.md`: Report and page specification template.
 - `references/powerbi-model-review.md`: Checklist for reviewing existing Power BI models.
 - `references/powerbi-template-snippets.md`: Reusable DAX and Power Query snippets.
+- `references/powerbi-build-maintain.md`: Power BI implementation pack generation and maintenance guidance.
 - `references/ai-features.md`: AI/KI feature patterns, data contracts, guardrails, evaluation, and implementation guidance for TOPdesk workflows.
 - `references/ai-prompts-and-evals.md`: Prompt templates, structured outputs, RAG design, and evaluation datasets.
 - `references/security-compliance.md`: Security, DSGVO/GDPR, PII, roles, audit, secrets, and AI governance.

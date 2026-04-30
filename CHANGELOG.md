@@ -10,3 +10,4 @@
 - Added GitHub repository files, issue/PR templates, and validation workflow.
 - Added install script, release checklist, tenant artifact checklist, and forward-test results scaffold.
 - Added skill reference checker, tenant mapping report pipeline, release packager, and forward-test run sheet generator.
+- Added Power BI implementation pack generator for M queries, DAX, TMDL skeletons, report specs, and maintenance runbooks.

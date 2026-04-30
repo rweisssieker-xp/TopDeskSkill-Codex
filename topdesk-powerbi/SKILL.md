@@ -18,6 +18,7 @@ Start by loading:
 - `references/powerbi-report-spec-template.md` for report/page specifications and required report pages.
 - `references/powerbi-model-review.md` for reviewing existing PBIX/model documentation.
 - `references/powerbi-template-snippets.md` for reusable DAX and Power Query snippets.
+- `references/powerbi-build-maintain.md` for generating and maintaining Power BI implementation packs.
 - `references/glossary-data-dictionary.md` when naming or KPI semantics matter.
 - `references/testing-validation.md` when validating counts, refresh, RLS, or release readiness.
 
@@ -40,3 +41,7 @@ Start by loading:
 
 - `assets/topdesk-core-measures.dax`: reusable DAX measure template.
 - `assets/topdesk-odata-functions.pq`: reusable Power Query helper snippets.
+
+## Scripts
+
+- `scripts/generate_powerbi_pack.py`: Generate Power Query, DAX, TMDL skeleton, report spec, and maintenance runbook from CSV table/measure specs.

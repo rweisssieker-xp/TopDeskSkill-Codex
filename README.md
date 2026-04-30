@@ -56,6 +56,12 @@ powershell -ExecutionPolicy Bypass -File .\new_skill_inventory_report.ps1
 powershell -ExecutionPolicy Bypass -File .\new_skill_index.ps1
 ```
 
+Generate a Power BI implementation pack:
+
+```powershell
+python .\topdesk-powerbi\scripts\generate_powerbi_pack.py --tables .\tables.csv --measures .\measures.csv --out .\powerbi_pack
+```
+
 ## Install Locally
 
 Development location:
