@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Tenant Mapping"
+  short_description: "Tenant-specific TOPdesk mappings"
+  default_prompt: "Use $topdesk-tenant-mapping to turn TOPdesk metadata, exports, and samples into tenant-specific field, schema, and BI mappings."

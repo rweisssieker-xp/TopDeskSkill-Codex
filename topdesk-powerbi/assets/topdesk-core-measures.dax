@@ -1,0 +1,33 @@
+-- TOPdesk core Power BI measures template.
+-- Adapt table/column names to the verified semantic model.
+
+Created Incidents :=
+COUNTROWS ( FactIncident )
+
+Open Incidents :=
+CALCULATE (
+    [Created Incidents],
+    FactIncident[IsClosed] = FALSE ()
+)
+
+Closed Incidents :=
+CALCULATE (
+    [Created Incidents],
+    FactIncident[IsClosed] = TRUE (),
+    USERELATIONSHIP ( FactIncident[ClosedDateKey], DimDate[DateKey] )
+)
+
+SLA Compliance % :=
+DIVIDE (
+    CALCULATE ( [Closed Incidents], FactIncident[SlaBreached] = FALSE () ),
+    [Closed Incidents]
+)
+
+Backlog As Of Date :=
+VAR SelectedDate = MAX ( DimDate[Date] )
+RETURN
+CALCULATE (
+    COUNTROWS ( FactIncident ),
+    FactIncident[CreatedDate] <= SelectedDate,
+    OR ( ISBLANK ( FactIncident[ClosedDate] ), FactIncident[ClosedDate] > SelectedDate )
+)

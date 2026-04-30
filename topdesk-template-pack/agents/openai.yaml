@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Template Pack"
+  short_description: "Reusable TOPdesk delivery templates"
+  default_prompt: "Use $topdesk-template-pack to create reusable TOPdesk SQL, DAX, Power Query, prompt, runbook, proposal, and test templates."

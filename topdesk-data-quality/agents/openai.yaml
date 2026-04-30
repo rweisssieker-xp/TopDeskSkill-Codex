@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Data Quality"
+  short_description: "Data quality checks for TOPdesk data"
+  default_prompt: "Use $topdesk-data-quality to find TOPdesk missing fields, duplicates, orphaned links, mapping gaps, and BI data-quality issues."

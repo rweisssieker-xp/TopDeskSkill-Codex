@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk AI"
+  short_description: "AI/KI features for TOPdesk workflows"
+  default_prompt: "Use $topdesk-ai to design TOPdesk AI/KI classification, routing, summaries, RAG, and evaluations."

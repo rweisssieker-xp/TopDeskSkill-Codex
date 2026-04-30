@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk OData"
+  short_description: "OData/API mapping for TOPdesk tenants"
+  default_prompt: "Use $topdesk-odata to parse TOPdesk OData metadata, profile exports, and map API fields."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Power BI"
+  short_description: "Power BI reporting for TOPdesk data"
+  default_prompt: "Use $topdesk-powerbi to build TOPdesk Power BI models, DAX, Power Query, RLS, and KPI reports."

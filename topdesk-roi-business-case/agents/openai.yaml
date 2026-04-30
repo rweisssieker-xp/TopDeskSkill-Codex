@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk ROI Business Case"
+  short_description: "ROI and business cases for TOPdesk"
+  default_prompt: "Use $topdesk-roi-business-case to build TOPdesk ROI models, benefit cases, KPI baselines, and executive business cases."
