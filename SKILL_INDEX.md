@@ -36,6 +36,7 @@ This folder contains a TOPdesk-focused skill suite. Use `topdesk-expert` for bro
 | `topdesk-tenant-mapping` | Tenant-specific mappings from metadata, exports, samples, UI labels, schema, BI, RLS, and data quality. |
 | `topdesk-roi-business-case` | ROI models, executive business cases, benefit baselines, assumptions, risks, and success metrics. |
 | `topdesk-template-pack` | Reusable SQL, DAX, Power Query, prompt, runbook, proposal, workshop, and user-story templates. |
+| `topdesk-handbook` | Complete handbook set: admin, operator, Power BI, AI governance, integration, operations, schema, rollout, training, executive. |
 
 ## Utility Scripts
 
@@ -66,3 +67,4 @@ This folder contains a TOPdesk-focused skill suite. Use `topdesk-expert` for bro
 - Delivery/backlog request: use `topdesk-project-delivery`.
 - Business-case request: use `topdesk-roi-business-case`.
 - Tenant-specific mapping request: use `topdesk-tenant-mapping`.
+- Handbook/manual request: use `topdesk-handbook`.

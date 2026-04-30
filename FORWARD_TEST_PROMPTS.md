@@ -251,3 +251,13 @@ Use $topdesk-template-pack to create a reusable proposal outline and user-story 
 ```
 
 Expected: concise reusable templates.
+
+## Handbook
+
+### topdesk-handbook
+
+```text
+Use $topdesk-handbook to create a complete operator and Power BI handbook for a TOPdesk service desk analytics and AI-assist rollout.
+```
+
+Expected: role-specific handbook structure with procedures, checklists, governance, and maintenance notes.
