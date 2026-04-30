@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.vscode/
+.idea/
+*.log
+*.tmp
+*.bak
+odata_catalog/
+export_profile/
+*_test.csv
+*_test.md
+*_test.xml
+*_test/

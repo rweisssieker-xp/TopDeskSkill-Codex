@@ -1,0 +1,49 @@
+name: Validate Skills
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate skill structure
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $validator = Join-Path $env:GITHUB_WORKSPACE ".github/scripts/quick_validate.py"
+          if (-not (Test-Path $validator)) {
+            throw "Bundled validator not found: $validator"
+          }
+          Get-ChildItem -Directory | Where-Object { Test-Path (Join-Path $_.FullName "SKILL.md") } | ForEach-Object {
+            python $validator $_.FullName
+          }
+
+      - name: Compile Python scripts
+        shell: pwsh
+        run: |
+          $files = Get-ChildItem -Recurse -File -Filter *.py
+          if ($files.Count -gt 0) {
+            python -m py_compile @($files.FullName)
+          }
+
+      - name: Check open markers
+        shell: pwsh
+        run: |
+          $markers = Get-ChildItem -Recurse -File | Select-String -Pattern "TODO|\[TODO|FIXME|TBD" -CaseSensitive
+          if ($markers) {
+            $markers | ForEach-Object { Write-Host "$($_.Path):$($_.LineNumber): $($_.Line)" }
+            throw "Open markers found."
+          }
