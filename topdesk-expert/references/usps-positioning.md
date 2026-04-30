@@ -39,6 +39,20 @@ Position the solution as a practical TOPdesk intelligence layer:
 - **Compliance by design**: PII, internal notes, secrets, RLS, audit, retention, and AI governance are explicit from the first design step.
 - **Continuous improvement loop**: Reports reveal workflow/data issues, AI feedback improves suggestions, knowledge gaps become article candidates, and operations metrics drive roadmap decisions.
 
+## Skill Suite Meta-USP
+
+A complete TOPdesk delivery and intelligence skill system: tenant-verified, Power BI-ready, AI-governed, auditable, operationalizable, and business-case-ready from discovery to production operations.
+
+Use this when positioning the skill system itself rather than a customer project:
+
+- 26 validated specialized skills.
+- Tenant metadata and exports treated as source of truth.
+- Deep Power BI model, KPI, DAX, RLS, and reconciliation support.
+- AI/KI patterns with human review, audit, PII controls, and feedback loops.
+- End-to-end delivery from discovery to operations and ROI.
+- Scripts and templates for repeatable execution.
+- Handbook, CI, validation, packaging, and release support.
+
 ## USP Bundles
 
 Data foundation bundle:

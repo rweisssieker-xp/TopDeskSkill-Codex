@@ -31,6 +31,7 @@ Start by classifying the task:
 - **User asks what files/artifacts are needed, provides tenant exports, metadata, screenshots, PBIX/model docs, or wants a project intake checklist**: Load `references/artifact-checklists.md`.
 - **Terminology, data dictionary, entity definitions, KPI definitions, or naming question**: Load `references/glossary-data-dictionary.md`.
 - **USPs, positioning, pitch, business case, stakeholder value, feature benefits, or roadmap messaging**: Load `references/usps-positioning.md`.
+- **Skill-suite USPs, meta-positioning, differentiators, capability matrix, proof points, or accelerator messaging**: Load `references/skill-suite-usps.md`.
 - **Install, package, copy, publish, or update this skill for Codex auto-discovery**: Load `references/installation-notes.md`.
 - **Unclear or cross-cutting task**: Load the smallest relevant combination of references.
 
@@ -99,6 +100,7 @@ For schema analysis:
 - `references/artifact-checklists.md`: Intake checklists for TOPdesk metadata, app schema, Power BI, and AI artifacts.
 - `references/glossary-data-dictionary.md`: Common TOPdesk/app/BI/AI terms and canonical naming guidance.
 - `references/usps-positioning.md`: USPs, stakeholder value, pitch text, differentiators, business-case metrics, and roadmap framing.
+- `references/skill-suite-usps.md`: Meta-USPs, capability matrix, proof points, and positioning for the skill suite itself.
 - `references/installation-notes.md`: Local install/update notes for Codex skill auto-discovery.
 
 ## Scripts
