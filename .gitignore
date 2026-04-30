@@ -13,6 +13,9 @@ export_profile/
 tenant-output/
 dist/
 FORWARD_TEST_RUN.md
+SKILL_INDEX.generated.md
+SKILL_INVENTORY_REPORT.md
+skills.manifest.json
 *_test.csv
 *_test.md
 *_test.xml

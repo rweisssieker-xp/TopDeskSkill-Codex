@@ -48,6 +48,14 @@ Build a tenant mapping report from artifacts:
 powershell -ExecutionPolicy Bypass -File .\new_tenant_mapping_report.ps1 -TenantName "Example" -MetadataXml ".\metadata.xml" -CsvExports ".\incidents.csv"
 ```
 
+Generate skill manifest and inventory:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\new_skill_manifest.ps1
+powershell -ExecutionPolicy Bypass -File .\new_skill_inventory_report.ps1
+powershell -ExecutionPolicy Bypass -File .\new_skill_index.ps1
+```
+
 ## Install Locally
 
 Development location:
