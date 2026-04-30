@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.1 - 2026-04-30
+
+- Added maximum skill-suite USP positioning.
+- Added skill manifest and inventory tooling.
+- Added Power BI build and maintenance generator.
+- Added generated Power BI pack support for Power Query, DAX, TMDL skeletons, report specs, and maintenance runbooks.
+
 ## v0.1.0 - 2026-04-30
 
 - Added TOPdesk skill suite with 26 validated skills.

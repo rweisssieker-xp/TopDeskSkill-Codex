@@ -1,6 +1,6 @@
 # Release Checklist
 
-Version: `v0.1.0`
+Version: `v0.1.1`
 
 ## Validation
 
@@ -28,7 +28,7 @@ Version: `v0.1.0`
 
 - [x] Changelog updated.
 - [x] Git commit created.
-- [ ] Optional tag `v0.1.0` created.
+- [ ] Optional tag `v0.1.1` created.
 
 ## Post-Release
 
