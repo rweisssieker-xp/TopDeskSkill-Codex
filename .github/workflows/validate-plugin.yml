@@ -1,0 +1,27 @@
+name: Validate TOPdesk Plugin
+
+on:
+  push:
+    paths:
+      - "plugins/topdesk-skill-suite/**"
+      - "topdesk-*/**"
+      - ".github/workflows/validate-plugin.yml"
+  pull_request:
+    paths:
+      - "plugins/topdesk-skill-suite/**"
+      - "topdesk-*/**"
+      - ".github/workflows/validate-plugin.yml"
+
+jobs:
+  validate-plugin:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify plugin
+        shell: pwsh
+        run: |
+          powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\verify_plugin.ps1
+

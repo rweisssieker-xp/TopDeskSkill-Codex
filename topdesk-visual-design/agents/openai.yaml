@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Visual Design"
+  short_description: "Report visual design for TOPdesk dashboards."
+  default_prompt: "Design a TOPdesk Power BI report layout."

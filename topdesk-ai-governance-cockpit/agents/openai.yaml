@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk AI Governance Cockpit"
+  short_description: "Power BI cockpit for TOPdesk AI governance."
+  default_prompt: "Design an AI governance cockpit for TOPdesk."

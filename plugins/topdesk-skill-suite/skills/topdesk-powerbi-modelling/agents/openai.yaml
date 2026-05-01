@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Power BI Modelling"
+  short_description: "Semantic models and DAX for TOPdesk reporting."
+  default_prompt: "Design a TOPdesk Power BI semantic model."

@@ -1,0 +1,4 @@
+case_id,feature_type,input_reference,expected_output,risk_class,language,notes
+case-001,classification,incident-001,,normal,en,
+case-002,routing,incident-002,,sensitive,nl,
+

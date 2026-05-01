@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Enablement"
+  short_description: "Training and demos for TOPdesk solutions"
+  default_prompt: "Use $topdesk-enablement to create TOPdesk demos, training, onboarding, user guides, and adoption material."

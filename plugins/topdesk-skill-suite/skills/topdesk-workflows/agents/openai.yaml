@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Workflows"
+  short_description: "SSP forms and TOPdesk workflow design"
+  default_prompt: "Use $topdesk-workflows to design TOPdesk SSP forms, incident/change workflows, categories, routing, SLAs, and acceptance criteria."

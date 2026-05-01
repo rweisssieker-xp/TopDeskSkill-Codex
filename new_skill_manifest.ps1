@@ -58,5 +58,5 @@ $manifest = [ordered]@{
 }
 
 $json = $manifest | ConvertTo-Json -Depth 8
-Set-Content -LiteralPath $OutFile -Value $json -Encoding UTF8
+[System.IO.File]::WriteAllText($OutFile, ($json + [Environment]::NewLine), [System.Text.UTF8Encoding]::new($false))
 Write-Host "Wrote $OutFile"

@@ -1,0 +1,46 @@
+{
+  "name": "topdesk-skill-suite",
+  "version": "0.1.0",
+  "description": "TOPdesk-focused Codex skills for service management, OData/API mapping, reporting, migration, security, testing, and enablement.",
+  "author": {
+    "name": "TOPdesk Skill Suite Maintainers",
+    "email": "",
+    "url": ""
+  },
+  "homepage": "",
+  "repository": "",
+  "license": "MIT",
+  "keywords": [
+    "topdesk",
+    "service-management",
+    "odata",
+    "power-bi",
+    "migration"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "TOPdesk Skill Suite",
+    "shortDescription": "TOPdesk implementation, reporting, operations, and enablement skills.",
+    "longDescription": "A bundled TOPdesk skill suite for service-management workflows, OData/API mapping, Power BI reporting, AI assistance, security, operations, migration, enablement, business cases, and template packs.",
+    "developerName": "TOPdesk Skill Suite Maintainers",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "",
+    "privacyPolicyURL": "",
+    "termsOfServiceURL": "",
+    "defaultPrompt": [
+      "Plane eine TOPdesk Migration.",
+      "Erstelle ein TOPdesk Power BI Reporting Pack.",
+      "Pruefe TOPdesk OData und API Mapping."
+    ],
+    "brandColor": "#2563EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
+    "screenshots": [
+      "./assets/screenshot-overview.png"
+    ]
+  }
+}

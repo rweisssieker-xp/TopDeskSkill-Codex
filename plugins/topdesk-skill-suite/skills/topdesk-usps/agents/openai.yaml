@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk USPs"
+  short_description: "USPs and positioning for TOPdesk"
+  default_prompt: "Use $topdesk-usps to write TOPdesk USPs, value propositions, pitches, business cases, and roadmap messaging."

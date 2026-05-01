@@ -46,8 +46,8 @@ if ($MetadataXml) {
         --navigation (Join-Path $catalogDir "navigation_properties.csv") `
         --out (Join-Path $outDir "field_catalog.md")
 
-    $report += "- Metadata XML: `$MetadataXml`"
-    $report += "- Field catalog: `field_catalog.md`"
+    $report += "- Metadata XML: $MetadataXml"
+    $report += "- Field catalog: field_catalog.md"
 } else {
     $report += "- Metadata XML: not provided"
 }
@@ -67,7 +67,7 @@ if ($CsvExports.Count -gt 0) {
         python (Join-Path $odataScripts "generate_data_quality_findings.py") `
             (Join-Path $csvOut "column_profile.csv") `
             --out (Join-Path $csvOut "data_quality_findings.csv")
-        $report += "  - `$csv` -> `export_profiles/$safeName`"
+        $report += "  - $csv -> export_profiles/$safeName"
     }
 } else {
     $report += "- CSV exports: not provided"
@@ -77,9 +77,9 @@ $report += @(
     "",
     "## Outputs",
     "",
-    "- OData catalog CSVs in `odata_catalog/` when metadata was provided.",
-    "- Markdown field catalog in `field_catalog.md` when metadata was provided.",
-    "- CSV export profiles and data-quality findings in `export_profiles/` when exports were provided.",
+    "- OData catalog CSVs in odata_catalog/ when metadata was provided.",
+    "- Markdown field catalog in field_catalog.md when metadata was provided.",
+    "- CSV export profiles and data-quality findings in export_profiles/ when exports were provided.",
     "",
     "## Next Steps",
     "",

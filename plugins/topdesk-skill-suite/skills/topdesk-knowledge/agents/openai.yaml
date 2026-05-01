@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Knowledge"
+  short_description: "Knowledge management for TOPdesk"
+  default_prompt: "Use $topdesk-knowledge to design TOPdesk knowledge workflows, article lifecycle, deflection, and RAG source quality."

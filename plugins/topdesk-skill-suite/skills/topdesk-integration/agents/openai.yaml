@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Integration"
+  short_description: "TOPdesk API and automation integration"
+  default_prompt: "Use $topdesk-integration to design TOPdesk API syncs, imports, action sequences, idempotency, and reconciliation."

@@ -1,0 +1,6 @@
+risk,value,control,evidence
+pii_exposure,AI assist productivity,PII minimization and RLS,Governance cockpit
+hallucination,Knowledge deflection,RAG citations and evals,Eval pass rate
+wrong_routing,Fewer reassignments,Confidence threshold and approval,Acceptance and override metrics
+report_mismatch,Trusted KPI reporting,TOPdesk reconciliation,Power BI validation page
+

@@ -1,0 +1,9 @@
+Suggestions = COUNTROWS(FactAISuggestion)
+Accepted Suggestions = CALCULATE([Suggestions], FactAISuggestion[feedback_status] = "accepted")
+Acceptance Rate = DIVIDE([Accepted Suggestions], [Suggestions])
+Average Confidence = AVERAGE(FactAISuggestion[confidence])
+Low Confidence Suggestions = CALCULATE([Suggestions], FactAISuggestion[confidence] < 0.6)
+Estimated Minutes Saved = SUM(FactAISuggestion[estimated_minutes_saved])
+Estimated Cost = SUM(FactAICost[cost_amount])
+Cost Per Accepted Suggestion = DIVIDE([Estimated Cost], [Accepted Suggestions])
+

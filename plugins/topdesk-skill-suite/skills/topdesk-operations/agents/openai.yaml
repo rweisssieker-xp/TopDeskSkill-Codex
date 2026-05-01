@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Operations"
+  short_description: "Runbooks and operations for TOPdesk apps"
+  default_prompt: "Use $topdesk-operations to plan TOPdesk app architecture, deployments, monitoring, refreshes, backups, and runbooks."

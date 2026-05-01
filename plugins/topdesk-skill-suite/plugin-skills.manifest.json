@@ -1,0 +1,588 @@
+{
+    "generated_at":  "2026-05-01T10:21:05+02:00",
+    "plugin":  "topdesk-skill-suite",
+    "skill_count":  35,
+    "skills":  [
+                   {
+                       "name":  "topdesk-action-sequences",
+                       "folder":  "topdesk-action-sequences",
+                       "description":  "TOPdesk Action Sequences and automation design. Use for action sequence triggers, webhooks, API calls, payload mapping, idempotency, retries, error handling, safe automation boundaries, audit logging, and automation monitoring.",
+                       "references":  [
+                                          "references/action-sequences.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-admin-config",
+                       "folder":  "topdesk-admin-config",
+                       "description":  "TOPdesk administration and configuration design. Use for categories, statuses, priorities, impact/urgency, supporting files, branches, persons, operators, operator groups, permissions, SSP forms, service catalog items, change templates, asset templates, knowledge visibility, and configuration governance.",
+                       "references":  [
+                                          "references/admin-config.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-ai",
+                       "folder":  "topdesk-ai",
+                       "description":  "Design, implement, and evaluate AI/KI features for TOPdesk workflows. Use for ticket classification, smart routing, summaries, response suggestions, knowledge article generation, semantic search, RAG, chatbot/self-service assistants, duplicate detection, SLA-risk prediction, prompt templates, JSON schemas, operator feedback loops, AI governance, and regression evaluation.",
+                       "references":  [
+                                          "references/ai-features.md",
+                                          "references/ai-prompts-and-evals.md",
+                                          "references/security-compliance.md",
+                                          "references/testing-validation.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-ai-feature-factory",
+                       "folder":  "topdesk-ai-feature-factory",
+                       "description":  "Generate complete governed AI/KI feature packs for TOPdesk. Use for turning an AI use case into feature scope, data contract, prompt design, JSON output schema, evaluation dataset, feedback loop, audit fields, rollout gates, Power BI monitoring measures, RLS/PII controls, and operator-facing acceptance criteria.",
+                       "references":  [
+                                          "references/ai-feature-factory.md",
+                                          "references/powerbi-ai-monitoring.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/new_ai_feature_pack.py"
+                                   ],
+                       "assets":  [
+                                      "assets/ai-eval-dataset-template.csv",
+                                      "assets/ai-feature-pack-template.md",
+                                      "assets/ai-monitoring-measures.dax"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-ai-governance-cockpit",
+                       "folder":  "topdesk-ai-governance-cockpit",
+                       "description":  "Design Power BI governance cockpits for TOPdesk AI/KI features. Use for AI monitoring datasets, semantic models, DAX measures, report pages, prompt/model version tracking, suggestion acceptance, override reasons, confidence drift, cost, token usage, SLA impact, PII/policy findings, feedback loops, evaluation results, RLS, and audit reporting.",
+                       "references":  [
+                                          "references/governance-cockpit-model.md",
+                                          "references/governance-kpis.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/new_governance_cockpit_spec.py"
+                                   ],
+                       "assets":  [
+                                      "assets/ai-governance-measures.dax",
+                                      "assets/ai-governance-theme.json",
+                                      "assets/governance-cockpit-spec-template.md"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-assets",
+                       "folder":  "topdesk-assets",
+                       "description":  "TOPdesk Asset Management design, schema, analytics, and workflow support. Use for asset templates, dynamic asset fields, asset relations, owner/branch/location mapping, lifecycle, incident/change links, CMDB-like reporting, asset data quality, and asset KPIs.",
+                       "references":  [
+                                          "references/asset-management.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-changes",
+                       "folder":  "topdesk-changes",
+                       "description":  "TOPdesk Change Management design and reporting. Use for change templates, standard/simple/extensive changes, activities, approvals, risk/impact, scheduling, linked incidents/assets, change audit, change KPIs, and change workflow tests.",
+                       "references":  [
+                                          "references/change-management.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-data-quality",
+                       "folder":  "topdesk-data-quality",
+                       "description":  "TOPdesk data-quality analysis and cleanup planning. Use for missing callers/branches/categories/statuses, duplicate persons/assets, orphaned links, mapping gaps, invalid dates, unknown Power BI dimensions, RLS data risks, AI label quality, cleanup backlogs, and BI data-quality pages.",
+                       "references":  [
+                                          "references/data-quality.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-enablement",
+                       "folder":  "topdesk-enablement",
+                       "description":  "Create training, demos, onboarding, quick-reference material, role-based guides, adoption plans, and enablement content for TOPdesk apps, Power BI reports, integrations, workflows, and AI/KI features.",
+                       "references":  [
+                                          "references/training-demo.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-expert",
+                       "folder":  "topdesk-expert",
+                       "description":  "Expert guidance for TOPdesk helpdesk/service-management functionality, the database schema of a custom Topdesk app, Power BI reporting/analytics, and AI/KI features for TOPdesk data and workflows. Use when answering questions about TOPdesk modules, incidents, changes, assets, knowledge base, self-service portal, operators/persons, API behavior, integrations, reporting, OData/database tables, entity relationships, migrations, Power BI dashboards, semantic models, DAX, Power Query, KPI definitions, AI-assisted ticket classification, routing, summaries, response suggestions, knowledge article generation, semantic search, predictive insights, or when designing, querying, documenting, or validating the Topdesk app schema.",
+                       "references":  [
+                                          "references/ai-features.md",
+                                          "references/ai-prompts-and-evals.md",
+                                          "references/api-and-integrations.md",
+                                          "references/architecture-operations.md",
+                                          "references/artifact-checklists.md",
+                                          "references/features.md",
+                                          "references/glossary-data-dictionary.md",
+                                          "references/installation-notes.md",
+                                          "references/migration-rollout.md",
+                                          "references/odata-mapping.md",
+                                          "references/powerbi.md",
+                                          "references/powerbi-advanced.md",
+                                          "references/powerbi-build-maintain.md",
+                                          "references/powerbi-kpi-catalog.md",
+                                          "references/powerbi-model-review.md",
+                                          "references/powerbi-recipes.md",
+                                          "references/powerbi-report-spec-template.md",
+                                          "references/powerbi-template-snippets.md",
+                                          "references/schema.md",
+                                          "references/schema-blueprint.md",
+                                          "references/security-compliance.md",
+                                          "references/skill-suite-usps.md",
+                                          "references/testing-validation.md",
+                                          "references/training-demo.md",
+                                          "references/usage-examples.md",
+                                          "references/usps-positioning.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/generate_powerbi_pack.py",
+                                       "scripts/parse_odata_metadata.py",
+                                       "scripts/profile_topdesk_export.py"
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-handbook",
+                       "folder":  "topdesk-handbook",
+                       "description":  "Create, update, and tailor complete handbook sets for TOPdesk solutions. Use for admin handbooks, operator manuals, Power BI user/developer guides, AI/KI governance manuals, integration manuals, operations/runbook manuals, schema/data-model documentation, rollout guides, training material, executive handbooks, and documentation indexes.",
+                       "references":  [
+                                          "references/admin-handbook.md",
+                                          "references/ai-governance-handbook.md",
+                                          "references/executive-handbook.md",
+                                          "references/integration-handbook.md",
+                                          "references/operations-handbook.md",
+                                          "references/operator-handbook.md",
+                                          "references/powerbi-handbook.md",
+                                          "references/rollout-handbook.md",
+                                          "references/schema-handbook.md",
+                                          "references/training-handbook.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-integration",
+                       "folder":  "topdesk-integration",
+                       "description":  "TOPdesk API, OData, import/export, action sequence, and automation integration design. Use for API users, authentication, idempotent sync, incident/change/asset/person imports, payload mapping, error handling, retries, reconciliation, observability, action sequences, and integration runbooks.",
+                       "references":  [
+                                          "references/api-and-integrations.md",
+                                          "references/architecture-operations.md",
+                                          "references/odata-mapping.md",
+                                          "references/testing-validation.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-knowledge",
+                       "folder":  "topdesk-knowledge",
+                       "description":  "TOPdesk Knowledge Management design and optimization. Use for knowledge article lifecycle, review workflows, article quality, incident-to-knowledge conversion, deflection, SSP knowledge, RAG source quality, semantic search sources, and knowledge KPIs.",
+                       "references":  [
+                                          "references/knowledge-management.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-major-incidents",
+                       "folder":  "topdesk-major-incidents",
+                       "description":  "Major incident management for TOPdesk. Use for major incident detection, duplicate clustering, escalation, communication cadence, war-room workflows, linked child incidents, service impact, workaround tracking, resolution, postmortems, knowledge updates, and major incident KPIs.",
+                       "references":  [
+                                          "references/major-incident-management.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-migration",
+                       "folder":  "topdesk-migration",
+                       "description":  "Plan and validate TOPdesk-related migrations and rollouts. Use for data migration, cutover, historical backfill, legacy report replacement, OData/export migration, reference-data mapping, rollout planning, adoption, exception reports, reconciliation, and migration acceptance criteria.",
+                       "references":  [
+                                          "references/migration-rollout.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-odata",
+                       "folder":  "topdesk-odata",
+                       "description":  "Discover, parse, map, and validate TOPdesk OData/API schemas and exports. Use for TOPdesk OData $metadata, entity sets, field catalogs, navigation properties, API payload mapping, CSV export profiling, tenant-specific schema discovery, Power BI source mapping, integration reconciliation, and data-quality analysis.",
+                       "references":  [
+                                          "references/api-and-integrations.md",
+                                          "references/artifact-checklists.md",
+                                          "references/odata-mapping.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/generate_data_quality_findings.py",
+                                       "scripts/generate_field_catalog.py",
+                                       "scripts/parse_odata_metadata.py",
+                                       "scripts/profile_topdesk_export.py"
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-operations",
+                       "folder":  "topdesk-operations",
+                       "description":  "Architecture, deployment, monitoring, runbooks, backup, recovery, refresh, and operational readiness for TOPdesk apps, integrations, Power BI datasets, and AI/KI services. Use for environment planning, release checklists, failed sync runbooks, Power BI refresh failures, AI disable switches, alerting, credentials, and installation/update notes.",
+                       "references":  [
+                                          "references/architecture-operations.md",
+                                          "references/installation-notes.md",
+                                          "references/security-compliance.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+                                      "assets/runbook-template.md"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-powerbi",
+                       "folder":  "topdesk-powerbi",
+                       "description":  "Build, review, and validate Power BI reporting for TOPdesk data. Use for TOPdesk dashboards, semantic models, DAX measures, Power Query/OData extraction, row-level security, KPI definitions, report pages, reconciliation against TOPdesk selections/exports, refresh design, and BI data-quality checks.",
+                       "references":  [
+                                          "references/glossary-data-dictionary.md",
+                                          "references/powerbi.md",
+                                          "references/powerbi-advanced.md",
+                                          "references/powerbi-build-maintain.md",
+                                          "references/powerbi-kpi-catalog.md",
+                                          "references/powerbi-model-review.md",
+                                          "references/powerbi-recipes.md",
+                                          "references/powerbi-report-spec-template.md",
+                                          "references/powerbi-template-snippets.md",
+                                          "references/testing-validation.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/generate_powerbi_pack.py"
+                                   ],
+                       "assets":  [
+                                      "assets/topdesk-core-measures.dax",
+                                      "assets/topdesk-odata-functions.pq"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-powerbi-modelling",
+                       "folder":  "topdesk-powerbi-modelling",
+                       "description":  "Design, review, and harden Power BI semantic models for TOPdesk data. Use for star schemas, fact/dimension grain, relationships, DAX measure catalogs, calculation groups, field parameters, RLS/OLS, incremental refresh, aggregation tables, reconciliation, tenant mapping, and model documentation for TOPdesk incidents, changes, assets, knowledge, SLAs, operators, branches, and AI features.",
+                       "references":  [
+                                          "references/model-patterns.md",
+                                          "references/topdesk-model-catalog.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/new_semantic_model_spec.py"
+                                   ],
+                       "assets":  [
+                                      "assets/measure-catalog-template.csv",
+                                      "assets/semantic-model-spec-template.md"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-powershell",
+                       "folder":  "topdesk-powershell",
+                       "description":  "Advanced PowerShell automation for TOPdesk delivery and operations. Use for writing, reviewing, hardening, testing, or packaging PowerShell scripts that work with TOPdesk APIs, OData exports, CSV/JSON artifacts, tenant mapping, Power BI refresh operations, migration batches, runbooks, Windows scheduled tasks, CI scripts, validation gates, and safe local automation.",
+                       "references":  [
+                                          "references/powershell-patterns.md",
+                                          "references/topdesk-powershell-recipes.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/Test-TopdeskPowerShellScript.ps1"
+                                   ],
+                       "assets":  [
+                                      "assets/topdesk-script-template.ps1"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-project-delivery",
+                       "folder":  "topdesk-project-delivery",
+                       "description":  "Delivery planning for TOPdesk projects. Use for epics, user stories, acceptance criteria, roadmaps, milestones, estimates, dependencies, risks, project governance, delivery streams, and implementation backlogs for TOPdesk apps, Power BI, OData/API, AI/KI, workflow, migration, and enablement work.",
+                       "references":  [
+                                          "references/delivery-planning.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-proof-of-value",
+                       "folder":  "topdesk-proof-of-value",
+                       "description":  "Build TOPdesk proof-of-value sprint packs for AI/KI, Power BI, OData/API, data quality, and service-management improvements. Use for PoV scope, inputs, outputs, demo storyline, acceptance criteria, ROI assumptions, Power BI proof dashboards, KPI baselines, implementation plan, stakeholder messaging, and go/no-go decision material.",
+                       "references":  [
+                                          "references/proof-of-value-sprint.md",
+                                          "references/roi-and-powerbi-proof.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/new_pov_pack.py"
+                                   ],
+                       "assets":  [
+                                      "assets/pov-powerbi-measures.dax",
+                                      "assets/proof-of-value-plan-template.md",
+                                      "assets/roi-calculator-template.csv"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-python",
+                       "folder":  "topdesk-python",
+                       "description":  "Advanced Python automation for TOPdesk data, APIs, OData, reporting, migration, testing, and delivery tooling. Use for writing, reviewing, hardening, testing, or packaging Python scripts that parse TOPdesk OData metadata, profile CSV/Excel exports, call TOPdesk REST APIs, generate field catalogs, create data-quality findings, build Power BI/reporting artifacts, run migration checks, or provide CLI utilities.",
+                       "references":  [
+                                          "references/python-patterns.md",
+                                          "references/topdesk-python-recipes.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/validate_topdesk_python.py"
+                                   ],
+                       "assets":  [
+                                      "assets/topdesk_cli_template.py"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-query-powerbi",
+                       "folder":  "topdesk-query-powerbi",
+                       "description":  "Translate TOPdesk business questions into tenant-safe OData filters, SQL/reporting-view queries, Power Query extraction plans, DAX measure definitions, validation checks, and Power BI report requirements. Use when combining TOPdesk queries with Power BI modelling, KPI semantics, reconciliation, data-quality checks, or report implementation tasks.",
+                       "references":  [
+                                          "references/query-to-powerbi.md",
+                                          "references/topdesk-query-examples.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/new_query_powerbi_spec.py"
+                                   ],
+                       "assets":  [
+                                      "assets/query-powerbi-spec-template.md"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-report-factory",
+                       "folder":  "topdesk-report-factory",
+                       "description":  "Generate TOPdesk report implementation packs. Use for Power BI report specifications, semantic model plans, DAX measure backlogs, page and visual backlogs, RLS design, refresh plans, reconciliation checks, data-quality checks, and implementation user stories.",
+                       "references":  [
+                                          "references/report-factory.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-roi-business-case",
+                       "folder":  "topdesk-roi-business-case",
+                       "description":  "ROI and business-case modeling for TOPdesk initiatives. Use for benefit models, executive cases, value hypotheses, KPI baselines, time-saved calculations, SLA/reassignment/reporting savings, AI/KI value, Power BI value, integration value, assumptions, risks, and success metrics.",
+                       "references":  [
+                                          "references/roi-business-case.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-schema",
+                       "folder":  "topdesk-schema",
+                       "description":  "Design, review, and validate database schemas for TOPdesk-like service-management apps. Use for incident/change/asset/person/operator/branch schemas, TOPdesk external IDs, relationships, constraints, indexes, migrations, audit/history tables, SLA tables, AI suggestion tables, ERDs, reporting views, and schema-to-Power-BI preparation.",
+                       "references":  [
+                                          "references/glossary-data-dictionary.md",
+                                          "references/schema.md",
+                                          "references/schema-blueprint.md",
+                                          "references/testing-validation.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+                                      "assets/reporting-views-template.sql"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-security",
+                       "folder":  "topdesk-security",
+                       "description":  "Security, privacy, compliance, and governance for TOPdesk apps, integrations, Power BI reports, and AI/KI features. Use for DSGVO/GDPR, PII, branch/customer permissions, operator roles, audit logging, secrets, API users, row-level security, retention, AI governance, and safe automation controls.",
+                       "references":  [
+                                          "references/architecture-operations.md",
+                                          "references/security-compliance.md",
+                                          "references/testing-validation.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-template-pack",
+                       "folder":  "topdesk-template-pack",
+                       "description":  "Reusable templates for TOPdesk delivery. Use for SQL view templates, DAX templates, Power Query templates, AI prompt/JSON schemas, test templates, runbooks, discovery questionnaires, proposal outlines, workshop agendas, user stories, acceptance criteria, and project documentation templates.",
+                       "references":  [
+                                          "references/template-pack.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+                                      "assets/proposal-outline.md",
+                                      "assets/user-story-template.md"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-tenant-mapping",
+                       "folder":  "topdesk-tenant-mapping",
+                       "description":  "Tenant-specific TOPdesk field and model mapping. Use for OData metadata, API samples, CSV exports, UI labels, category/status/priority exports, entity inventories, field catalogs, local schema mapping, Power BI fact/dimension mapping, RLS/security mapping, and tenant-specific data-quality gaps.",
+                       "references":  [
+                                          "references/tenant-mapping.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-testing",
+                       "folder":  "topdesk-testing",
+                       "description":  "Test planning and validation for TOPdesk workflows, schemas, integrations, Power BI reports, and AI/KI features. Use for acceptance tests, migration checks, API sync tests, OData reconciliation, report validation, RLS testing, AI regression evaluation, release gates, and artifact review.",
+                       "references":  [
+                                          "references/artifact-checklists.md",
+                                          "references/testing-validation.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+                                      "assets/test-case-template.md"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-usp-battlecards",
+                       "folder":  "topdesk-usp-battlecards",
+                       "description":  "Create TOPdesk USP packs, persona messaging, competitive battlecards, demo storylines, executive one-pagers, before/after narratives, risk-to-value matrices, offer packaging, case-study templates, and Power BI/AI/KI value propositions. Use when positioning TOPdesk AI, Power BI, OData/API, data quality, governance, workflow, or full skill-suite offerings.",
+                       "references":  [
+                                          "references/demo-storylines.md",
+                                          "references/usp-battlecards.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/new_battlecard.py"
+                                   ],
+                       "assets":  [
+                                      "assets/battlecard-template.md",
+                                      "assets/executive-one-pager-template.md",
+                                      "assets/risk-to-value-matrix.csv"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-usps",
+                       "folder":  "topdesk-usps",
+                       "description":  "Create USPs, positioning, stakeholder value propositions, pitch text, business cases, feature-benefit maps, differentiators, roadmap messaging, and executive/operator/application-manager messaging for TOPdesk apps, Power BI reporting, OData/API integrations, and AI/KI service-management features.",
+                       "references":  [
+                                          "references/discovery-and-sales.md",
+                                          "references/features.md",
+                                          "references/glossary-data-dictionary.md",
+                                          "references/skill-suite-usps.md",
+                                          "references/usps-positioning.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-visual-design",
+                       "folder":  "topdesk-visual-design",
+                       "description":  "Design Power BI report pages and dashboard UX for TOPdesk service-management analytics. Use for visual hierarchy, page layouts, KPI cards, trend charts, matrix/table design, drill-through, tooltip pages, filters/slicers, color semantics, accessibility, executive/operator/application-manager views, incident/change/asset/knowledge dashboards, and report storytelling.",
+                       "references":  [
+                                          "references/page-wireframes.md",
+                                          "references/report-design-patterns.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/new_report_page_spec.py"
+                                   ],
+                       "assets":  [
+                                      "assets/report-page-spec-template.md",
+                                      "assets/topdesk-report-theme.json"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-workflows",
+                       "folder":  "topdesk-workflows",
+                       "description":  "TOPdesk workflow and Self-Service Portal design for incidents, changes, assets, knowledge, categories, forms, routing, SLAs, notifications, approvals, and operator/end-user processes. Use for SSP forms, incident intake, change templates, category trees, assignment rules, SLA handling, knowledge workflows, acceptance criteria, and workflow testing.",
+                       "references":  [
+                                          "references/features.md",
+                                          "references/glossary-data-dictionary.md",
+                                          "references/testing-validation.md"
+                                      ],
+                       "scripts":  [
+
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   }
+               ]
+}

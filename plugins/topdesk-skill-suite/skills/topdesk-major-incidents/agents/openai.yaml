@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Major Incidents"
+  short_description: "Major incident workflows for TOPdesk"
+  default_prompt: "Use $topdesk-major-incidents to design TOPdesk major incident detection, communication, escalation, war-room, and postmortem workflows."

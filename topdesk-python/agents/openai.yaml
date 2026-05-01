@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Python"
+  short_description: "Python automation for TOPdesk data and APIs."
+  default_prompt: "Create a TOPdesk Python automation script."

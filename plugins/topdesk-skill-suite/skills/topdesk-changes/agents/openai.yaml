@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Changes"
+  short_description: "Change management for TOPdesk"
+  default_prompt: "Use $topdesk-changes to design TOPdesk change templates, activities, approvals, risks, audit, and KPIs."

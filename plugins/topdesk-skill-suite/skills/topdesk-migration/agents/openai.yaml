@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Migration"
+  short_description: "Migration and rollout for TOPdesk apps"
+  default_prompt: "Use $topdesk-migration to plan TOPdesk migrations, rollout, cutover, backfill, data quality, and adoption."

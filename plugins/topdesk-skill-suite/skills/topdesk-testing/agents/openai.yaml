@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Testing"
+  short_description: "Validation and test plans for TOPdesk"
+  default_prompt: "Use $topdesk-testing to create TOPdesk workflow, migration, Power BI, integration, and AI validation tests."

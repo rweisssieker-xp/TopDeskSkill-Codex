@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk PowerShell"
+  short_description: "PowerShell automation for TOPdesk delivery."
+  default_prompt: "Create a TOPdesk PowerShell automation script."
