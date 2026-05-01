@@ -10,3 +10,7 @@
 - Adds advanced Python and PowerShell automation skills.
 - Adds TOPdesk query-to-Power-BI, semantic modelling, and visual design skills.
 - Adds AI feature factory, AI governance cockpit, proof-of-value, and USP battlecard skills with Power BI assets.
+- Adds GitHub manifest URLs, privacy and terms documents.
+- Adds local MCP server declaration and dependency-free TOPdesk helper server.
+- Adds Power BI and AI governance screenshot assets.
+- Adds release tag helper script.

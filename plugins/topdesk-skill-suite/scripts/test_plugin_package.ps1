@@ -51,5 +51,18 @@ foreach ($asset in @("assets\icon.png", "assets\logo.png", "assets\screenshot-ov
     }
 }
 
-Write-Host "Package test passed for $zip with $skillCount skills"
+foreach ($asset in @("assets\screenshot-powerbi.png", "assets\screenshot-ai-governance.png")) {
+    if (-not (Test-Path -LiteralPath (Join-Path $extractRoot $asset))) {
+        throw "Extracted package is missing $asset"
+    }
+}
 
+if (-not (Test-Path -LiteralPath (Join-Path $extractRoot ".mcp.json"))) {
+    throw "Extracted package is missing .mcp.json"
+}
+
+if (-not (Test-Path -LiteralPath (Join-Path $extractRoot "scripts\topdesk_mcp_server.py"))) {
+    throw "Extracted package is missing scripts/topdesk_mcp_server.py"
+}
+
+Write-Host "Package test passed for $zip with $skillCount skills"

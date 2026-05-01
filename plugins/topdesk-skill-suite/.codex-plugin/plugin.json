@@ -7,8 +7,8 @@
     "email": "",
     "url": ""
   },
-  "homepage": "",
-  "repository": "",
+  "homepage": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/tree/main/plugins/topdesk-skill-suite",
+  "repository": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex",
   "license": "MIT",
   "keywords": [
     "topdesk",
@@ -18,6 +18,7 @@
     "migration"
   ],
   "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "TOPdesk Skill Suite",
     "shortDescription": "TOPdesk implementation, reporting, operations, and enablement skills.",
@@ -28,9 +29,9 @@
       "Interactive",
       "Write"
     ],
-    "websiteURL": "",
-    "privacyPolicyURL": "",
-    "termsOfServiceURL": "",
+    "websiteURL": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/tree/main/plugins/topdesk-skill-suite",
+    "privacyPolicyURL": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/blob/main/plugins/topdesk-skill-suite/docs/PRIVACY_POLICY.md",
+    "termsOfServiceURL": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/blob/main/plugins/topdesk-skill-suite/docs/TERMS_OF_SERVICE.md",
     "defaultPrompt": [
       "Plane eine TOPdesk Migration.",
       "Erstelle ein TOPdesk Power BI Reporting Pack.",
@@ -40,7 +41,9 @@
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/logo.png",
     "screenshots": [
-      "./assets/screenshot-overview.png"
+      "./assets/screenshot-overview.png",
+      "./assets/screenshot-powerbi.png",
+      "./assets/screenshot-ai-governance.png"
     ]
   }
 }

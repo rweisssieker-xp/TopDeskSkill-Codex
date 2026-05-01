@@ -6,7 +6,9 @@
   "requiredAssets": [
     "assets/icon.png",
     "assets/logo.png",
-    "assets/screenshot-overview.png"
+    "assets/screenshot-overview.png",
+    "assets/screenshot-powerbi.png",
+    "assets/screenshot-ai-governance.png"
   ],
   "requiredScripts": [
     "scripts/sync_skills.ps1",
@@ -18,6 +20,9 @@
     "scripts/package_plugin.ps1",
     "scripts/test_plugin_package.ps1",
     "scripts/new_plugin_checksums.ps1",
+    "scripts/topdesk_mcp_server.py",
+    "scripts/test_mcp_server.py",
+    "scripts/prepare_git_release.ps1",
     "scripts/verify_plugin.ps1"
   ]
 }

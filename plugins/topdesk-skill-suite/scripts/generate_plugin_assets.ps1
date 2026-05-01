@@ -72,5 +72,70 @@ New-Bitmap -Path (Join-Path $assets "screenshot-overview.png") -Width 1440 -Heig
     }
 }
 
-Write-Host "Generated plugin PNG assets in $assets"
+New-Bitmap -Path (Join-Path $assets "screenshot-powerbi.png") -Width 1440 -Height 900 -Draw {
+    param($g, $w, $h)
+    $panel = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(248, 250, 252))
+    $dark = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(15, 23, 42))
+    $blueBrush = New-Object System.Drawing.SolidBrush $blue
+    $green = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(15, 118, 110))
+    $amber = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(245, 158, 11))
+    $titleFont = New-Object System.Drawing.Font "Segoe UI", 42, ([System.Drawing.FontStyle]::Bold)
+    $kpiFont = New-Object System.Drawing.Font "Segoe UI", 36, ([System.Drawing.FontStyle]::Bold)
+    $bodyFont = New-Object System.Drawing.Font "Segoe UI", 20, ([System.Drawing.FontStyle]::Regular)
+    $g.FillRectangle($panel, 0, 0, $w, $h)
+    $g.DrawString("TOPdesk Power BI Foundation", $titleFont, $dark, 60, 44)
+    $kpis = @("Created", "Closed", "Backlog", "SLA Met %")
+    for ($i = 0; $i -lt $kpis.Count; $i++) {
+        $x = 60 + ($i * 330)
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::White)), $x, 130, 280, 120)
+        $g.DrawString($kpis[$i], $bodyFont, $dark, $x + 24, 152)
+        $g.DrawString(@("1,248", "1,197", "312", "91.4%")[$i], $kpiFont, $blueBrush, $x + 24, 184)
+    }
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::White)), 60, 300, 820, 430)
+    $g.DrawString("Created vs Closed Trend", $bodyFont, $dark, 90, 325)
+    for ($i = 0; $i -lt 12; $i++) {
+        $x = 120 + ($i * 55)
+        $g.FillRectangle($blueBrush, $x, 650 - ($i % 5) * 35, 22, 60 + ($i % 5) * 35)
+        $g.FillRectangle($green, $x + 25, 650 - (($i + 2) % 5) * 30, 22, 60 + (($i + 2) % 5) * 30)
+    }
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::White)), 930, 300, 420, 430)
+    $g.DrawString("SLA Risk Queue", $bodyFont, $dark, 960, 325)
+    for ($i = 0; $i -lt 6; $i++) {
+        $g.FillRectangle(@($amber, $blueBrush)[$i % 2], 965, 380 + ($i * 48), 300 - ($i * 25), 26)
+    }
+}
 
+New-Bitmap -Path (Join-Path $assets "screenshot-ai-governance.png") -Width 1440 -Height 900 -Draw {
+    param($g, $w, $h)
+    $panel = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(255, 255, 255))
+    $dark = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(17, 24, 39))
+    $red = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(220, 38, 38))
+    $green = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(22, 163, 74))
+    $amber = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(245, 158, 11))
+    $titleFont = New-Object System.Drawing.Font "Segoe UI", 42, ([System.Drawing.FontStyle]::Bold)
+    $bodyFont = New-Object System.Drawing.Font "Segoe UI", 21, ([System.Drawing.FontStyle]::Regular)
+    $g.FillRectangle($panel, 0, 0, $w, $h)
+    $g.DrawString("AI Governance Cockpit", $titleFont, $dark, 60, 44)
+    $labels = @("Acceptance Rate", "Eval Pass Rate", "PII Findings", "Cost / Accepted")
+    $values = @("76.2%", "94.8%", "3", "0.18")
+    for ($i = 0; $i -lt $labels.Count; $i++) {
+        $x = 60 + ($i * 330)
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(248, 250, 252))), $x, 130, 280, 120)
+        $g.DrawString($labels[$i], $bodyFont, $dark, $x + 22, 152)
+        $g.DrawString($values[$i], (New-Object System.Drawing.Font "Segoe UI", 34, ([System.Drawing.FontStyle]::Bold)), @($green, $green, $red, (New-Object System.Drawing.SolidBrush $blue))[$i], $x + 22, 188)
+    }
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(248, 250, 252))), 60, 300, 600, 430)
+    $g.DrawString("Prompt / Model Quality", $bodyFont, $dark, 90, 325)
+    for ($i = 0; $i -lt 7; $i++) {
+        $g.FillEllipse((New-Object System.Drawing.SolidBrush $blue), 110 + ($i * 70), 610 - ($i % 4) * 55, 24, 24)
+    }
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(248, 250, 252))), 720, 300, 620, 430)
+    $g.DrawString("Risk Findings", $bodyFont, $dark, 750, 325)
+    $risks = @("PII", "Permission", "Stale source", "Low confidence")
+    for ($i = 0; $i -lt $risks.Count; $i++) {
+        $g.FillRectangle(@($red, $amber, $green, (New-Object System.Drawing.SolidBrush $blue))[$i], 760, 390 + ($i * 72), 360 - ($i * 55), 34)
+        $g.DrawString($risks[$i], $bodyFont, $dark, 1140, 384 + ($i * 72))
+    }
+}
+
+Write-Host "Generated plugin PNG assets in $assets"

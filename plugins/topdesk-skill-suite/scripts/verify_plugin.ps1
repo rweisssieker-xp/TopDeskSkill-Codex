@@ -27,6 +27,9 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 & powershell -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "validate_plugin_config.ps1") -PluginRoot $resolvedPluginRoot
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+python (Join-Path $PSScriptRoot "test_mcp_server.py")
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
 & powershell -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "validate_plugin.ps1") -PluginRoot $resolvedPluginRoot
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 

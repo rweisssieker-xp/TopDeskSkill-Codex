@@ -16,10 +16,14 @@ Codex plugin bundling TOPdesk-focused skills for service management, OData/API m
 - `scripts/package_plugin.ps1`: creates a distributable plugin zip.
 - `scripts/test_plugin_package.ps1`: extracts and smoke-tests the generated zip.
 - `scripts/new_plugin_checksums.ps1`: writes SHA256 checksums for release packages.
+- `scripts/topdesk_mcp_server.py`: local dependency-free MCP server for TOPdesk/OData helper tools.
+- `scripts/test_mcp_server.py`: smoke-tests the MCP server handshake and tool list.
+- `scripts/prepare_git_release.ps1`: creates or confirms a local release tag and prints explicit push commands.
 - `scripts/install_local_plugin.ps1`: installs the plugin into the local Codex plugin location.
 - `scripts/uninstall_local_plugin.ps1`: removes the local plugin installation and marketplace entry.
 - `scripts/set_plugin_version.ps1`: updates `.codex-plugin/plugin.json` version.
 - `scripts/verify_plugin.ps1`: runs sync, inventory generation, validation, and packaging.
+- `.mcp.json`: MCP server declaration for local TOPdesk helper tools.
 - `marketplace.local.example.json`: example marketplace entry for local plugin testing.
 
 ## Useful Commands

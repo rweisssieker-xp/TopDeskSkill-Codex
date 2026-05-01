@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "topdesk-skill-suite": {
+      "command": "python",
+      "args": [
+        "./scripts/topdesk_mcp_server.py"
+      ],
+      "env": {
+        "TOPDESK_BASE_URL": "",
+        "TOPDESK_API_TOKEN": ""
+      }
+    }
+  }
+}
+

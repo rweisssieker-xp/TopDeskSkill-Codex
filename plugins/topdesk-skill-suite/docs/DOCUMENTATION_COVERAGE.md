@@ -3,6 +3,7 @@
 ## Complete Areas
 
 - Plugin manifest, marketplace example, local install/uninstall, validation, packaging, package test, checksums, and CI workflow.
+- GitHub manifest URLs, privacy policy, terms of service, local MCP declaration, MCP smoke test, and release tag helper.
 - Skill inventory and generated manifest for bundled skills.
 - TOPdesk domain skills for workflows, admin, incidents, changes, assets, knowledge, security, operations, testing, migration, and enablement.
 - Data and automation skills for OData/API, tenant mapping, Python, PowerShell, query-to-Power-BI, and data quality.
