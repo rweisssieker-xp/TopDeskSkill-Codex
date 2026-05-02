@@ -13,11 +13,13 @@ from jsonschema import Draft7Validator, RefResolver
 
 
 SCHEMA_URLS = {
-    "report": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/2.0.0/schema.json",
-    "page": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
-    "visual": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "report": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.2.0/schema.json",
+    "page": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+    "visual": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
     "pbir": "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json",
     "pbism": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/definitionProperties/1.0.0/schema.json",
+    "versionMetadata": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/versionMetadata/1.0.0/schema.json",
+    "pagesMetadata": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
     "visualConfig": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualConfiguration/2.0.0/schema-embedded.json",
     "formatting": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/formattingObjectDefinitions/1.3.0/schema.json",
     "semanticQuery": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/semanticQuery/1.2.0/schema.json",
@@ -101,9 +103,25 @@ def validate(project: Path) -> dict:
     semantic_model = project / "topdeskdemo.SemanticModel"
     definition = report / "definition"
     schemas = load_schemas()
+    project_errors = []
+
+    pbip_files = list(project.glob("*.pbip"))
+    if not pbip_files:
+        project_errors.append({"kind": "missingPbip", "message": "No .pbip project file found"})
+    else:
+        pbip = load_json(pbip_files[0])
+        artifacts = pbip.get("artifacts", [])
+        report_artifacts = [item for item in artifacts if isinstance(item, dict) and "report" in item]
+        unsupported = [sorted(item.keys()) for item in artifacts if isinstance(item, dict) and "report" not in item]
+        if len(report_artifacts) != 1:
+            project_errors.append({"kind": "invalidPbipReportArtifact", "message": "Expected exactly one report artifact"})
+        if unsupported:
+            project_errors.append({"kind": "unsupportedPbipArtifacts", "items": unsupported})
 
     checks: list[tuple[Path, str]] = [
         (definition / "report.json", "report"),
+        (definition / "version.json", "versionMetadata"),
+        (definition / "pages" / "pages.json", "pagesMetadata"),
         (report / "definition.pbir", "pbir"),
         (semantic_model / "definition.pbism", "pbism"),
     ]
@@ -146,6 +164,7 @@ def validate(project: Path) -> dict:
         "schemaErrors": len(schema_errors),
         "missingReferences": len(missing_refs),
         "modelErrors": len(model_errors),
+        "projectErrors": len(project_errors),
         "jsonFiles": len(list(project.rglob("*.json"))),
         "pages": len(pages),
         "visuals": len(list((definition / "pages").rglob("visual.json"))),
@@ -155,6 +174,7 @@ def validate(project: Path) -> dict:
         "errors": schema_errors[:50],
         "missing": missing_refs[:50],
         "model": model_errors[:50],
+        "projectFile": project_errors[:50],
     }
     return result
 
@@ -171,7 +191,7 @@ def main() -> int:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(text + "\n", encoding="utf-8")
     print(text)
-    if result["schemaErrors"] or result["missingReferences"] or result["modelErrors"]:
+    if result["schemaErrors"] or result["missingReferences"] or result["modelErrors"] or result["projectErrors"]:
         return 1
     return 0
 

@@ -10,9 +10,9 @@ import shutil
 from pathlib import Path
 
 
-REPORT_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/2.0.0/schema.json"
-PAGE_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json"
-VISUAL_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json"
+REPORT_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.2.0/schema.json"
+PAGE_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json"
+VISUAL_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
 PBIR_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json"
 PBISM_SCHEMA = "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/definitionProperties/1.0.0/schema.json"
 
@@ -88,7 +88,6 @@ def title_objects(title: str, subtitle: str | None = None) -> dict:
                     "show": literal("true"),
                     "color": color_literal("#D0D5DD"),
                     "radius": literal("4D"),
-                    "width": literal("1D"),
                 }
             }
         ],
@@ -752,8 +751,6 @@ def build_page(page: dict, ordinal: int) -> tuple[str, dict, dict[str, dict]]:
             {"name": "purpose", "value": page["summary"]},
         ],
     }
-    if page.get("type"):
-        page_json["type"] = page["type"]
     return page_id, page_json, visuals
 
 
@@ -790,7 +787,6 @@ def build_tooltip_page(page: tuple[str, str, list[tuple[str, str]]], ordinal: in
         "displayOption": "ActualSize",
         "height": 430,
         "width": 480,
-        "type": "Tooltip",
         "annotations": [{"name": "purpose", "value": summary}],
     }
     return page_id, page_json, visuals
@@ -843,7 +839,6 @@ def main() -> int:
     write_json(
         report_dst / "definition.pbir",
         {
-            "$schema": PBIR_SCHEMA,
             "version": "4.0",
             "datasetReference": {"byPath": {"path": f"../{project_name}.SemanticModel"}},
         },
@@ -855,10 +850,44 @@ def main() -> int:
             "$schema": REPORT_SCHEMA,
             "themeCollection": {
                 "baseTheme": {
-                    "name": "CY24SU06",
+                    "name": "CY26SU04",
                     "type": "SharedResources",
-                    "reportVersionAtImport": "5.59",
+                    "reportVersionAtImport": {
+                        "visual": "2.8.0",
+                        "report": "3.2.0",
+                        "page": "2.3.1",
+                    },
                 }
+            },
+            "objects": {
+                "section": [
+                    {
+                        "properties": {
+                            "verticalAlignment": text_literal("Top"),
+                        }
+                    }
+                ]
+            },
+            "resourcePackages": [
+                {
+                    "name": "SharedResources",
+                    "type": "SharedResources",
+                    "items": [
+                        {
+                            "name": "CY26SU04",
+                            "path": "BaseThemes/CY26SU04.json",
+                            "type": "BaseTheme",
+                        }
+                    ],
+                }
+            ],
+            "settings": {
+                "useStylableVisualContainerHeader": True,
+                "exportDataMode": "AllowSummarized",
+                "defaultDrillFilterOtherVisuals": True,
+                "allowChangeFilterTypes": True,
+                "useEnhancedTooltips": True,
+                "useDefaultAggregateDisplayName": True,
             },
             "annotations": [
                 {"name": "defaultPage", "value": "ReportSection01ExecutiveOverview"},
@@ -866,7 +895,13 @@ def main() -> int:
             ],
         },
     )
-    write_json(definition / "version.json", {"version": "2.0.0"})
+    write_json(
+        definition / "version.json",
+        {
+            "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/versionMetadata/1.0.0/schema.json",
+            "version": "2.0.0",
+        },
+    )
     page_refs = []
     all_pages = list(PAGES) + list(DRILLTHROUGH_PAGES)
     ordinal = 0
@@ -884,7 +919,14 @@ def main() -> int:
         write_json(page_dir / "page.json", page_json)
         for visual_id, visual in visuals.items():
             write_json(page_dir / "visuals" / visual_id / "visual.json", visual)
-    write_json(definition / "pages" / "pages.json", {"activePageName": page_refs[0]["name"], "pages": page_refs})
+    write_json(
+        definition / "pages" / "pages.json",
+        {
+            "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+            "pageOrder": [page["name"] for page in page_refs],
+            "activePageName": page_refs[0]["name"],
+        },
+    )
     visual_count = len(list((definition / "pages").rglob("visual.json")))
 
     manifest = {

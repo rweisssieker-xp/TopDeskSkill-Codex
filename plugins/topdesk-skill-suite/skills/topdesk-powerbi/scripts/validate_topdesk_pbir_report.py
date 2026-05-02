@@ -13,14 +13,42 @@ from jsonschema import Draft7Validator, RefResolver
 
 
 SCHEMA_URLS = {
-    "report": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/2.0.0/schema.json",
-    "page": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
-    "visual": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+    "report": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.2.0/schema.json",
+    "page": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+    "visual": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
     "pbir": "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json",
     "pbism": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/definitionProperties/1.0.0/schema.json",
+    "versionMetadata": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/versionMetadata/1.0.0/schema.json",
+    "pagesMetadata": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
     "visualConfig": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualConfiguration/2.0.0/schema-embedded.json",
     "formatting": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/formattingObjectDefinitions/1.3.0/schema.json",
     "semanticQuery": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/semanticQuery/1.2.0/schema.json",
+}
+
+REQUIRED_PRODUCTION_TABLES = {
+    "ServicePortfolioSource",
+    "ChangeRecordSource",
+    "ProblemRecordSource",
+    "KnowledgeArticleSource",
+    "ExperienceSurveySource",
+    "TimeCostSource",
+    "AssignmentHistorySource",
+    "SecurityValidationEvidence",
+    "RefreshMonitoringEvidence",
+    "ReleaseSignoffWorkflow",
+}
+
+REQUIRED_PRODUCTION_MEASURES = {
+    "Service Portfolio Completeness %",
+    "Change Stability Score",
+    "Problem Candidate Coverage %",
+    "Knowledge Deflection Readiness %",
+    "XLA Evidence Score",
+    "Cost Reporting Readiness %",
+    "OLA Reporting Readiness %",
+    "Security Validation Coverage",
+    "Refresh Monitoring Coverage",
+    "Release Signoff Coverage",
 }
 
 
@@ -75,9 +103,25 @@ def validate(project: Path) -> dict:
     semantic_model = project / "topdeskdemo.SemanticModel"
     definition = report / "definition"
     schemas = load_schemas()
+    project_errors = []
+
+    pbip_files = list(project.glob("*.pbip"))
+    if not pbip_files:
+        project_errors.append({"kind": "missingPbip", "message": "No .pbip project file found"})
+    else:
+        pbip = load_json(pbip_files[0])
+        artifacts = pbip.get("artifacts", [])
+        report_artifacts = [item for item in artifacts if isinstance(item, dict) and "report" in item]
+        unsupported = [sorted(item.keys()) for item in artifacts if isinstance(item, dict) and "report" not in item]
+        if len(report_artifacts) != 1:
+            project_errors.append({"kind": "invalidPbipReportArtifact", "message": "Expected exactly one report artifact"})
+        if unsupported:
+            project_errors.append({"kind": "unsupportedPbipArtifacts", "items": unsupported})
 
     checks: list[tuple[Path, str]] = [
         (definition / "report.json", "report"),
+        (definition / "version.json", "versionMetadata"),
+        (definition / "pages" / "pages.json", "pagesMetadata"),
         (report / "definition.pbir", "pbir"),
         (semantic_model / "definition.pbism", "pbism"),
     ]
@@ -95,6 +139,14 @@ def validate(project: Path) -> dict:
             schema_errors.append({"file": str(path), "path": "/".join(map(str, error.path)), "message": error.message})
 
     model = extract_model(semantic_model)
+    model_errors = []
+    missing_tables = sorted(REQUIRED_PRODUCTION_TABLES - set(model))
+    if missing_tables:
+        model_errors.append({"kind": "missingProductionTables", "items": missing_tables})
+    fact_measures = model.get("FactIncident", {}).get("measure", set())
+    missing_measures = sorted(REQUIRED_PRODUCTION_MEASURES - fact_measures)
+    if missing_measures:
+        model_errors.append({"kind": "missingProductionMeasures", "items": missing_measures})
     missing_refs = []
     visual_types: dict[str, int] = {}
     for visual_path in (definition / "pages").rglob("visual.json"):
@@ -111,6 +163,8 @@ def validate(project: Path) -> dict:
         "schemaChecked": len(checks),
         "schemaErrors": len(schema_errors),
         "missingReferences": len(missing_refs),
+        "modelErrors": len(model_errors),
+        "projectErrors": len(project_errors),
         "jsonFiles": len(list(project.rglob("*.json"))),
         "pages": len(pages),
         "visuals": len(list((definition / "pages").rglob("visual.json"))),
@@ -119,6 +173,8 @@ def validate(project: Path) -> dict:
         "visualTypes": dict(sorted(visual_types.items())),
         "errors": schema_errors[:50],
         "missing": missing_refs[:50],
+        "model": model_errors[:50],
+        "projectFile": project_errors[:50],
     }
     return result
 
@@ -135,7 +191,7 @@ def main() -> int:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(text + "\n", encoding="utf-8")
     print(text)
-    if result["schemaErrors"] or result["missingReferences"]:
+    if result["schemaErrors"] or result["missingReferences"] or result["modelErrors"] or result["projectErrors"]:
         return 1
     return 0
 
