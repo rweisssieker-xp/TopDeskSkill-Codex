@@ -62,6 +62,19 @@ For deployment gates, runbooks, monitoring, and recovery procedures, load `archi
 - Validate incremental refresh boundaries.
 - Check hidden technical fields and PII exposure.
 
+## PBIP/PBIR Validation
+
+For generated report-as-code projects, validate both file contracts and actual Desktop behavior:
+
+- Run `scripts/validate_topdesk_pbir_report.py --project <pbip-folder>`.
+- Confirm the root `.pbip` has exactly one report artifact and no separate semantic-model artifact.
+- Confirm `definition.pbir` binds the report to the semantic model with `datasetReference.byPath`.
+- Confirm `pages/pages.json` uses `pageOrder` and has a valid `activePageName`.
+- Confirm `version.json`, `report.json`, `page.json`, and every `visual.json` validate against their schemas.
+- Confirm every visual field reference resolves to an existing TMDL table, column, or measure.
+- Open the `.pbip` in Power BI Desktop and verify that page tabs are visible, the status bar reports the expected page count, and standard visuals render on the canvas.
+- Record any Desktop-only warnings separately, especially Q&A deprecation prompts or missing custom visual messages for advanced visual types.
+
 ## AI Regression Tests
 
 - Classification top-1/top-3 accuracy on historical tickets.
@@ -83,3 +96,4 @@ Before release, record:
 - Test data set and date range.
 - Pass/fail summary.
 - Known risks and owner.
+- PBIP/PBIR Desktop smoke-test evidence, including page count and unresolved visual warnings.

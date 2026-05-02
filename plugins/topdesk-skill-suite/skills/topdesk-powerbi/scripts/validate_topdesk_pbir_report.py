@@ -7,6 +7,7 @@ import argparse
 import json
 import re
 import urllib.request
+from urllib.parse import urldefrag, urljoin
 from pathlib import Path
 
 from jsonschema import Draft7Validator, RefResolver
@@ -20,9 +21,6 @@ SCHEMA_URLS = {
     "pbism": "https://developer.microsoft.com/json-schemas/fabric/item/semanticModel/definitionProperties/1.0.0/schema.json",
     "versionMetadata": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/versionMetadata/1.0.0/schema.json",
     "pagesMetadata": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
-    "visualConfig": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualConfiguration/2.0.0/schema-embedded.json",
-    "formatting": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/formattingObjectDefinitions/1.3.0/schema.json",
-    "semanticQuery": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/semanticQuery/1.2.0/schema.json",
 }
 
 REQUIRED_PRODUCTION_TABLES = {
@@ -57,11 +55,37 @@ def load_json(path: Path) -> dict:
 
 
 def load_schemas() -> dict[str, dict]:
-    schemas = {}
-    for url in SCHEMA_URLS.values():
+    schemas: dict[str, dict] = {}
+    pending = list(SCHEMA_URLS.values())
+    while pending:
+        url = pending.pop()
+        if url in schemas:
+            continue
         with urllib.request.urlopen(url, timeout=20) as response:
             schemas[url] = json.load(response)
+        for ref in collect_schema_refs(schemas[url]):
+            ref_url, _ = urldefrag(urljoin(url, ref))
+            if ref_url.startswith("https://developer.microsoft.com/json-schemas/") and ref_url not in schemas:
+                pending.append(ref_url)
     return schemas
+
+
+def collect_schema_refs(value: object) -> set[str]:
+    refs: set[str] = set()
+
+    def walk(item: object) -> None:
+        if isinstance(item, dict):
+            ref = item.get("$ref")
+            if isinstance(ref, str) and not ref.startswith("#"):
+                refs.add(ref)
+            for child in item.values():
+                walk(child)
+        elif isinstance(item, list):
+            for child in item:
+                walk(child)
+
+    walk(value)
+    return refs
 
 
 def extract_model(semantic_model: Path) -> dict[str, dict[str, set[str]]]:

@@ -7,6 +7,7 @@ import argparse
 import json
 import re
 import shutil
+import tempfile
 from pathlib import Path
 
 
@@ -809,6 +810,15 @@ def main() -> int:
         raise SystemExit(f"Missing TMDL database.tmdl under {semantic_src}")
 
     out = args.out.resolve()
+    temp_semantic_src = None
+    try:
+        semantic_src.relative_to(out)
+        temp_semantic_src = Path(tempfile.mkdtemp(prefix="topdesk-semantic-model-")) / semantic_src.name
+        shutil.copytree(semantic_src, temp_semantic_src)
+        semantic_src = temp_semantic_src
+    except ValueError:
+        pass
+
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
@@ -817,6 +827,8 @@ def main() -> int:
     semantic_dst = out / f"{project_name}.SemanticModel"
     report_dst = out / f"{project_name}.Report"
     shutil.copytree(semantic_src, semantic_dst)
+    if temp_semantic_src:
+        shutil.rmtree(temp_semantic_src.parent, ignore_errors=True)
 
     write_json(
         semantic_dst / "definition.pbism",
@@ -839,6 +851,7 @@ def main() -> int:
     write_json(
         report_dst / "definition.pbir",
         {
+            "$schema": PBIR_SCHEMA,
             "version": "4.0",
             "datasetReference": {"byPath": {"path": f"../{project_name}.SemanticModel"}},
         },

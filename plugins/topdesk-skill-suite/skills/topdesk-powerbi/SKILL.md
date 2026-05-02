@@ -36,6 +36,7 @@ Start by loading:
 - Include model layout, relationships, measures, page layout, filters, RLS, refresh, and validation notes.
 - Treat sample OData/table names as placeholders until verified against the target tenant.
 - Call out PII exposure and branch/customer security risks.
+- For PBIP/PBIR output, document the Desktop preview settings, schema/file contract, generated page count, visual count, and any Desktop-only visual warnings.
 
 ## Assets
 
@@ -46,5 +47,5 @@ Start by loading:
 
 - `scripts/generate_powerbi_pack.py`: Generate Power Query, DAX, TMDL skeleton, report spec, and maintenance runbook from CSV table/measure specs.
 - `scripts/build_demo_powerbi_report_pack.py`: Build a sanitized import-ready Power BI report pack from TOPdesk REST tenant profile artifacts.
-- `scripts/build_topdesk_pbir_report.py`: Generate a PBIP/PBIR report-as-code project with report pages, visual containers, KPI cards, charts, tables, and a copied TMDL semantic model.
-- `scripts/validate_topdesk_pbir_report.py`: Validate generated PBIP/PBIR JSON schemas and all visual measure/column references against the TMDL semantic model.
+- `scripts/build_topdesk_pbir_report.py`: Generate a PBIP/PBIR report-as-code project with report pages, visual containers, KPI cards, charts, tables, and a copied TMDL semantic model. The generated project uses a report-only `.pbip` artifact and binds the report to the model through `definition.pbir`.
+- `scripts/validate_topdesk_pbir_report.py`: Validate generated PBIP/PBIR JSON schemas, required project files, page order metadata, and all visual measure/column references against the TMDL semantic model.

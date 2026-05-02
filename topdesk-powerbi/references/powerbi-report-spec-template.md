@@ -35,6 +35,17 @@ RLS notes:
 Validation source:
 ```
 
+For PBIR report-as-code output, each page should also have:
+
+```text
+PBIR page id:
+PBIR page order:
+Canvas size:
+Native visuals only:
+Unsupported/custom visual dependency:
+Desktop smoke result:
+```
+
 ## Required Pages
 
 Executive Overview:
@@ -81,3 +92,11 @@ Include:
 - Known exclusions.
 - RLS explanation.
 - Support owner.
+
+## PBIR Acceptance Criteria
+
+- The generated `.pbip` opens in Power BI Desktop with page tabs visible.
+- The report has a non-empty `pages/pages.json` with `pageOrder`.
+- Every listed page has a `page.json` and at least one `visual.json`.
+- Visuals use model measures and fields rather than hard-coded KPI values except for static labels.
+- Native visuals are preferred for generated packs; Q&A, smart narrative, decomposition tree, and other advanced/custom visuals require explicit documentation and a Desktop smoke-test note.
