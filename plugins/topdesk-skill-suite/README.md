@@ -56,12 +56,13 @@ powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\v
 
 ## Skill Coverage
 
-The plugin currently bundles 35 skills covering:
+The plugin currently bundles 39 skills covering:
 
 - TOPdesk domain, admin configuration, workflows, changes, assets, knowledge, major incidents, operations, testing, and security.
-- OData/API discovery, tenant mapping, data quality, Python, PowerShell, and query-to-Power-BI workflows.
-- Power BI reporting, semantic modelling, report factory generation, visual design, DAX, Power Query, RLS, refresh, and reconciliation.
+- OData/API discovery, API smoke testing, tenant mapping, data quality, Python, PowerShell, and query-to-Power-BI workflows.
+- Power BI reporting, semantic modelling, report factory generation, visual design, DAX measure generation, Power Query, RLS, refresh, and reconciliation.
 - AI/KI features, AI feature factory packs, AI governance cockpits, prompt/eval patterns, RAG/search, feedback loops, and Power BI AI monitoring.
+- SLA/backlog optimization, routing quality checks, PII/compliance scanning, and live demo readiness analysis.
 - USPs, battlecards, proof-of-value sprints, ROI, business cases, delivery planning, handbooks, and enablement.
 
 ## Local Install
@@ -70,4 +71,49 @@ The install script copies this plugin to `%USERPROFILE%\plugins\topdesk-skill-su
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\install_local_plugin.ps1
+```
+
+## Demo Tenant
+
+The provided demo URL maps to this TOPdesk base URL:
+
+```text
+https://usatopdesktrial2.topdesk.net
+```
+
+The plugin stores only the base URL and demo username in `.mcp.json`. The `/tas/secure/...` browser path and timestamp are session-specific and are not used as API configuration. Add `TOPDESK_API_TOKEN` or `TOPDESK_APP_PASSWORD` only in your local environment when live GET access is required.
+
+Configured non-secret demo username:
+
+```text
+raulm09
+```
+
+Observed unauthenticated behavior:
+
+- `/tas/api/incidents`, `/tas/api/persons`, `/tas/api/operatorgroups`, and `/tas/api/branches` return `401`, so the REST API surface is present but requires authentication.
+- `/services/reporting/v2/odata/$metadata` returns `401`, so the reporting OData surface is present but requires authentication.
+- `/tas/api/odata/$metadata` returns `404` on this demo tenant; use the reporting OData path for Power BI/OData discovery.
+
+Observed authenticated behavior with `TOPDESK_USERNAME` plus `TOPDESK_APP_PASSWORD`:
+
+- REST endpoints such as `/tas/api/incidents`, `/tas/api/persons`, `/tas/api/operatorgroups`, and `/tas/api/branches` are readable.
+- Reporting OData `$metadata` returns `403`, so this credential does not have reporting OData permission.
+- See `docs/LIVE_DEMO_TEST_RESULTS.md`.
+
+REST profiling:
+
+```powershell
+$env:TOPDESK_BASE_URL = "https://usatopdesktrial2.topdesk.net"
+$env:TOPDESK_USERNAME = "raulm09"
+$env:TOPDESK_APP_PASSWORD = "<application-password>"
+python .\topdesk-tenant-mapping\scripts\profile_topdesk_rest.py --out .\tenant-output\usatopdesktrial2-rest --max-records 100 --page-size 50
+```
+
+Follow-on analysis from generated tenant artifacts:
+
+```powershell
+python .\topdesk-powerbi-dax\scripts\new_dax_measure_pack.py --field-catalog .\tenant-output\usatopdesktrial2-rest\rest_field_catalog.csv --out-dir .\tenant-output\usatopdesktrial2-rest\dax-pack
+python .\topdesk-sla-optimizer\scripts\analyze_sla_backlog.py --incidents .\tenant-output\usatopdesktrial2-rest\snapshots\incidents.json --out-dir .\tenant-output\usatopdesktrial2-rest\sla-analysis
+python .\topdesk-compliance-pii\scripts\scan_pii_catalog.py --field-catalog .\tenant-output\usatopdesktrial2-rest\rest_field_catalog.csv --out-dir .\tenant-output\usatopdesktrial2-rest\pii-review
 ```

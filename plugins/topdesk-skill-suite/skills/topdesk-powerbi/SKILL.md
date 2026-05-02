@@ -45,3 +45,6 @@ Start by loading:
 ## Scripts
 
 - `scripts/generate_powerbi_pack.py`: Generate Power Query, DAX, TMDL skeleton, report spec, and maintenance runbook from CSV table/measure specs.
+- `scripts/build_demo_powerbi_report_pack.py`: Build a sanitized import-ready Power BI report pack from TOPdesk REST tenant profile artifacts.
+- `scripts/build_topdesk_pbir_report.py`: Generate a PBIP/PBIR report-as-code project with report pages, visual containers, KPI cards, charts, tables, and a copied TMDL semantic model.
+- `scripts/validate_topdesk_pbir_report.py`: Validate generated PBIP/PBIR JSON schemas and all visual measure/column references against the TMDL semantic model.

@@ -2,7 +2,7 @@
   "name": "topdesk-skill-suite",
   "version": "0.1.0",
   "packageName": "topdesk-skill-suite-plugin",
-  "expectedSkillCount": 35,
+  "expectedSkillCount": 39,
   "requiredAssets": [
     "assets/icon.png",
     "assets/logo.png",

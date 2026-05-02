@@ -2,7 +2,8 @@
 """Minimal MCP server for TOPdesk Skill Suite local utilities.
 
 The server is dependency-free and exposes safe helper tools. Live TOPdesk access is
-GET-only and requires TOPDESK_BASE_URL plus TOPDESK_API_TOKEN.
+GET-only and requires TOPDESK_BASE_URL plus either TOPDESK_API_TOKEN or
+TOPDESK_USERNAME with TOPDESK_APP_PASSWORD.
 """
 
 from __future__ import annotations
@@ -10,6 +11,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+import base64
 import urllib.parse
 import urllib.request
 from typing import Any
@@ -69,6 +71,7 @@ def tool_list() -> dict[str, Any]:
                     "type": "object",
                     "properties": {
                         "entity": {"type": "string"},
+                        "service": {"type": "string", "enum": ["reporting", "tas"], "default": "reporting"},
                         "select": {"type": "array", "items": {"type": "string"}},
                         "filter": {"type": "string"},
                         "orderby": {"type": "string"},
@@ -97,12 +100,15 @@ def call_tool(name: str, arguments: dict[str, Any]) -> dict[str, Any]:
     if name == "topdesk_config_status":
         status = {
             "base_url_configured": bool(os.environ.get("TOPDESK_BASE_URL")),
+            "username_configured": bool(os.environ.get("TOPDESK_USERNAME")),
+            "app_password_configured": bool(os.environ.get("TOPDESK_APP_PASSWORD")),
             "api_token_configured": bool(os.environ.get("TOPDESK_API_TOKEN")),
         }
         return text_content(json.dumps(status, indent=2))
     if name == "topdesk_build_odata_url":
         base = os.environ.get("TOPDESK_BASE_URL", "https://example.topdesk.net").rstrip("/")
         entity = str(arguments["entity"]).strip("/")
+        service = str(arguments.get("service") or "reporting")
         query: dict[str, str] = {}
         if arguments.get("select"):
             query["$select"] = ",".join(arguments["select"])
@@ -115,19 +121,34 @@ def call_tool(name: str, arguments: dict[str, Any]) -> dict[str, Any]:
         if arguments.get("skip") is not None:
             query["$skip"] = str(arguments["skip"])
         qs = urllib.parse.urlencode(query, safe="$, '():/")
-        url = f"{base}/tas/api/odata/{entity}"
+        if service == "tas":
+            url = f"{base}/tas/api/odata/{entity}"
+        else:
+            url = f"{base}/services/reporting/v2/odata/{entity}"
         if qs:
             url = f"{url}?{qs}"
         return text_content(url)
     if name == "topdesk_get":
         base = os.environ.get("TOPDESK_BASE_URL", "").rstrip("/")
         token = os.environ.get("TOPDESK_API_TOKEN", "")
-        if not base or not token:
-            raise ValueError("TOPDESK_BASE_URL and TOPDESK_API_TOKEN are required for topdesk_get.")
+        username = os.environ.get("TOPDESK_USERNAME", "")
+        app_password = os.environ.get("TOPDESK_APP_PASSWORD", "")
+        if not base:
+            raise ValueError("TOPDESK_BASE_URL is required for topdesk_get.")
+        headers = {"Accept": "application/json"}
+        if token:
+            headers["Authorization"] = f"Bearer {token}"
+        elif username and app_password:
+            raw = f"{username}:{app_password}".encode("utf-8")
+            headers["Authorization"] = f"Basic {base64.b64encode(raw).decode('ascii')}"
+        else:
+            raise ValueError(
+                "TOPDESK_API_TOKEN or TOPDESK_USERNAME with TOPDESK_APP_PASSWORD is required for topdesk_get."
+            )
         path = str(arguments["path"]).lstrip("/")
         request = urllib.request.Request(
             f"{base}/{path}",
-            headers={"Authorization": f"Bearer {token}", "Accept": "application/json"},
+            headers=headers,
             method="GET",
         )
         with urllib.request.urlopen(request, timeout=30) as response:
@@ -173,4 +194,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

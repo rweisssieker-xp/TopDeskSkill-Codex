@@ -37,3 +37,28 @@ powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\i
 
 This copies the plugin to `%USERPROFILE%\plugins\topdesk-skill-suite` and updates `%USERPROFILE%\.agents\plugins\marketplace.json`.
 
+## Demo TOPdesk Tenant
+
+Use the base URL only:
+
+```text
+https://usatopdesktrial2.topdesk.net
+```
+
+Do not store browser session paths such as `/tas/secure/mango/window/...` or timestamp query parameters as API configuration.
+
+For reporting/OData discovery, use:
+
+```text
+https://usatopdesktrial2.topdesk.net/services/reporting/v2/odata/$metadata
+```
+
+Unauthenticated requests return `401`, which confirms that authentication is required before live metadata or records can be read.
+
+Configured non-secret demo username:
+
+```text
+raulm09
+```
+
+Set `TOPDESK_APP_PASSWORD` or `TOPDESK_API_TOKEN` only in your local environment. Do not commit passwords or tokens.

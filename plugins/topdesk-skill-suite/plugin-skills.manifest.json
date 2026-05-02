@@ -1,7 +1,7 @@
 {
-    "generated_at":  "2026-05-01T10:29:59+02:00",
+    "generated_at":  "2026-05-01T18:45:08+02:00",
     "plugin":  "topdesk-skill-suite",
-    "skill_count":  35,
+    "skill_count":  39,
     "skills":  [
                    {
                        "name":  "topdesk-action-sequences",
@@ -83,6 +83,20 @@
                                   ]
                    },
                    {
+                       "name":  "topdesk-api-test-lab",
+                       "folder":  "topdesk-api-test-lab",
+                       "description":  "Use when testing live TOPdesk REST/API access, authentication, endpoint availability, paging behavior, response status codes, payload shapes, demo tenants, smoke tests, regression checks, and API readiness before building Power BI, Python, PowerShell, or AI features.",
+                       "references":  [
+
+                                      ],
+                       "scripts":  [
+                                       "scripts/smoke_topdesk_api.py"
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
                        "name":  "topdesk-assets",
                        "folder":  "topdesk-assets",
                        "description":  "TOPdesk Asset Management design, schema, analytics, and workflow support. Use for asset templates, dynamic asset fields, asset relations, owner/branch/location mapping, lifecycle, incident/change links, CMDB-like reporting, asset data quality, and asset KPIs.",
@@ -105,6 +119,20 @@
                                       ],
                        "scripts":  [
 
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-compliance-pii",
+                       "folder":  "topdesk-compliance-pii",
+                       "description":  "Use when reviewing TOPdesk exports, REST snapshots, field catalogs, Power BI datasets, AI prompts, RAG sources, reports, or demos for PII exposure, privacy minimization, masking, retention, security boundaries, and compliance risks.",
+                       "references":  [
+
+                                      ],
+                       "scripts":  [
+                                       "scripts/scan_pii_catalog.py"
                                    ],
                        "assets":  [
 
@@ -313,11 +341,29 @@
                                           "references/testing-validation.md"
                                       ],
                        "scripts":  [
-                                       "scripts/generate_powerbi_pack.py"
+                                       "scripts/build_demo_powerbi_report_pack.py",
+                                       "scripts/build_topdesk_pbir_report.py",
+                                       "scripts/generate_powerbi_pack.py",
+                                       "scripts/new_tabular_editor_datatable_script.py",
+                                       "scripts/validate_topdesk_pbir_report.py"
                                    ],
                        "assets":  [
                                       "assets/topdesk-core-measures.dax",
                                       "assets/topdesk-odata-functions.pq"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-powerbi-dax",
+                       "folder":  "topdesk-powerbi-dax",
+                       "description":  "Use when creating, reviewing, or standardizing Power BI DAX measures for TOPdesk incidents, SLAs, backlog, routing, operators, branches, AI governance, adoption, quality, cost, risk, and executive service-management dashboards.",
+                       "references":  [
+
+                                      ],
+                       "scripts":  [
+                                       "scripts/new_dax_measure_pack.py"
+                                   ],
+                       "assets":  [
+                                      "assets/topdesk-core-measures.dax"
                                   ]
                    },
                    {
@@ -474,6 +520,20 @@
                                   ]
                    },
                    {
+                       "name":  "topdesk-sla-optimizer",
+                       "folder":  "topdesk-sla-optimizer",
+                       "description":  "Use when analyzing TOPdesk incident SLA health, target dates, backlog, overdue work, priority coverage, routing quality, operator-group workload, ageing buckets, operational risk, and service improvement actions from REST snapshots or exports.",
+                       "references":  [
+
+                                      ],
+                       "scripts":  [
+                                       "scripts/analyze_sla_backlog.py"
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
                        "name":  "topdesk-template-pack",
                        "folder":  "topdesk-template-pack",
                        "description":  "Reusable templates for TOPdesk delivery. Use for SQL view templates, DAX templates, Power Query templates, AI prompt/JSON schemas, test templates, runbooks, discovery questionnaires, proposal outlines, workshop agendas, user stories, acceptance criteria, and project documentation templates.",
@@ -496,7 +556,7 @@
                                           "references/tenant-mapping.md"
                                       ],
                        "scripts":  [
-
+                                       "scripts/profile_topdesk_rest.py"
                                    ],
                        "assets":  [
 

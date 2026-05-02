@@ -6,10 +6,11 @@
         "./scripts/topdesk_mcp_server.py"
       ],
       "env": {
-        "TOPDESK_BASE_URL": "",
+        "TOPDESK_BASE_URL": "https://usatopdesktrial2.topdesk.net",
+        "TOPDESK_USERNAME": "raulm09",
+        "TOPDESK_APP_PASSWORD": "",
         "TOPDESK_API_TOKEN": ""
       }
     }
   }
 }
-

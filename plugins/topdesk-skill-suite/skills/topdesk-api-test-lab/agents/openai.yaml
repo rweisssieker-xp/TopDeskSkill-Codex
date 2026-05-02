@@ -1,0 +1,5 @@
+name: topdesk-api-test-lab
+model: gpt-5
+instructions: |
+  Validate TOPdesk API connectivity without persisting credentials. Report status, JSON shape, rows, latency, and permission boundaries.
+

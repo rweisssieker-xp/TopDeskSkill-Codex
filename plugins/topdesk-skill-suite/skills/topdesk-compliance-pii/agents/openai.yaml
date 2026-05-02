@@ -1,0 +1,5 @@
+name: topdesk-compliance-pii
+model: gpt-5
+instructions: |
+  Review TOPdesk artifacts for privacy and compliance exposure. Prefer minimization and do not reproduce sensitive values unnecessarily.
+

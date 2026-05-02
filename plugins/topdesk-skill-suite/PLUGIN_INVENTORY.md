@@ -1,8 +1,8 @@
 ﻿# TOPdesk Skill Suite Plugin Inventory
 
-Generated: 2026-05-01T10:29:59+02:00
+Generated: 2026-05-01T18:45:08+02:00
 
-Skill count: 35
+Skill count: 39
 
 | Skill | References | Scripts | Assets |
 | --- | ---: | ---: | ---: |
@@ -11,8 +11,10 @@ Skill count: 35
 | `topdesk-ai` | 4 | 0 | 0 |
 | `topdesk-ai-feature-factory` | 2 | 1 | 3 |
 | `topdesk-ai-governance-cockpit` | 2 | 1 | 3 |
+| `topdesk-api-test-lab` | 0 | 1 | 0 |
 | `topdesk-assets` | 1 | 0 | 0 |
 | `topdesk-changes` | 1 | 0 | 0 |
+| `topdesk-compliance-pii` | 0 | 1 | 0 |
 | `topdesk-data-quality` | 1 | 0 | 0 |
 | `topdesk-enablement` | 1 | 0 | 0 |
 | `topdesk-expert` | 26 | 3 | 0 |
@@ -23,7 +25,8 @@ Skill count: 35
 | `topdesk-migration` | 1 | 0 | 0 |
 | `topdesk-odata` | 3 | 4 | 0 |
 | `topdesk-operations` | 3 | 0 | 1 |
-| `topdesk-powerbi` | 10 | 1 | 2 |
+| `topdesk-powerbi` | 10 | 5 | 2 |
+| `topdesk-powerbi-dax` | 0 | 1 | 1 |
 | `topdesk-powerbi-modelling` | 2 | 1 | 2 |
 | `topdesk-powershell` | 2 | 1 | 1 |
 | `topdesk-project-delivery` | 1 | 0 | 0 |
@@ -34,8 +37,9 @@ Skill count: 35
 | `topdesk-roi-business-case` | 1 | 0 | 0 |
 | `topdesk-schema` | 4 | 0 | 1 |
 | `topdesk-security` | 3 | 0 | 0 |
+| `topdesk-sla-optimizer` | 0 | 1 | 0 |
 | `topdesk-template-pack` | 1 | 0 | 2 |
-| `topdesk-tenant-mapping` | 1 | 0 | 0 |
+| `topdesk-tenant-mapping` | 1 | 1 | 0 |
 | `topdesk-testing` | 2 | 0 | 1 |
 | `topdesk-usp-battlecards` | 2 | 1 | 3 |
 | `topdesk-usps` | 5 | 0 | 0 |
@@ -100,6 +104,13 @@ Assets:
 - `assets/ai-governance-theme.json`
 - `assets/governance-cockpit-spec-template.md`
 
+### `topdesk-api-test-lab`
+
+Use when testing live TOPdesk REST/API access, authentication, endpoint availability, paging behavior, response status codes, payload shapes, demo tenants, smoke tests, regression checks, and API readiness before building Power BI, Python, PowerShell, or AI features.
+
+Scripts:
+- `scripts/smoke_topdesk_api.py`
+
 ### `topdesk-assets`
 
 TOPdesk Asset Management design, schema, analytics, and workflow support. Use for asset templates, dynamic asset fields, asset relations, owner/branch/location mapping, lifecycle, incident/change links, CMDB-like reporting, asset data quality, and asset KPIs.
@@ -113,6 +124,13 @@ TOPdesk Change Management design and reporting. Use for change templates, standa
 
 References:
 - `references/change-management.md`
+
+### `topdesk-compliance-pii`
+
+Use when reviewing TOPdesk exports, REST snapshots, field catalogs, Power BI datasets, AI prompts, RAG sources, reports, or demos for PII exposure, privacy minimization, masking, retention, security boundaries, and compliance risks.
+
+Scripts:
+- `scripts/scan_pii_catalog.py`
 
 ### `topdesk-data-quality`
 
@@ -256,11 +274,25 @@ References:
 - `references/testing-validation.md`
 
 Scripts:
+- `scripts/build_demo_powerbi_report_pack.py`
+- `scripts/build_topdesk_pbir_report.py`
 - `scripts/generate_powerbi_pack.py`
+- `scripts/new_tabular_editor_datatable_script.py`
+- `scripts/validate_topdesk_pbir_report.py`
 
 Assets:
 - `assets/topdesk-core-measures.dax`
 - `assets/topdesk-odata-functions.pq`
+
+### `topdesk-powerbi-dax`
+
+Use when creating, reviewing, or standardizing Power BI DAX measures for TOPdesk incidents, SLAs, backlog, routing, operators, branches, AI governance, adoption, quality, cost, risk, and executive service-management dashboards.
+
+Scripts:
+- `scripts/new_dax_measure_pack.py`
+
+Assets:
+- `assets/topdesk-core-measures.dax`
 
 ### `topdesk-powerbi-modelling`
 
@@ -378,6 +410,13 @@ References:
 - `references/security-compliance.md`
 - `references/testing-validation.md`
 
+### `topdesk-sla-optimizer`
+
+Use when analyzing TOPdesk incident SLA health, target dates, backlog, overdue work, priority coverage, routing quality, operator-group workload, ageing buckets, operational risk, and service improvement actions from REST snapshots or exports.
+
+Scripts:
+- `scripts/analyze_sla_backlog.py`
+
 ### `topdesk-template-pack`
 
 Reusable templates for TOPdesk delivery. Use for SQL view templates, DAX templates, Power Query templates, AI prompt/JSON schemas, test templates, runbooks, discovery questionnaires, proposal outlines, workshop agendas, user stories, acceptance criteria, and project documentation templates.
@@ -395,6 +434,9 @@ Tenant-specific TOPdesk field and model mapping. Use for OData metadata, API sam
 
 References:
 - `references/tenant-mapping.md`
+
+Scripts:
+- `scripts/profile_topdesk_rest.py`
 
 ### `topdesk-testing`
 
