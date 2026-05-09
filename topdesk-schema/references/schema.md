@@ -63,6 +63,7 @@ Recommended local tables:
 - `incident_actions`
 - `incident_status_history`
 - `incident_assignment_history`
+- `incident_daily_snapshots`
 - `incident_asset_links`
 - `incident_person_links`
 - `incident_attachments`
@@ -156,6 +157,7 @@ Use append-only history where operational accountability matters:
 - `audit_events`: who changed what, before/after summary, timestamp, source.
 - `status_history`: work-item lifecycle transitions.
 - `assignment_history`: group/operator handoffs.
+- `daily_snapshots`: scheduled point-in-time state for historical backlog and fallback aging when event history is incomplete.
 - `integration_runs`: sync job status, counts, errors, correlation IDs.
 - `permission_assignments`: local app access model. Do not assume it equals TOPdesk permissions.
 
@@ -225,6 +227,8 @@ Create stable views for BI/reporting so report logic does not depend on raw tran
 - `vw_incident_fact`: one row per incident with current state and key dates.
 - `vw_incident_action_fact`: one row per action/comment.
 - `vw_incident_status_transition_fact`: one row per status transition with duration.
+- `vw_incident_assignment_transition_fact`: one row per operator group/operator assignment interval with duration.
+- `vw_incident_daily_snapshot_fact`: one row per incident per snapshot date for backlog-as-of and approximate aging.
 - `vw_change_fact`: one row per change.
 - `vw_change_activity_fact`: one row per activity/approval.
 - `vw_asset_dimension`: current asset dimension with flattened BI fields.

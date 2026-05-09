@@ -22,6 +22,8 @@ Fact tables:
 - `FactIncident`: one row per incident/ticket; dates, caller, branch, category, priority, status, assigned group, created/closed/target timestamps, SLA flags.
 - `FactIncidentAction`: one row per action/comment/status update; action date, actor, visibility, time spent, incident key.
 - `FactStatusTransition`: one row per status change; from/to status, actor, transition timestamp, duration in previous status.
+- `FactAssignmentTransition`: one row per assignment group/operator interval; from/to group, from/to operator, transition timestamp, duration in previous assignment.
+- `FactIncidentDailySnapshot`: one row per incident per snapshot date; current status, group, operator, priority, category, branch, open/closed state.
 - `FactChange`: one row per change; requester, coordinator, template/type, risk, impact, status, planned/actual dates.
 - `FactChangeActivity`: one row per change activity/approval/task.
 - `FactAssetSnapshot`: one row per asset at refresh time or snapshot date; type, status, owner, branch, lifecycle state.
@@ -43,6 +45,25 @@ Modeling rules:
 - Keep date/time columns in UTC or one documented business timezone; expose local business dates for SLA reporting.
 - Use inactive relationships for alternate dates and activate them with `USERELATIONSHIP` in measures.
 - Hide technical columns, raw IDs, and unused fields from report consumers.
+- Prefer event/history facts for exact flow reporting. Use daily snapshots as a fallback or control layer when TOPdesk does not expose full history.
+
+## History and Snapshot Pattern
+
+Use two complementary paths for lifecycle and assignment reporting:
+
+1. Event/history path:
+   - Source: TOPdesk history, audit, action, or field-change data.
+   - Model facts: `FactStatusTransition` and `FactAssignmentTransition`.
+   - Required columns: incident key, changed timestamp, previous value, new value, actor, duration to next event.
+   - Use this path for exact time in status, time in operator group, handoff analysis, and same-day changes.
+
+2. Daily snapshot path:
+   - Source: scheduled extraction job that stores the current incident state once per day.
+   - Model fact: `FactIncidentDailySnapshot`.
+   - Required columns: snapshot date, incident key, status, operator group, operator, priority, category, branch, created/closed timestamps.
+   - Use this path for historical backlog, daily aging, approximate time in status/group, and validation when event history is incomplete.
+
+Do not implement snapshot writing inside normal Power BI M transformations. Use a scheduled job, Fabric pipeline, dataflow, Azure Function, PowerShell, Python, or another controlled ingestion process to write the snapshot table, then let Power BI read it.
 
 ## Core Incident Measures
 
@@ -94,6 +115,12 @@ Use status-transition facts when the report needs queue aging, handoff analysis,
 Average Time In Status Hours =
 AVERAGE ( FactStatusTransition[DurationHours] )
 
+Average Time In Operator Group Hours =
+AVERAGE ( FactAssignmentTransition[DurationHours] )
+
+Total Time In Operator Group Hours =
+SUM ( FactAssignmentTransition[DurationHours] )
+
 Reopened Incidents =
 CALCULATE (
     DISTINCTCOUNT ( FactStatusTransition[IncidentKey] ),
@@ -105,6 +132,22 @@ AVERAGEX (
     FILTER ( FactIncident, NOT ISBLANK ( FactIncident[FirstResponseAt] ) ),
     DATEDIFF ( FactIncident[CreatedAt], FactIncident[FirstResponseAt], HOUR )
 )
+```
+
+Snapshot facts are useful when event history is unavailable or incomplete.
+
+```DAX
+Snapshot Incidents =
+DISTINCTCOUNT ( FactIncidentDailySnapshot[IncidentKey] )
+
+Snapshot Open Incidents =
+CALCULATE (
+    [Snapshot Incidents],
+    FactIncidentDailySnapshot[IsClosed] = FALSE ()
+)
+
+Snapshot Days In Current Group =
+COUNTROWS ( FactIncidentDailySnapshot )
 ```
 
 ## Power Query Guidance
@@ -158,6 +201,8 @@ Define these explicitly in the report or model documentation:
 - **Created incidents**: count by creation date, not modification date.
 - **Closed/resolved incidents**: count by closure/resolution date; clarify whether cancelled records count.
 - **Backlog**: open incidents at a point in time. Snapshot facts are best for historical backlog.
+- **Time in status**: prefer status-transition history; use daily snapshots only as an approximation.
+- **Time in operator group**: prefer assignment-transition history; use daily snapshots only as an approximation.
 - **SLA compliance**: closed incidents meeting target; clarify pauses, reopened tickets, and excluded priorities.
 - **First response time**: creation to first public operator response or first assignment/action; choose one and label it.
 - **Resolution time**: creation to resolved/closed timestamp; clarify business hours vs calendar hours.
