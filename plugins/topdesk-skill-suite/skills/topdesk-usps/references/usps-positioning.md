@@ -32,6 +32,8 @@ Position the solution as a practical TOPdesk intelligence layer:
 - **Governed self-service**: SSP workflows, knowledge deflection, and chatbot/RAG patterns respect visibility, branch/customer scope, and review status.
 - **Operational resilience**: Runbooks, refresh audits, integration checkpoints, and schema-drift handling are built into the delivery model.
 - **Data quality as a product feature**: Missing fields, duplicates, unknown dimensions, orphan links, and mapping gaps become visible, owned, and measurable.
+- **Lifecycle intelligence**: Status changes, assignment-group handoffs, daily snapshots, durations, and sequence numbers make ticket flow measurable instead of only showing the current state.
+- **Bottleneck evidence**: Waiting time by status and operator group identifies where incidents stall, which routing paths create handoff loops, and where service managers should intervene first.
 - **Modular delivery**: Customers can start with reporting, schema cleanup, AI assist, integration, workflow redesign, or business-case discovery.
 - **Reusable accelerators**: Templates, scripts, DAX snippets, SQL views, Power Query helpers, prompt schemas, and test cases reduce delivery effort.
 - **Executive-ready narrative**: Technical work is tied to measurable outcomes: SLA compliance, time saved, reassignment reduction, reporting trust, deflection, and governance.
@@ -54,6 +56,15 @@ Power BI bundle:
 - KPI catalog.
 - RLS by branch/customer/team.
 - Report pages for executives, leads, operations, SLA, assets, knowledge, AI, and data quality.
+- Lifecycle facts for status transitions, assignment transitions, and incident daily snapshots.
+
+Lifecycle analytics bundle:
+
+- Status transition fact with `ValidFrom`, `ValidTo`, duration, next status, actor, and sequence.
+- Assignment transition fact with operator-group/operator handoffs, duration, and sequence.
+- Daily incident snapshots for backlog trend, aging, open/closed state, current status, and current group.
+- Power BI measures for time in status, time in group, reassignment rate, open snapshot days, and bottleneck analysis.
+- Demo lifecycle data for proof-of-value workshops before production history is fully connected.
 
 AI assist bundle:
 
@@ -125,6 +136,9 @@ For IT/security/compliance:
 | Schema blueprint | Speeds up database design and reduces reporting ambiguity |
 | Reporting views | Stabilizes Power BI models against operational schema changes |
 | DAX/KPI library | Makes service metrics consistent and explainable |
+| Status transition fact | Shows how long incidents remain in each status |
+| Assignment transition fact | Shows how long incidents remain with each operator group and where handoffs occur |
+| Daily snapshot fact | Creates stichtag-style backlog and aging trends instead of relying only on live state |
 | RLS guidance | Protects branch/customer/team data in reports |
 | AI classification | Reduces manual triage and improves routing consistency |
 | AI summaries | Speeds handoffs and escalations |
@@ -140,6 +154,8 @@ Short:
 - "A TOPdesk-focused intelligence layer for cleaner data, better reporting, safer automation, and operator-reviewed AI."
 - "Make TOPdesk data reportable, auditable, and AI-ready without guessing tenant-specific schema details."
 - "From TOPdesk tickets to Power BI KPIs and AI-assisted service workflows, with governance built in."
+- "See not only how many tickets are open, but exactly where they waited and how long each handoff took."
+- "Turn TOPdesk ticket flow into bottleneck, reassignment, and backlog-aging evidence."
 
 Executive:
 
@@ -158,6 +174,8 @@ Operator-facing:
 - TOPdesk-specific instead of generic ITSM.
 - Tenant-verification-first instead of hard-coded assumptions.
 - BI, schema, integration, operations, and AI treated as one connected system.
+- Lifecycle history and daily snapshots instead of only flat exports or current-state dashboards.
+- Process-mining-light for TOPdesk: status paths, handoffs, waiting time, and reassignment loops without requiring a separate process-mining platform.
 - Human-in-the-loop AI, not unmanaged automation.
 - Strong validation emphasis: every metric, mapping, and automation path must be reconcilable.
 
@@ -166,6 +184,10 @@ Operator-facing:
 Use these to quantify value:
 
 - Reduction in reassignment rate.
+- Reduction in average time in status.
+- Reduction in average time in operator group.
+- Reduction in waiting-state share.
+- Reduction in aging backlog by stichtag snapshot.
 - Reduction in average first response time.
 - Reduction in average resolution time.
 - Increase in SLA compliance.
@@ -233,6 +255,13 @@ Against simple Power BI exports:
 - Star schema and KPI governance rather than flat export visuals.
 - Reconciliation and RLS patterns.
 - Reporting views and data-quality checks.
+- Historical transition facts and daily snapshots that preserve the process view after the live ticket has changed.
+
+Against separate process-mining projects:
+
+- Focused TOPdesk lifecycle measures without a heavy platform rollout.
+- Directly usable Power BI facts for status paths, assignment handoffs, waiting time, and reassignment loops.
+- Demo data and PoV packaging for fast validation with stakeholders.
 
 Against standalone AI chatbots:
 
@@ -252,7 +281,7 @@ Against custom one-off integrations:
 
 Service desk lead:
 
-- "Get a reliable view of backlog, SLA risk, category demand, and reassignment, then use AI-assisted triage to reduce avoidable handoffs."
+- "Get a reliable view of backlog, SLA risk, category demand, reassignment, and where tickets waited longest, then use AI-assisted triage to reduce avoidable handoffs."
 
 Operator:
 
@@ -265,6 +294,7 @@ Application manager:
 CIO/IT leader:
 
 - "Improve service transparency and operational efficiency without losing governance over data, permissions, or customer-visible communication."
+- "Turn TOPdesk from current-state reporting into a measurable service-flow cockpit with trend, bottleneck, and improvement evidence."
 
 Security/compliance:
 
@@ -277,9 +307,10 @@ Security/compliance:
 3. Show operator-reviewed summary and draft response with knowledge citations.
 4. Show the incident flowing into the schema/reporting view.
 5. Open Power BI dashboard with created/closed trend, backlog, SLA compliance, and category hotspots.
-6. Drill into data-quality or AI acceptance page.
-7. Show audit trail and feedback loop.
-8. Close with roadmap: from suggest-only to controlled automation.
+6. Drill into lifecycle analytics: status duration, operator-group duration, reassignment rate, and daily snapshot backlog.
+7. Drill into data-quality or AI acceptance page.
+8. Show audit trail and feedback loop.
+9. Close with roadmap: from suggest-only to controlled automation.
 
 ## ROI Calculation Pattern
 
@@ -304,6 +335,9 @@ Additional measurable value:
 - Reduced SLA penalties or breach handling.
 - Reduced manual reporting effort.
 - Reduced reassignments.
+- Reduced average waiting time in status or operator group.
+- Reduced backlog aging visible in daily snapshots.
+- Reduced escalation effort through earlier bottleneck detection.
 - Reduced duplicate incidents.
 - Faster onboarding through clearer workflows and knowledge.
 - Lower audit/compliance remediation effort.
@@ -311,6 +345,10 @@ Additional measurable value:
 ## Proof Points to Collect
 
 - Before/after reassignment rate.
+- Before/after average time in status.
+- Before/after average time in operator group.
+- Before/after waiting-state share.
+- Snapshot trend for open incidents by age bucket.
 - Before/after first response time.
 - Before/after backlog older than 7/14/30 days.
 - SLA compliance trend.

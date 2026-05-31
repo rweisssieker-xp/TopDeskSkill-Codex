@@ -41,7 +41,9 @@ Start by loading:
 ## Assets
 
 - `assets/topdesk-core-measures.dax`: reusable DAX measure template.
+- `assets/topdesk-lifecycle-powerquery.pq`: Power Query templates for lifecycle snapshot, status transition, and assignment transition CSV imports.
 - `assets/topdesk-odata-functions.pq`: reusable Power Query helper snippets.
+- `assets/demo-lifecycle/*.csv`: small versioned demo tables for incident daily snapshots, status transitions, and assignment transitions.
 
 ## Scripts
 

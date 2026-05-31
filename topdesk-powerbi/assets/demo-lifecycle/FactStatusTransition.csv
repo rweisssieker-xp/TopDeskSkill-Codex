@@ -1,0 +1,5 @@
+TransitionKey,IncidentKey,StatusSequence,FromStatusId,FromStatusName,ToStatusId,ToStatusName,ChangedByOperatorId,ValidFromAt,ValidToAt,DurationHours,Reason
+demo-inc-001-status-1,demo-inc-001,1,new,New,in-progress,In Progress,demo-operator-1,2026-05-01T08:00:00+00:00,2026-05-02T09:00:00+00:00,25.00,Demo lifecycle transition
+demo-inc-001-status-2,demo-inc-001,2,in-progress,In Progress,resolved,Resolved,demo-operator-2,2026-05-02T09:00:00+00:00,2026-05-03T15:30:00+00:00,30.50,Demo lifecycle transition
+demo-inc-002-status-1,demo-inc-002,1,new,New,in-progress,In Progress,demo-operator-1,2026-05-01T10:00:00+00:00,2026-05-01T14:00:00+00:00,4.00,Demo lifecycle transition
+demo-inc-002-status-2,demo-inc-002,2,in-progress,In Progress,waiting,Waiting,demo-operator-4,2026-05-01T14:00:00+00:00,2026-05-02T18:00:00+00:00,28.00,Waiting for supplier response

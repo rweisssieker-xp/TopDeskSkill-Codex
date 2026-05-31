@@ -1,5 +1,5 @@
 {
-    "generated_at":  "2026-05-01T18:45:08+02:00",
+    "generated_at":  "2026-05-31T11:32:49+02:00",
     "plugin":  "topdesk-skill-suite",
     "skill_count":  39,
     "skills":  [
@@ -237,11 +237,12 @@
                        "references":  [
                                           "references/api-and-integrations.md",
                                           "references/architecture-operations.md",
+                                          "references/incident-lifecycle-ingestion.md",
                                           "references/odata-mapping.md",
                                           "references/testing-validation.md"
                                       ],
                        "scripts":  [
-
+                                       "scripts/sync_incident_lifecycle.py"
                                    ],
                        "assets":  [
 
@@ -349,6 +350,7 @@
                                    ],
                        "assets":  [
                                       "assets/topdesk-core-measures.dax",
+                                      "assets/topdesk-lifecycle-powerquery.pq",
                                       "assets/topdesk-odata-functions.pq"
                                   ]
                    },

@@ -65,6 +65,7 @@ Before writing production code, verify:
 - Some relationships require bridge/link tables or nested navigation properties.
 - Person groups, categories, and module-specific supporting files may need separate mapping tables.
 - For BI models, prefer documented IDs and stable keys rather than display names.
+- For incident lifecycle reporting, run `scripts/sync_incident_lifecycle.py` to produce daily snapshots and, when available, normalized status and assignment transition facts.
 - For Power BI-specific modeling, DAX, refresh, and dashboard layout, load `powerbi.md`.
 - For tenant-specific OData metadata discovery and field mapping, load `odata-mapping.md`.
 - For integration test scenarios and reconciliation checks, load `testing-validation.md`.

@@ -31,3 +31,42 @@ CALCULATE (
     FactIncident[CreatedDate] <= SelectedDate,
     OR ( ISBLANK ( FactIncident[ClosedDate] ), FactIncident[ClosedDate] > SelectedDate )
 )
+
+Status Transitions :=
+COUNTROWS ( FactStatusTransition )
+
+Average Time In Status Hours :=
+AVERAGE ( FactStatusTransition[DurationHours] )
+
+Total Time In Status Hours :=
+SUM ( FactStatusTransition[DurationHours] )
+
+Assignment Transitions :=
+COUNTROWS ( FactAssignmentTransition )
+
+Reassigned Incidents :=
+CALCULATE (
+    DISTINCTCOUNT ( FactAssignmentTransition[IncidentKey] ),
+    FactAssignmentTransition[AssignmentSequence] > 1
+)
+
+Average Time In Operator Group Hours :=
+AVERAGE ( FactAssignmentTransition[DurationHours] )
+
+Total Time In Operator Group Hours :=
+SUM ( FactAssignmentTransition[DurationHours] )
+
+Snapshot Incidents :=
+DISTINCTCOUNT ( FactIncidentDailySnapshot[IncidentKey] )
+
+Snapshot Open Incidents :=
+CALCULATE (
+    [Snapshot Incidents],
+    FactIncidentDailySnapshot[IsClosed] = FALSE ()
+)
+
+Snapshot Days In Status :=
+COUNTROWS ( FactIncidentDailySnapshot )
+
+Snapshot Days In Operator Group :=
+COUNTROWS ( FactIncidentDailySnapshot )

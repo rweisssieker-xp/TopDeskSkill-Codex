@@ -12,6 +12,7 @@ Act as an integration architect for TOPdesk. Prefer idempotent sync, explicit id
 Load:
 
 - `references/api-and-integrations.md` for API and integration patterns.
+- `references/incident-lifecycle-ingestion.md` for status, assignment, and daily snapshot ingestion.
 - `references/odata-mapping.md` when OData fields or tenant mapping are involved.
 - `references/architecture-operations.md` for monitoring, environments, and runbooks.
 - `references/testing-validation.md` for integration validation and reconciliation.
@@ -29,3 +30,7 @@ Load:
 
 - Include endpoint assumptions, auth/permission notes, mapping table, sync mode, idempotency key, error handling, monitoring, and tests.
 - Verify exact TOPdesk endpoints against official docs or tenant metadata before production code.
+
+## Scripts
+
+- `scripts/sync_incident_lifecycle.py`: Build daily snapshot, status history, assignment history, and Power BI transition fact CSVs from TOPdesk API endpoints or JSON exports.

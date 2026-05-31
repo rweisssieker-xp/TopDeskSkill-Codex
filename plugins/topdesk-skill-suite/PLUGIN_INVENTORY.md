@@ -1,6 +1,6 @@
 ﻿# TOPdesk Skill Suite Plugin Inventory
 
-Generated: 2026-05-01T18:45:08+02:00
+Generated: 2026-05-31T11:32:49+02:00
 
 Skill count: 39
 
@@ -19,13 +19,13 @@ Skill count: 39
 | `topdesk-enablement` | 1 | 0 | 0 |
 | `topdesk-expert` | 26 | 3 | 0 |
 | `topdesk-handbook` | 10 | 0 | 0 |
-| `topdesk-integration` | 4 | 0 | 0 |
+| `topdesk-integration` | 5 | 1 | 0 |
 | `topdesk-knowledge` | 1 | 0 | 0 |
 | `topdesk-major-incidents` | 1 | 0 | 0 |
 | `topdesk-migration` | 1 | 0 | 0 |
 | `topdesk-odata` | 3 | 4 | 0 |
 | `topdesk-operations` | 3 | 0 | 1 |
-| `topdesk-powerbi` | 10 | 5 | 2 |
+| `topdesk-powerbi` | 10 | 5 | 3 |
 | `topdesk-powerbi-dax` | 0 | 1 | 1 |
 | `topdesk-powerbi-modelling` | 2 | 1 | 2 |
 | `topdesk-powershell` | 2 | 1 | 1 |
@@ -206,8 +206,12 @@ TOPdesk API, OData, import/export, action sequence, and automation integration d
 References:
 - `references/api-and-integrations.md`
 - `references/architecture-operations.md`
+- `references/incident-lifecycle-ingestion.md`
 - `references/odata-mapping.md`
 - `references/testing-validation.md`
+
+Scripts:
+- `scripts/sync_incident_lifecycle.py`
 
 ### `topdesk-knowledge`
 
@@ -282,6 +286,7 @@ Scripts:
 
 Assets:
 - `assets/topdesk-core-measures.dax`
+- `assets/topdesk-lifecycle-powerquery.pq`
 - `assets/topdesk-odata-functions.pq`
 
 ### `topdesk-powerbi-dax`

@@ -90,6 +90,25 @@ def bool_value(value: Any) -> str:
     return "true" if bool(value) else "false"
 
 
+def iso_datetime(day: str, hour: int) -> str:
+    return f"{day}T{hour:02d}:00:00+00:00" if day else ""
+
+
+def hours_between(start: str, end: str) -> str:
+    if not start or not end:
+        return ""
+    start_dt = datetime.fromisoformat(start.replace("Z", "+00:00"))
+    end_dt = datetime.fromisoformat(end.replace("Z", "+00:00"))
+    return f"{max((end_dt - start_dt).total_seconds(), 0) / 3600.0:.2f}"
+
+
+def demo_value(value: Any, fallback: str) -> str:
+    text = str(value or "").strip()
+    if not text or text == "(blank)":
+        return fallback
+    return text
+
+
 def pseudonym(value: str, prefix: str) -> str:
     if not value:
         return ""
@@ -136,6 +155,146 @@ def fact_incidents(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             }
         )
     return facts
+
+
+def fact_incident_daily_snapshots(facts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    snapshots: list[dict[str, Any]] = []
+    for fact in facts:
+        created = fact.get("CreationDate", "")
+        if not created:
+            continue
+        try:
+            start = date.fromisoformat(str(created))
+        except ValueError:
+            continue
+        closed_date = fact.get("ClosedDate", "")
+        if isinstance(closed_date, str) and closed_date:
+            end = min(start + timedelta(days=4), date.fromisoformat(closed_date))
+        else:
+            end = start + timedelta(days=4)
+        current = start
+        day_index = 0
+        while current <= end:
+            if day_index == 0:
+                status = "New"
+                group = "Service Desk Intake"
+                group_id = "demo-group-intake"
+            elif day_index == 1:
+                status = "In Progress"
+                group = demo_value(fact.get("OperatorGroup"), "Second Line")
+                group_id = demo_value(fact.get("OperatorGroupId"), "demo-group-second-line")
+            elif day_index == 2:
+                status = "Waiting"
+                group = demo_value(fact.get("OperatorGroup"), "Second Line")
+                group_id = demo_value(fact.get("OperatorGroupId"), "demo-group-second-line")
+            elif day_index == 3:
+                status = "Waiting"
+                group = "Resolution Team"
+                group_id = "demo-group-resolution"
+            else:
+                status = "Resolved" if fact.get("IsClosed") == "true" else "In Progress"
+                group = "Resolution Team"
+                group_id = "demo-group-resolution"
+            snapshots.append(
+                {
+                    "SnapshotDate": current.isoformat(),
+                    "IncidentKey": fact.get("IncidentId", ""),
+                    "TopdeskNumber": fact.get("IncidentNumber", ""),
+                    "StatusId": status.lower().replace(" ", "-"),
+                    "StatusName": status,
+                    "OperatorGroupId": group_id,
+                    "OperatorGroupName": group,
+                    "OperatorId": f"demo-operator-{(day_index % 3) + 1}",
+                    "OperatorName": f"Demo Operator {(day_index % 3) + 1}",
+                    "PriorityId": str(fact.get("Priority", "")).lower().replace(" ", "-"),
+                    "PriorityName": fact.get("Priority", ""),
+                    "CategoryId": str(fact.get("Category", "")).lower().replace(" ", "-"),
+                    "CategoryName": fact.get("Category", ""),
+                    "BranchId": fact.get("BranchId", ""),
+                    "BranchName": fact.get("Branch", ""),
+                    "CreatedAt": iso_datetime(created, 8),
+                    "TargetAt": iso_datetime(str(fact.get("TargetDate", "")), 17),
+                    "ClosedAt": iso_datetime(closed_date, 16),
+                    "IsClosed": "true" if fact.get("IsClosed") == "true" and current.isoformat() >= str(closed_date or "9999-12-31") else "false",
+                }
+            )
+            current += timedelta(days=1)
+            day_index += 1
+    return snapshots
+
+
+def fact_status_transitions(facts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for fact in facts:
+        incident_id = fact.get("IncidentId", "")
+        created = fact.get("CreationDate", "")
+        if not incident_id or not created:
+            continue
+        day0 = date.fromisoformat(str(created))
+        intervals = [
+            ("new", "New", "in-progress", "In Progress", iso_datetime(day0.isoformat(), 8), iso_datetime((day0 + timedelta(days=1)).isoformat(), 9)),
+            ("in-progress", "In Progress", "waiting", "Waiting", iso_datetime((day0 + timedelta(days=1)).isoformat(), 9), iso_datetime((day0 + timedelta(days=2)).isoformat(), 13)),
+            ("waiting", "Waiting", "resolved", "Resolved", iso_datetime((day0 + timedelta(days=2)).isoformat(), 13), iso_datetime((day0 + timedelta(days=4)).isoformat(), 16)),
+        ]
+        for sequence, (from_id, from_name, to_id, to_name, valid_from, valid_to) in enumerate(intervals, start=1):
+            rows.append(
+                {
+                    "TransitionKey": f"{incident_id}-status-{sequence}",
+                    "IncidentKey": incident_id,
+                    "StatusSequence": sequence,
+                    "FromStatusId": from_id,
+                    "FromStatusName": from_name,
+                    "StatusId": from_id,
+                    "StatusName": from_name,
+                    "ToStatusId": to_id,
+                    "ToStatusName": to_name,
+                    "ChangedByOperatorId": f"demo-operator-{sequence}",
+                    "ValidFromAt": valid_from,
+                    "ValidToAt": valid_to,
+                    "DurationHours": hours_between(valid_from, valid_to),
+                    "Reason": "Demo lifecycle transition",
+                }
+            )
+    return rows
+
+
+def fact_assignment_transitions(facts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for fact in facts:
+        incident_id = fact.get("IncidentId", "")
+        created = fact.get("CreationDate", "")
+        if not incident_id or not created:
+            continue
+        day0 = date.fromisoformat(str(created))
+        target_group_id = demo_value(fact.get("OperatorGroupId"), "demo-group-second-line")
+        target_group = demo_value(fact.get("OperatorGroup"), "Second Line")
+        intervals = [
+            ("", "", "demo-group-intake", "Service Desk Intake", iso_datetime(day0.isoformat(), 8), iso_datetime((day0 + timedelta(days=1)).isoformat(), 9)),
+            ("demo-group-intake", "Service Desk Intake", target_group_id, target_group, iso_datetime((day0 + timedelta(days=1)).isoformat(), 9), iso_datetime((day0 + timedelta(days=3)).isoformat(), 11)),
+            (target_group_id, target_group, "demo-group-resolution", "Resolution Team", iso_datetime((day0 + timedelta(days=3)).isoformat(), 11), iso_datetime((day0 + timedelta(days=4)).isoformat(), 16)),
+        ]
+        for sequence, (from_group_id, from_group, group_id, group, valid_from, valid_to) in enumerate(intervals, start=1):
+            rows.append(
+                {
+                    "TransitionKey": f"{incident_id}-assignment-{sequence}",
+                    "IncidentKey": incident_id,
+                    "AssignmentSequence": sequence,
+                    "FromOperatorGroupId": from_group_id,
+                    "FromOperatorGroupName": from_group,
+                    "OperatorGroupId": group_id,
+                    "OperatorGroupName": group,
+                    "FromOperatorId": f"demo-operator-{max(sequence - 1, 1)}" if from_group_id else "",
+                    "FromOperatorName": f"Demo Operator {max(sequence - 1, 1)}" if from_group_id else "",
+                    "OperatorId": f"demo-operator-{sequence}",
+                    "OperatorName": f"Demo Operator {sequence}",
+                    "ChangedByOperatorId": f"demo-operator-{sequence}",
+                    "ValidFromAt": valid_from,
+                    "ValidToAt": valid_to,
+                    "DurationHours": hours_between(valid_from, valid_to),
+                    "Reason": "Demo routing handoff",
+                }
+            )
+    return rows
 
 
 def dim_persons(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -251,6 +410,13 @@ Data Quality Findings = COUNTROWS ( DataQualityFindings )
 SLA Findings = COUNTROWS ( SLAFinding )
 PII Findings = COUNTROWS ( PIIFinding )
 High PII Findings = CALCULATE ( [PII Findings], PIIFinding[severity] = "high" )
+Snapshot Incident Days = COUNTROWS ( FactIncidentDailySnapshot )
+Snapshot Open Incident Days = CALCULATE ( [Snapshot Incident Days], FactIncidentDailySnapshot[IsClosed] = "false" )
+Status Transitions = COUNTROWS ( FactStatusTransition )
+Average Time In Status Hours = AVERAGE ( FactStatusTransition[DurationHours] )
+Assignment Transitions = COUNTROWS ( FactAssignmentTransition )
+Reassigned Incidents = CALCULATE ( DISTINCTCOUNT ( FactAssignmentTransition[IncidentKey] ), FactAssignmentTransition[AssignmentSequence] > 1 )
+Average Time In Operator Group Hours = AVERAGE ( FactAssignmentTransition[DurationHours] )
 """
     (out / "dax").mkdir(parents=True, exist_ok=True)
     (out / "dax" / "topdesk-demo-measures.dax").write_text(dax, encoding="utf-8")
@@ -282,6 +448,9 @@ Import-ready Power BI implementation pack for a TOPdesk Operations, SLA, Data Qu
 - Persons: {summary['persons']}
 - Operator groups: {summary['operatorgroups']}
 - Branches: {summary['branches']}
+- Daily snapshot rows: {summary['daily_snapshots']}
+- Status transition rows: {summary['status_transitions']}
+- Assignment transition rows: {summary['assignment_transitions']}
 - Data-quality findings: {summary['data_quality_findings']}
 - SLA findings: {summary['sla_findings']}
 - PII findings: {summary['pii_findings']}
@@ -289,6 +458,9 @@ Import-ready Power BI implementation pack for a TOPdesk Operations, SLA, Data Qu
 ## Model
 
 - `FactIncident` at one row per incident.
+- `FactIncidentDailySnapshot` at one row per incident per demo snapshot date.
+- `FactStatusTransition` contains synthetic status intervals for lifecycle/aging demos.
+- `FactAssignmentTransition` contains synthetic operator-group handoff intervals.
 - `DimDate` with date roles for creation, call, target, response, completed, and closed dates.
 - `DimPerson` is pseudonymized and excludes names, emails, phone numbers, login names, request text, and comments.
 - `DimOperatorGroup` and `DimBranch` support routing and branch slicing.
@@ -310,6 +482,9 @@ Import-ready Power BI implementation pack for a TOPdesk Operations, SLA, Data Qu
 - `FactIncident[OperatorGroupId]` many-to-one `DimOperatorGroup[OperatorGroupId]`.
 - `FactIncident[BranchId]` many-to-one `DimBranch[BranchId]`.
 - `FactIncident[CallerKey]` many-to-one `DimPerson[CallerKey]`.
+- `FactIncidentDailySnapshot[IncidentKey]` many-to-one `FactIncident[IncidentId]`.
+- `FactStatusTransition[IncidentKey]` many-to-one `FactIncident[IncidentId]`.
+- `FactAssignmentTransition[IncidentKey]` many-to-one `FactIncident[IncidentId]`.
 
 ## Build Steps In Power BI Desktop
 
@@ -344,6 +519,7 @@ def write_build_guide(out: Path) -> None:
 
 - Executive Overview: KPI cards and trend.
 - Service Desk Operations: group, priority, status, and branch breakdowns.
+- Incident Lifecycle: status duration, operator-group handoffs, and snapshot aging.
 - SLA & Backlog Risk: `SLAFinding` table plus missing target/routing KPIs.
 - Data Quality: `DataQualityFindings` table and severity breakdown.
 - PII & Compliance: `PIIFinding` table by entity and severity.
@@ -359,6 +535,12 @@ SLA & Backlog Risk:
 - Table: `SLAFinding[incident]`, `SLAFinding[severity]`, `SLAFinding[finding]`, `SLAFinding[action]`.
 - Bar chart: `SLA Findings` by `SLAFinding[finding]`.
 - Donut or bar: `Incident Count` by `FactIncident[Priority]`.
+
+Incident Lifecycle:
+- Cards: `Status Transitions`, `Assignment Transitions`, `Average Time In Status Hours`, `Average Time In Operator Group Hours`.
+- Bar chart: `Average Time In Operator Group Hours` by `FactAssignmentTransition[OperatorGroupName]`.
+- Line chart: `Snapshot Open Incident Days` by `FactIncidentDailySnapshot[SnapshotDate]`.
+- Table: `FactAssignmentTransition[IncidentKey]`, `FactAssignmentTransition[OperatorGroupName]`, `FactAssignmentTransition[ValidFromAt]`, `FactAssignmentTransition[ValidToAt]`, `FactAssignmentTransition[DurationHours]`.
 
 Data Quality:
 - Matrix: `DataQualityFindings[entity]`, `DataQualityFindings[field]`, count by severity.
@@ -380,6 +562,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     operatorgroups = load_json(snapshots / "operatorgroups.json")
     branches = load_json(snapshots / "branches.json")
     facts = fact_incidents(incidents)
+    daily_snapshots = fact_incident_daily_snapshots(facts)
+    status_transitions = fact_status_transitions(facts)
+    assignment_transitions = fact_assignment_transitions(facts)
     data_dir = args.out / "data"
     write_csv(
         data_dir / "FactIncident.csv",
@@ -416,6 +601,73 @@ def main(argv: Sequence[str] | None = None) -> int:
     write_csv(data_dir / "DimOperatorGroup.csv", dim_operator_groups(operatorgroups), ["OperatorGroupId", "OperatorGroup", "Status", "BranchId", "Branch", "FirstLine", "SecondLine"])
     write_csv(data_dir / "DimBranch.csv", dim_branches(branches), ["BranchId", "Branch"])
     write_csv(data_dir / "DimDate.csv", dim_date(facts), ["Date", "Year", "MonthNumber", "Month", "Quarter", "Weekday"])
+    write_csv(
+        data_dir / "FactIncidentDailySnapshot.csv",
+        daily_snapshots,
+        [
+            "SnapshotDate",
+            "IncidentKey",
+            "TopdeskNumber",
+            "StatusId",
+            "StatusName",
+            "OperatorGroupId",
+            "OperatorGroupName",
+            "OperatorId",
+            "OperatorName",
+            "PriorityId",
+            "PriorityName",
+            "CategoryId",
+            "CategoryName",
+            "BranchId",
+            "BranchName",
+            "CreatedAt",
+            "TargetAt",
+            "ClosedAt",
+            "IsClosed",
+        ],
+    )
+    write_csv(
+        data_dir / "FactStatusTransition.csv",
+        status_transitions,
+        [
+            "TransitionKey",
+            "IncidentKey",
+            "StatusSequence",
+            "FromStatusId",
+            "FromStatusName",
+            "StatusId",
+            "StatusName",
+            "ToStatusId",
+            "ToStatusName",
+            "ChangedByOperatorId",
+            "ValidFromAt",
+            "ValidToAt",
+            "DurationHours",
+            "Reason",
+        ],
+    )
+    write_csv(
+        data_dir / "FactAssignmentTransition.csv",
+        assignment_transitions,
+        [
+            "TransitionKey",
+            "IncidentKey",
+            "AssignmentSequence",
+            "FromOperatorGroupId",
+            "FromOperatorGroupName",
+            "OperatorGroupId",
+            "OperatorGroupName",
+            "FromOperatorId",
+            "FromOperatorName",
+            "OperatorId",
+            "OperatorName",
+            "ChangedByOperatorId",
+            "ValidFromAt",
+            "ValidToAt",
+            "DurationHours",
+            "Reason",
+        ],
+    )
     dq = load_csv(root / "data_quality_findings.csv")
     sla = load_csv(root / "sla-analysis" / "sla-findings.csv")
     pii = load_csv(root / "pii-review" / "pii-field-findings.csv")
@@ -430,6 +682,9 @@ def main(argv: Sequence[str] | None = None) -> int:
             "DimOperatorGroup.csv",
             "DimBranch.csv",
             "DimDate.csv",
+            "FactIncidentDailySnapshot.csv",
+            "FactStatusTransition.csv",
+            "FactAssignmentTransition.csv",
             "DataQualityFindings.csv",
             "SLAFinding.csv",
             "PIIFinding.csv",
@@ -444,6 +699,9 @@ def main(argv: Sequence[str] | None = None) -> int:
             "persons": len(persons),
             "operatorgroups": len(operatorgroups),
             "branches": len(branches),
+            "daily_snapshots": len(daily_snapshots),
+            "status_transitions": len(status_transitions),
+            "assignment_transitions": len(assignment_transitions),
             "data_quality_findings": len(dq),
             "sla_findings": len(sla),
             "pii_findings": len(pii),

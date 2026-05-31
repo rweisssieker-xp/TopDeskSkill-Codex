@@ -1,6 +1,6 @@
 ﻿# Plugin Health Report
 
-Generated: 2026-05-01T18:45:08+02:00
+Generated: 2026-05-31T11:32:50+02:00
 
 | Check | Result |
 | --- | --- |

@@ -169,6 +169,38 @@ create table incident_assignment_history (
   changed_at timestamptz not null,
   reason text
 );
+
+create index ix_incident_status_history_incident_changed
+  on incident_status_history(incident_id, changed_at);
+
+create index ix_incident_assignment_history_incident_changed
+  on incident_assignment_history(incident_id, changed_at);
+
+create table incident_daily_snapshots (
+  snapshot_date date not null,
+  incident_id uuid not null references incidents(id),
+  topdesk_id text,
+  topdesk_number text,
+  status_id uuid references statuses(id),
+  assigned_group_id uuid references operator_groups(id),
+  assigned_operator_id uuid references operators(id),
+  priority_id uuid references priorities(id),
+  category_id uuid references categories(id),
+  branch_id uuid references branches(id),
+  created_at timestamptz,
+  modified_at timestamptz,
+  target_at timestamptz,
+  closed_at timestamptz,
+  is_closed boolean not null default false,
+  snapshot_loaded_at timestamptz not null default now(),
+  primary key (snapshot_date, incident_id)
+);
+
+create index ix_incident_daily_snapshots_group_date
+  on incident_daily_snapshots(assigned_group_id, snapshot_date);
+
+create index ix_incident_daily_snapshots_status_date
+  on incident_daily_snapshots(status_id, snapshot_date);
 ```
 
 ## Change, Asset, Knowledge, Attachment
@@ -379,11 +411,71 @@ create view vw_incident_status_transition_fact as
 select
   h.id as transition_key,
   h.incident_id as incident_key,
+  row_number() over (partition by h.incident_id order by h.changed_at) as status_sequence,
   h.from_status_id,
   h.to_status_id,
+  h.changed_by_operator_id,
   h.changed_at,
-  lead(h.changed_at) over (partition by h.incident_id order by h.changed_at) as next_changed_at
-from incident_status_history h;
+  coalesce(
+    lead(h.changed_at) over (partition by h.incident_id order by h.changed_at),
+    i.closed_at,
+    now()
+  ) as next_changed_at,
+  extract(epoch from (
+    coalesce(
+      lead(h.changed_at) over (partition by h.incident_id order by h.changed_at),
+      i.closed_at,
+      now()
+    ) - h.changed_at
+  )) / 3600.0 as duration_hours
+from incident_status_history h
+join incidents i on i.id = h.incident_id;
+
+create view vw_incident_assignment_transition_fact as
+select
+  h.id as transition_key,
+  h.incident_id as incident_key,
+  row_number() over (partition by h.incident_id order by h.changed_at) as assignment_sequence,
+  h.from_group_id,
+  h.to_group_id as operator_group_id,
+  h.from_operator_id,
+  h.to_operator_id as operator_id,
+  h.changed_by_operator_id,
+  h.changed_at,
+  coalesce(
+    lead(h.changed_at) over (partition by h.incident_id order by h.changed_at),
+    i.closed_at,
+    now()
+  ) as next_changed_at,
+  extract(epoch from (
+    coalesce(
+      lead(h.changed_at) over (partition by h.incident_id order by h.changed_at),
+      i.closed_at,
+      now()
+    ) - h.changed_at
+  )) / 3600.0 as duration_hours
+from incident_assignment_history h
+join incidents i on i.id = h.incident_id;
+
+create view vw_incident_daily_snapshot_fact as
+select
+  s.snapshot_date,
+  s.incident_id as incident_key,
+  s.topdesk_id,
+  s.topdesk_number,
+  s.status_id,
+  s.assigned_group_id,
+  s.assigned_operator_id,
+  s.priority_id,
+  s.category_id,
+  s.branch_id,
+  s.created_at,
+  s.modified_at,
+  s.target_at,
+  s.closed_at,
+  s.is_closed,
+  s.snapshot_loaded_at
+from incident_daily_snapshots s;
 
 create view vw_asset_dimension as
 select

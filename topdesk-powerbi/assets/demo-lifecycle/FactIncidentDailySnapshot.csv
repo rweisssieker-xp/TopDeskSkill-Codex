@@ -1,0 +1,6 @@
+SnapshotDate,IncidentKey,TopdeskNumber,StatusId,StatusName,OperatorGroupId,OperatorGroupName,OperatorId,OperatorName,PriorityId,PriorityName,CategoryId,CategoryName,BranchId,BranchName,CreatedAt,TargetAt,ClosedAt,IsClosed
+2026-05-01,demo-inc-001,I 2605 0001,new,New,demo-group-intake,Service Desk Intake,demo-operator-1,Demo Operator 1,p2,P2,cat-hardware,Hardware,branch-hq,HQ,2026-05-01T08:00:00+00:00,2026-05-03T17:00:00+00:00,,false
+2026-05-02,demo-inc-001,I 2605 0001,in-progress,In Progress,demo-group-workplace,Workplace Services,demo-operator-2,Demo Operator 2,p2,P2,cat-hardware,Hardware,branch-hq,HQ,2026-05-01T08:00:00+00:00,2026-05-03T17:00:00+00:00,,false
+2026-05-03,demo-inc-001,I 2605 0001,resolved,Resolved,demo-group-resolution,Resolution Team,demo-operator-3,Demo Operator 3,p2,P2,cat-hardware,Hardware,branch-hq,HQ,2026-05-01T08:00:00+00:00,2026-05-03T17:00:00+00:00,2026-05-03T15:30:00+00:00,true
+2026-05-01,demo-inc-002,I 2605 0002,new,New,demo-group-intake,Service Desk Intake,demo-operator-1,Demo Operator 1,p3,P3,cat-software,Software,branch-west,West Site,2026-05-01T10:00:00+00:00,2026-05-06T17:00:00+00:00,,false
+2026-05-02,demo-inc-002,I 2605 0002,waiting,Waiting,demo-group-apps,Application Support,demo-operator-4,Demo Operator 4,p3,P3,cat-software,Software,branch-west,West Site,2026-05-01T10:00:00+00:00,2026-05-06T17:00:00+00:00,,false

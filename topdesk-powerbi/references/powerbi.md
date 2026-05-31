@@ -150,6 +150,8 @@ Snapshot Days In Current Group =
 COUNTROWS ( FactIncidentDailySnapshot )
 ```
 
+For file-based imports, use `assets/topdesk-lifecycle-powerquery.pq` with the output of `topdesk-integration/scripts/sync_incident_lifecycle.py`.
+
 ## Power Query Guidance
 
 - Prefer OData filtering and database views that reduce rows before import.
