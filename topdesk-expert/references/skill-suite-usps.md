@@ -12,6 +12,9 @@ A complete TOPdesk delivery and intelligence skill system: tenant-verified, Powe
 - "Not a prompt collection: a validated TOPdesk delivery framework with scripts, templates, handbooks, and release automation."
 - "Turns TOPdesk tenant artifacts into mapped schemas, lifecycle history, governed analytics, AI-assist patterns, and operational runbooks."
 - "Bridges service desk practice, data engineering, BI, AI governance, and executive value in one reusable skill suite."
+- "Packages TOPdesk intelligence work as reviewable artifacts instead of black-box consulting output."
+- "Gives teams a five-day proof path from TOPdesk evidence to dashboard, governance proof, and ROI decision."
+- "Free accelerator assets for TOPdesk intelligence work; implementation, tenant access, hosting, and support remain separate decisions."
 
 ## Top Differentiators
 
@@ -51,6 +54,18 @@ A complete TOPdesk delivery and intelligence skill system: tenant-verified, Powe
 11. **Historical service-flow model**
     - Separates current incident state from transition facts and daily snapshots, so Power BI can explain where incidents waited and how routing changed over time.
 
+12. **No-lock-in delivery artifacts**
+    - Outputs are reviewable and portable: SQL, CSV, Python, Power Query, DAX, Markdown, Power BI model patterns, package ZIP, and checksums.
+
+13. **Free accelerator assets**
+    - The skill/plugin assets have no tool license fee, reducing proof-of-value friction and keeping budget focus on implementation, adoption, and operations.
+
+14. **Executive control packaging**
+    - Connects service-management evidence to leadership decisions: backlog, SLA risk, waiting time, reassignment, routing quality, data trust, and improvement value.
+
+15. **Operations-ready plugin gate**
+    - Local verification syncs skills, regenerates inventory/health reports, validates config, smoke-tests MCP, validates all bundled skills, packages the ZIP, tests extraction, and writes SHA256 checksums.
+
 ## Capability Matrix
 
 | Capability | Covered by | Evidence |
@@ -66,12 +81,15 @@ A complete TOPdesk delivery and intelligence skill system: tenant-verified, Powe
 | Migration/rollout | `topdesk-migration`, `topdesk-enablement` | Cutover, adoption, training |
 | Business case | `topdesk-usps`, `topdesk-roi-business-case` | ROI formulas, stakeholder messaging |
 | Documentation | `topdesk-handbook` | Complete handbook set |
-| Packaging/CI | root scripts and `.github` | Validate-all, workflow, release zip |
+| Packaging/CI | root scripts and `.github` | Validate-all, workflow, release zip, package test, checksum |
 
 ## Proof Points
 
 - 39 skills validate with the bundled validation script.
 - Lifecycle demo pack generates incident daily snapshots, status transition facts, and assignment transition facts.
+- Plugin verification produces a distributable ZIP, package test result, health report, inventory, and SHA256 checksum.
+- The bundle is credential-neutral; tenant secrets are kept out of plugin source.
+- The accelerator assets are free to use; platform licensing, tenant access, hosting, implementation, and support are outside the tool.
 - Release tagged as `v0.1.0`.
 - GitHub workflow validates skill structure and Python scripts.
 - Root indexes document skill use and forward-test prompts.
@@ -82,13 +100,29 @@ A complete TOPdesk delivery and intelligence skill system: tenant-verified, Powe
 
 This skill suite reduces the cost and risk of TOPdesk improvement programs by packaging the repeatable expertise needed for tenant mapping, database design, lifecycle history, governed Power BI reporting, safe AI assistance, security controls, operational runbooks, training, and ROI justification. It helps teams move faster without losing auditability or tenant-specific accuracy.
 
+## Executive Control Pitch
+
+The suite turns service-management data into a control system for leadership. It does not stop at ticket totals; it connects backlog, SLA risk, waiting time, reassignment, routing quality, data trust, and improvement value to drill-through evidence and next actions.
+
 ## Technical Pitch
 
 The suite combines Codex skills, structured references, scripts, assets, validation, CI, and release tooling. It treats real TOPdesk metadata and exports as authoritative inputs, then guides transformation into field catalogs, schemas, lifecycle history, Power BI models, AI workflows, runbooks, and delivery artifacts.
 
+## No-Lock-In Pitch
+
+The suite avoids opaque delivery by using reviewable artifacts: SQL, CSV, Python, Power Query, DAX, Markdown, Power BI model patterns, package ZIPs, and checksums. Customers can inspect, version, operate, and adapt the logic.
+
+## Free Tool Pitch
+
+The accelerator itself has no tool license fee. That makes it suitable for internal reuse and proof-of-value work without adding another paid analytics product. Customers should still plan separately for TOPdesk and Power BI licensing, tenant/API access, implementation effort, hosting or gateway operation, and support.
+
 ## Sales Pitch
 
 Instead of starting every TOPdesk analytics or AI project from a blank page, this suite provides a validated accelerator: discovery questions, tenant-mapping pipeline, lifecycle facts, Power BI model patterns, AI governance, data-quality checks, delivery roadmap, handbooks, and business-case material.
+
+## Five-Day Proof Pitch
+
+The suite supports a focused proof path: establish KPI truth, map tenant data, build lifecycle and executive proof visuals, validate governance or operations readiness, then present ROI assumptions and a go/no-go roadmap.
 
 ## Operator Trust Pitch
 
@@ -97,6 +131,10 @@ The AI parts are designed to help operators, not replace them. Operators review 
 ## Security Pitch
 
 The suite assumes service desk data is sensitive. It includes PII minimization, permission-aware retrieval, RLS, audit logging, secret handling, human approval gates, and explicit controls for AI-generated content.
+
+## Operations Pitch
+
+The plugin is designed to be verified and operated, not only demonstrated. The verification gate syncs bundled skills, validates plugin config, smoke-tests the MCP server, validates all skills, packages the plugin, tests extraction, and writes checksums.
 
 ## Maximum Positioning Statement
 
