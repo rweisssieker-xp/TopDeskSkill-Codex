@@ -17,12 +17,16 @@ European language support: see `docs/LOCALIZATION.md` for localized marketplace 
 - `docs/DEMO_DASHBOARD_STORYBOARD.md`: demo narrative, pages, KPIs, and lifecycle assets.
 - `docs/SECURITY_PRIVACY_AI.md`: privacy, reporting, and AI/KI production guardrails.
 - `docs/ONE_PAGER.md`: short customer-facing value, prerequisites, and five-day proof summary.
+- `docs/PRODUCTION_READINESS.md`: tenant, data, privacy, operations, and commercial gates for production use.
+- `docs/MARKETPLACE_SUBMISSION.md`: marketplace copy, screenshot policy, and submission evidence.
+- `docs/SERVICE_INTELLIGENCE_RUNTIME.md`: connector, runtime, governance, and local operating model.
 - `scripts/sync_skills.ps1`: refreshes bundled skills from the repository root.
 - `scripts/new_plugin_manifest.ps1`: generates `plugin-skills.manifest.json`.
 - `scripts/new_plugin_inventory.ps1`: generates `PLUGIN_INVENTORY.md`.
 - `scripts/new_plugin_health_report.ps1`: generates `PLUGIN_HEALTH.md`.
 - `scripts/generate_plugin_assets.ps1`: generates PNG icon, logo, and screenshot assets.
 - `scripts/validate_plugin_config.ps1`: checks `plugin.config.json` against the manifest and bundle.
+- `scripts/validate_marketplace_readiness.ps1`: checks marketplace metadata, screenshots, and production-readiness docs.
 - `scripts/validate_plugin.ps1`: validates the plugin manifest and bundled skills.
 - `scripts/package_plugin.ps1`: creates a distributable plugin zip.
 - `scripts/test_plugin_package.ps1`: extracts and smoke-tests the generated zip.
@@ -48,6 +52,8 @@ powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\n
 powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\new_plugin_inventory.ps1
 powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\new_plugin_health_report.ps1
 powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\validate_plugin_config.ps1
+powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\validate_marketplace_readiness.ps1
+powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\validate_marketplace_readiness.ps1 -CheckExternalUrls
 powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\validate_plugin.ps1
 powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\package_plugin.ps1
 powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\test_plugin_package.ps1
@@ -63,7 +69,10 @@ For a complete handover, use these documents in order:
 2. `docs/DEMO_DASHBOARD_STORYBOARD.md`
 3. `docs/COMMERCIAL_MODEL.md`
 4. `docs/SECURITY_PRIVACY_AI.md`
-5. `docs/ONE_PAGER.md`
+5. `docs/PRODUCTION_READINESS.md`
+6. `docs/MARKETPLACE_SUBMISSION.md`
+7. `docs/SERVICE_INTELLIGENCE_RUNTIME.md`
+8. `docs/ONE_PAGER.md`
 
 This keeps the story consistent: install the free plugin, show demo value, explain that the plugin license fee is zero, and then separate customer-owned licenses, tenant access, implementation, training, support, hosting, and AI platform costs.
 
@@ -90,7 +99,7 @@ Localized examples:
 
 ## Skill Coverage
 
-The plugin currently bundles 39 skills covering:
+The plugin currently bundles 48 skills covering:
 
 - TOPdesk domain, admin configuration, workflows, changes, assets, knowledge, major incidents, operations, testing, and security.
 - OData/API discovery, API smoke testing, tenant mapping, data quality, Python, PowerShell, and query-to-Power-BI workflows.
@@ -98,6 +107,7 @@ The plugin currently bundles 39 skills covering:
 - AI/KI features, AI feature factory packs, AI governance cockpits, prompt/eval patterns, RAG/search, feedback loops, and Power BI AI monitoring.
 - SLA/backlog optimization, routing quality checks, PII/compliance scanning, and live demo readiness analysis.
 - USPs, battlecards, proof-of-value sprints, ROI, business cases, delivery planning, handbooks, and enablement.
+- Service Intelligence Runtime orchestration, connector preflight, run history, governance gates, and local HTML/Markdown readouts.
 
 ## Local Install
 
@@ -138,6 +148,14 @@ Follow-on analysis from generated tenant artifacts:
 python .\topdesk-powerbi-dax\scripts\new_dax_measure_pack.py --field-catalog .\tenant-output\tenant-rest\rest_field_catalog.csv --out-dir .\tenant-output\tenant-rest\dax-pack
 python .\topdesk-sla-optimizer\scripts\analyze_sla_backlog.py --incidents .\tenant-output\tenant-rest\snapshots\incidents.json --out-dir .\tenant-output\tenant-rest\sla-analysis
 python .\topdesk-compliance-pii\scripts\scan_pii_catalog.py --field-catalog .\tenant-output\tenant-rest\rest_field_catalog.csv --out-dir .\tenant-output\tenant-rest\pii-review
+```
+
+Service Intelligence Runtime:
+
+```powershell
+Copy-Item .\plugins\topdesk-skill-suite\skills\topdesk-service-intelligence-runtime\assets\runtime-config.example.json .\runtime-config.json
+python .\plugins\topdesk-skill-suite\skills\topdesk-service-intelligence-runtime\scripts\run_service_intelligence.py --config .\runtime-config.json --out-dir .\tenant-output\runtime --dry-run
+python .\plugins\topdesk-skill-suite\skills\topdesk-service-intelligence-runtime\scripts\topdesk_live_connector.py preflight
 ```
 
 ## Demo Dashboard Assets

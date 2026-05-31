@@ -13,8 +13,9 @@ Use this skill when technical capabilities must become concise, credible market-
 2. Select offer: Power BI foundation, AI assist pilot, governance cockpit, tenant mapping, data quality, integration, proof of value, managed improvement.
 3. Build claims from evidence: tenant artifacts, KPI baselines, Power BI measures, governance controls, scripts/templates, validation gates.
 4. Produce persona-specific value, objections, responses, proof points, demo flow, and metrics.
-5. Separate current capability, implementation requirement, and roadmap claim.
+5. Separate packaged capability, tenant input requirement, implementation service, and operating responsibility.
 6. Include Power BI proof visuals or measures when the USP depends on measurable reporting value.
+7. For disruptive positioning, include a concrete proof point, demo moment, and boundary statement so the claim does not imply a hosted connector or unsupported live monitoring.
 
 ## References
 
@@ -30,4 +31,3 @@ Use this skill when technical capabilities must become concise, credible market-
 ## Scripts
 
 - Use `scripts/new_battlecard.py` to generate a battlecard starter.
-

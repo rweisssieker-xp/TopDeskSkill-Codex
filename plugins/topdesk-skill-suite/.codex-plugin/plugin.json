@@ -1,11 +1,11 @@
 {
   "name": "topdesk-skill-suite",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Free open-source TOPdesk-focused Codex skills for service management, OData/API mapping, reporting, migration, security, testing, and enablement.",
   "author": {
     "name": "TOPdesk Skill Suite Maintainers",
     "email": "",
-    "url": ""
+    "url": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex"
   },
   "homepage": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/tree/main/plugins/topdesk-skill-suite",
   "repository": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex",

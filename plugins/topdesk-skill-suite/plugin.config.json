@@ -1,8 +1,8 @@
 {
   "name": "topdesk-skill-suite",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "packageName": "topdesk-skill-suite-plugin",
-  "expectedSkillCount": 39,
+  "expectedSkillCount": 48,
   "requiredAssets": [
     "assets/icon.png",
     "assets/logo.png",
@@ -17,7 +17,10 @@
     "docs/SECURITY_PRIVACY_AI.md",
     "docs/ONE_PAGER.md",
     "docs/PRIVACY_POLICY.md",
-    "docs/TERMS_OF_SERVICE.md"
+    "docs/TERMS_OF_SERVICE.md",
+    "docs/PRODUCTION_READINESS.md",
+    "docs/MARKETPLACE_SUBMISSION.md",
+    "docs/SERVICE_INTELLIGENCE_RUNTIME.md"
   ],
   "requiredScripts": [
     "scripts/sync_skills.ps1",
@@ -25,6 +28,8 @@
     "scripts/new_plugin_manifest.ps1",
     "scripts/new_plugin_inventory.ps1",
     "scripts/new_plugin_health_report.ps1",
+    "scripts/validate_plugin_config.ps1",
+    "scripts/validate_marketplace_readiness.ps1",
     "scripts/validate_plugin.ps1",
     "scripts/package_plugin.ps1",
     "scripts/test_plugin_package.ps1",

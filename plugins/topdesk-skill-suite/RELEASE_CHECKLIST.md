@@ -6,6 +6,8 @@
 - Run `scripts/new_plugin_inventory.ps1`.
 - Run `scripts/new_plugin_health_report.ps1`.
 - Run `scripts/validate_plugin_config.ps1`.
+- Run `scripts/validate_marketplace_readiness.ps1`.
+- Run `scripts/validate_marketplace_readiness.ps1 -CheckExternalUrls` before external publication.
 - Run `scripts/validate_plugin.ps1`.
 - Run `scripts/package_plugin.ps1`.
 - Run `scripts/test_plugin_package.ps1`.
@@ -19,6 +21,10 @@
 - Review `docs/DEMO_DASHBOARD_STORYBOARD.md`.
 - Review `docs/SECURITY_PRIVACY_AI.md`.
 - Review `docs/ONE_PAGER.md`.
+- Review `docs/PRODUCTION_READINESS.md`.
+- Review `docs/MARKETPLACE_SUBMISSION.md`.
 - Confirm the customer-facing story says plugin license fee is zero and separates third-party licenses, tenant access, implementation, hosting, AI provider usage, support, and managed operation.
 - Confirm lifecycle demo CSVs are present under `skills/topdesk-powerbi/assets/demo-lifecycle`.
 - Confirm privacy guidance covers TOPdesk ticket text, caller data, operator notes, AI prompts, retention, and RLS.
+- Confirm marketplace screenshots are approved demo visuals or sanitized customer-approved captures.
+- Confirm public repository, homepage, privacy policy, and terms URLs are reachable before external publication.

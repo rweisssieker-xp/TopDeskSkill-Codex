@@ -28,7 +28,7 @@ Load the relevant handbook:
 - Use task-based sections.
 - Include do/don't guidance where mistakes are costly.
 - Include ownership, validation, and escalation.
-- Mark tenant-specific placeholders clearly.
+- Mark tenant-specific values clearly.
 - Avoid claiming exact TOPdesk tenant fields unless provided by metadata, exports, or API samples.
 
 ## Output Patterns

@@ -23,7 +23,8 @@ Load:
 2. Identify product scope: TOPdesk app, Power BI reporting, OData/API integration, AI/KI assist, workflow redesign, or full platform.
 3. Translate features into operational value: time saved, fewer reassignments, better SLA focus, cleaner data, safer automation, better self-service.
 4. Include proof metrics where possible.
-5. Keep claims grounded: distinguish existing capability, proposed roadmap, and requirements that need tenant data.
+5. Keep claims grounded in available skills, scripts, templates, data artifacts, and tenant requirements.
+6. When disruptive positioning is requested, consider Service Intelligence Operating System, tenant drift, process debt, AI adoption ledger, automation sandbox, readiness scoring, decision-ready findings, and executive narratives.
 
 ## Output Requirements
 
@@ -31,3 +32,4 @@ Load:
 - Add stakeholder-specific phrasing when useful.
 - Include measurable business-case KPIs.
 - Avoid vague claims like "revolutionary" or "fully automated" unless the design actually supports them.
+- Name concrete outputs clearly: packs, analyzers, templates, scorecards, ledgers, readouts, scripts, CSV files, and Markdown reports.

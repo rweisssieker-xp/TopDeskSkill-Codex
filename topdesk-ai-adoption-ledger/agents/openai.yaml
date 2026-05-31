@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk AI Adoption Ledger"
+  short_description: "Measure TOPdesk AI suggestion adoption."
+  default_prompt: "Build an AI adoption ledger from TOPdesk suggestion logs."

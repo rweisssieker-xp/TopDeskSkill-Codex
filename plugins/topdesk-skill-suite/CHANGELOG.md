@@ -1,5 +1,13 @@
 # TOPdesk Skill Suite Plugin Changelog
 
+## 0.1.3
+
+- Sets plugin manifest and package tooling to version `0.1.3`.
+- Bundles 48 TOPdesk-focused Codex skills.
+- Adds Service Intelligence Runtime skill and documentation for connector preflight, local run orchestration, governance gates, run history, and runtime readouts.
+- Adds disruptive feature skills for tenant drift, process debt, decision-ready findings, AI adoption ledger, automation safety, readiness scoring, digital twin light, and executive narrative.
+- Expands USP, battlecard, commercial, marketplace, and production-readiness documentation.
+
 ## 0.1.2
 
 - Sets plugin manifest and package tooling to version `0.1.2`.
@@ -8,7 +16,7 @@
 
 ## 0.1.0
 
-- Bundles 39 TOPdesk-focused Codex skills.
+- Bundles 47 TOPdesk-focused Codex skills.
 - Adds release-ready documentation for installation, handover, commercial model, demo dashboard storytelling, and AI/KI privacy guardrails.
 - Clarifies that the plugin, skills, scripts, templates, and demo assets are free open-source accelerator assets, while TOPdesk, Power BI, hosting, AI provider usage, implementation, support, and managed operation are separate.
 - Adds lifecycle-history demo positioning for status transitions, assignment transitions, daily incident snapshots, dwell-time reporting, and source-to-report reconciliation.

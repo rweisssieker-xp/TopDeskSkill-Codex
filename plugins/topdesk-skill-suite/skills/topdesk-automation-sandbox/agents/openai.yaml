@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Automation Sandbox"
+  short_description: "Review TOPdesk automation risk cards."
+  default_prompt: "Review a TOPdesk action sequence for automation risk."

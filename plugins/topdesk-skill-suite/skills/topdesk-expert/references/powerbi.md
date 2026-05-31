@@ -135,7 +135,7 @@ in
     ChangedTypes
 ```
 
-Treat entity/table names as placeholders until verified against the target TOPdesk OData feed.
+Treat entity/table names as examples until verified against the target TOPdesk OData feed.
 
 ## Dashboard Pages
 

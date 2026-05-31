@@ -88,7 +88,7 @@ Power BI Desktop must have these preview settings enabled before opening generat
 - Store semantic model using TMDL format.
 - Store reports using enhanced metadata format, PBIR.
 
-Generated reports should prefer native visual types. Q&A visuals can trigger the Power BI Desktop deprecation dialog, and advanced visual types such as `smartNarrative` or `decompositionTree` can require custom visual availability in the report. For generated demo packs, prefer replacing those with native cards, tables, bar/line/area charts, matrices, slicers, scatter charts, and donut charts unless the target Desktop environment is known to support the advanced visuals.
+Generated reports should prefer native visual types. Q&A visuals can trigger the Power BI Desktop deprecation dialog, and advanced visual types such as `smartNarrative` or `decompositionTree` can require custom visual availability in the report. For generated report packs, prefer replacing those with native cards, tables, bar/line/area charts, matrices, slicers, scatter charts, and donut charts unless the target Desktop environment is known to support the advanced visuals.
 
 ## Maintenance Workflow
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.3 - 2026-05-31
+
+- Added disruptive service intelligence skills for tenant drift, process debt, decision-ready findings, AI adoption, automation safety, readiness scoring, digital twin light, executive narrative, and runtime orchestration.
+- Added Service Intelligence Runtime orchestration with connector preflight, local run plans, governance gates, run history, and HTML/Markdown readouts.
+- Expanded USP, battlecard, marketplace, commercial, production-readiness, and one-pager documentation for release.
+
 ## v0.1.2 - 2026-05-31
 
 - Added incident lifecycle historization support with daily snapshots, status transition facts, assignment transition facts, demo lifecycle CSVs, ingestion guidance, and Power Query starter assets.

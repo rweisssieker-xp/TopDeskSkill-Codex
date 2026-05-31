@@ -24,4 +24,13 @@ jobs:
         shell: pwsh
         run: |
           powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\verify_plugin.ps1
-
+      - name: Upload plugin package evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: topdesk-skill-suite-plugin
+          path: |
+            dist/topdesk-skill-suite-plugin-*.zip
+            dist/topdesk-skill-suite-plugin-*.sha256
+            plugins/topdesk-skill-suite/PLUGIN_HEALTH.md
+            plugins/topdesk-skill-suite/PLUGIN_INVENTORY.md
+            plugins/topdesk-skill-suite/plugin-skills.manifest.json
