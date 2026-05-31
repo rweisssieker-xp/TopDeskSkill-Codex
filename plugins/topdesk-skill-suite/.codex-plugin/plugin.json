@@ -15,7 +15,9 @@
     "service-management",
     "odata",
     "power-bi",
-    "migration"
+    "migration",
+    "multilingual",
+    "european-languages"
   ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
@@ -33,9 +35,11 @@
     "privacyPolicyURL": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/blob/main/plugins/topdesk-skill-suite/docs/PRIVACY_POLICY.md",
     "termsOfServiceURL": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/blob/main/plugins/topdesk-skill-suite/docs/TERMS_OF_SERVICE.md",
     "defaultPrompt": [
-      "Plane eine TOPdesk Migration.",
-      "Erstelle ein TOPdesk Power BI Reporting Pack.",
-      "Pruefe TOPdesk OData und API Mapping."
+      "Plan a TOPdesk migration.",
+      "Create a TOPdesk Power BI reporting pack.",
+      "Review TOPdesk OData and API mapping.",
+      "Use de-DE: Plane eine TOPdesk Migration.",
+      "Use fr-FR: Planifie une migration TOPdesk."
     ],
     "brandColor": "#2563EB",
     "composerIcon": "./assets/icon.png",

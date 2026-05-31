@@ -9,6 +9,8 @@
 - REST tenant profiler documented and tested against the demo instance with ignored local output artifacts.
 - API test lab, DAX measure generator, SLA backlog optimizer, and PII/compliance scanner documented and tested against ignored demo profile artifacts.
 - Skill inventory and generated manifest for bundled skills.
+- Primary `en-US` documentation plus European locale guidance in `docs/LOCALIZATION.md`.
+- Localized marketplace summaries, prompt starters, and translation quality rules for common European locales.
 - TOPdesk domain skills for workflows, admin, incidents, changes, assets, knowledge, security, operations, testing, migration, and enablement.
 - Data and automation skills for OData/API, API smoke testing, tenant mapping, Python, PowerShell, query-to-Power-BI, and data quality.
 - Power BI skills for report building, semantic modelling, visual design, report factory, DAX generation, Power Query, RLS, refresh, reconciliation, and KPI definitions.
@@ -37,3 +39,4 @@ The gate regenerates the plugin docs and package evidence:
 - Public URLs in `.codex-plugin/plugin.json` point to the configured repository paths; verify them again before publishing outside the local/demo workflow.
 - Screenshots are generated placeholder product visuals, not live Power BI screenshots.
 - The suite provides reusable templates and scripts, not a live TOPdesk connector or hosted MCP server.
+- `en-US` is the canonical source. European locales are supported through localization guidance and prompt starters, not through duplicated per-skill source files.

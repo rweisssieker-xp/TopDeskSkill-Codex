@@ -2,6 +2,10 @@
 
 Codex plugin bundling TOPdesk-focused skills for service management, OData/API mapping, Power BI reporting, AI/KI feature delivery, AI governance cockpits, proof-of-value sprints, migrations, security, operations, testing, enablement, and business positioning.
 
+Primary documentation language: `en-US`.
+
+European language support: see `docs/LOCALIZATION.md` for localized marketplace summaries, prompt starters, and response-language guidance across common European locales. The skill source files remain canonical in `en-US`; users can ask the plugin to answer in a supported locale such as `de-DE`, `fr-FR`, `es-ES`, `it-IT`, `nl-NL`, `pl-PL`, or another locale listed in the localization guide.
+
 ## Contents
 
 - `skills/`: bundled `topdesk-*` skills.
@@ -46,13 +50,24 @@ powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\v
 
 ## Example Prompts
 
-- Plane eine TOPdesk Migration.
-- Erstelle ein TOPdesk Power BI Reporting Pack.
-- Pruefe TOPdesk OData und API Mapping.
-- Erstelle ein governed TOPdesk AI Feature Pack mit Power BI Monitoring.
-- Designe ein TOPdesk AI Governance Cockpit in Power BI.
-- Baue ein Proof-of-Value Sprint Pack fuer TOPdesk AI und Reporting.
-- Erstelle USP Battlecards fuer TOPdesk Power BI und AI/KI.
+Primary `en-US` prompts:
+
+- Plan a TOPdesk migration.
+- Create a TOPdesk Power BI reporting pack.
+- Review TOPdesk OData and API mapping.
+- Create a governed TOPdesk AI feature pack with Power BI monitoring.
+- Design a TOPdesk AI governance cockpit in Power BI.
+- Build a proof-of-value sprint pack for TOPdesk AI and reporting.
+- Create USP battlecards for TOPdesk Power BI and AI.
+
+Localized examples:
+
+- `de-DE`: Plane eine TOPdesk Migration.
+- `fr-FR`: Planifie une migration TOPdesk.
+- `es-ES`: Planifica una migracion TOPdesk.
+- `it-IT`: Pianifica una migrazione TOPdesk.
+- `nl-NL`: Plan een TOPdesk-migratie.
+- `pl-PL`: Zaplanuj migracje TOPdesk.
 
 ## Skill Coverage
 
@@ -75,19 +90,7 @@ powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\i
 
 ## Demo Tenant
 
-The provided demo URL maps to this TOPdesk base URL:
-
-```text
-https://usatopdesktrial2.topdesk.net
-```
-
-The plugin stores only the base URL and demo username in `.mcp.json`. The `/tas/secure/...` browser path and timestamp are session-specific and are not used as API configuration. Add `TOPDESK_API_TOKEN` or `TOPDESK_APP_PASSWORD` only in your local environment when live GET access is required.
-
-Configured non-secret demo username:
-
-```text
-raulm09
-```
+The plugin does not ship tenant credentials. Configure demo or customer TOPdesk access only through local environment variables:
 
 Observed unauthenticated behavior:
 
@@ -104,16 +107,16 @@ Observed authenticated behavior with `TOPDESK_USERNAME` plus `TOPDESK_APP_PASSWO
 REST profiling:
 
 ```powershell
-$env:TOPDESK_BASE_URL = "https://usatopdesktrial2.topdesk.net"
-$env:TOPDESK_USERNAME = "raulm09"
+$env:TOPDESK_BASE_URL = "https://your-tenant.topdesk.net"
+$env:TOPDESK_USERNAME = "<username>"
 $env:TOPDESK_APP_PASSWORD = "<application-password>"
-python .\topdesk-tenant-mapping\scripts\profile_topdesk_rest.py --out .\tenant-output\usatopdesktrial2-rest --max-records 100 --page-size 50
+python .\topdesk-tenant-mapping\scripts\profile_topdesk_rest.py --out .\tenant-output\tenant-rest --max-records 100 --page-size 50
 ```
 
 Follow-on analysis from generated tenant artifacts:
 
 ```powershell
-python .\topdesk-powerbi-dax\scripts\new_dax_measure_pack.py --field-catalog .\tenant-output\usatopdesktrial2-rest\rest_field_catalog.csv --out-dir .\tenant-output\usatopdesktrial2-rest\dax-pack
-python .\topdesk-sla-optimizer\scripts\analyze_sla_backlog.py --incidents .\tenant-output\usatopdesktrial2-rest\snapshots\incidents.json --out-dir .\tenant-output\usatopdesktrial2-rest\sla-analysis
-python .\topdesk-compliance-pii\scripts\scan_pii_catalog.py --field-catalog .\tenant-output\usatopdesktrial2-rest\rest_field_catalog.csv --out-dir .\tenant-output\usatopdesktrial2-rest\pii-review
+python .\topdesk-powerbi-dax\scripts\new_dax_measure_pack.py --field-catalog .\tenant-output\tenant-rest\rest_field_catalog.csv --out-dir .\tenant-output\tenant-rest\dax-pack
+python .\topdesk-sla-optimizer\scripts\analyze_sla_backlog.py --incidents .\tenant-output\tenant-rest\snapshots\incidents.json --out-dir .\tenant-output\tenant-rest\sla-analysis
+python .\topdesk-compliance-pii\scripts\scan_pii_catalog.py --field-catalog .\tenant-output\tenant-rest\rest_field_catalog.csv --out-dir .\tenant-output\tenant-rest\pii-review
 ```
