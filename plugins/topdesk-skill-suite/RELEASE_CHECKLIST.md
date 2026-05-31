@@ -14,3 +14,11 @@
 - Confirm `dist/topdesk-skill-suite-plugin-<version>.sha256` exists.
 - Review `.codex-plugin/plugin.json` version and user-facing descriptions.
 - Review `PLUGIN_INVENTORY.md` for expected skill count and artifacts.
+- Review `docs/INSTALLATION_AND_RELEASE.md`.
+- Review `docs/COMMERCIAL_MODEL.md`.
+- Review `docs/DEMO_DASHBOARD_STORYBOARD.md`.
+- Review `docs/SECURITY_PRIVACY_AI.md`.
+- Review `docs/ONE_PAGER.md`.
+- Confirm the customer-facing story says plugin license fee is zero and separates third-party licenses, tenant access, implementation, hosting, AI provider usage, support, and managed operation.
+- Confirm lifecycle demo CSVs are present under `skills/topdesk-powerbi/assets/demo-lifecycle`.
+- Confirm privacy guidance covers TOPdesk ticket text, caller data, operator notes, AI prompts, retention, and RLS.

@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.2 - 2026-05-31
+
+- Added incident lifecycle historization support with daily snapshots, status transition facts, assignment transition facts, demo lifecycle CSVs, ingestion guidance, and Power Query starter assets.
+- Added AI/KI and reporting USPs for lifecycle analytics, bottleneck detection, KPI explanation, data trust, executive control, no-lock-in delivery, operations readiness, and five-day proof paths.
+- Clarified free-tool positioning: plugin, skills, scripts, templates, and demo assets are free open-source accelerator material; TOPdesk, Power BI, hosting, AI provider usage, implementation, support, and managed operation are separate.
+- Added plugin-ready release documentation for installation, commercial model, demo dashboard storytelling, and security/privacy/AI guardrails.
+
 ## v0.1.1 - 2026-04-30
 
 - Added maximum skill-suite USP positioning.

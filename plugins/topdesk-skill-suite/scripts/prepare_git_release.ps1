@@ -1,5 +1,5 @@
 param(
-    [string]$Version = "0.1.0",
+    [string]$Version = "0.1.2",
     [string]$Tag = ""
 )
 
@@ -27,4 +27,3 @@ if (git tag --list $Tag) {
 Write-Host "Review changes, then push explicitly when ready:"
 Write-Host "git push origin HEAD"
 Write-Host "git push origin $Tag"
-

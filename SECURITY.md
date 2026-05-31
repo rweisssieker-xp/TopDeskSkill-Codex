@@ -24,3 +24,15 @@ AI-related skills must preserve:
 - permission-aware retrieval
 - auditability of model/prompt versions and suggestions
 - rollback/disable paths for automated behavior
+
+## Reporting And Snapshot Safety
+
+- Use read-only TOPdesk credentials for profiling and reporting where possible.
+- Keep daily snapshots and lifecycle history in approved storage with retention rules.
+- Reconcile Power BI incident counts against TOPdesk source screens or trusted exports.
+- Flag unknown dimensions and missing source keys instead of dropping records silently.
+- Apply row-level security when dashboards include ticket text, caller data, branch data, customer data, or operator notes.
+
+## Free Tool Boundary
+
+The plugin and skill assets are free open-source accelerator material. This does not include TOPdesk access, Power BI licensing, gateways, hosting, AI provider usage, implementation services, support, or managed operation.

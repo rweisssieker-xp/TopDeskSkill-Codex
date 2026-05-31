@@ -37,6 +37,14 @@ foreach ($asset in $config.requiredAssets) {
     }
 }
 
+if ($config.PSObject.Properties.Name -contains "requiredDocs") {
+    foreach ($doc in $config.requiredDocs) {
+        if (-not (Test-Path -LiteralPath (Join-Path $resolvedPluginRoot $doc))) {
+            throw "Required doc missing: $doc"
+        }
+    }
+}
+
 foreach ($script in $config.requiredScripts) {
     if (-not (Test-Path -LiteralPath (Join-Path $resolvedPluginRoot $script))) {
         throw "Required script missing: $script"
@@ -44,4 +52,3 @@ foreach ($script in $config.requiredScripts) {
 }
 
 Write-Host "Plugin config validation succeeded."
-

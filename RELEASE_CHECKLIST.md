@@ -1,6 +1,6 @@
 # Release Checklist
 
-Version: `v0.1.1`
+Version: `v0.1.2`
 
 ## Validation
 
@@ -14,6 +14,9 @@ Version: `v0.1.1`
 - [x] Release package script added.
 - [x] Tenant mapping pipeline added.
 - [x] Forward-test run sheet generator added.
+- [x] Plugin verification workflow added.
+- [x] Plugin handover docs added.
+- [x] Lifecycle history demo assets added.
 
 ## Documentation
 
@@ -23,12 +26,16 @@ Version: `v0.1.1`
 - [x] Forward-test prompts.
 - [x] Tenant artifact checklist.
 - [x] Contributing and security docs.
+- [x] Plugin installation and release guide.
+- [x] Free-tool commercial model.
+- [x] Demo dashboard storyboard.
+- [x] Security, privacy, and AI guardrails.
 
 ## Release Notes
 
 - [x] Changelog updated.
-- [x] Git commit created.
-- [ ] Optional tag `v0.1.1` created.
+- [ ] Git commit created.
+- [ ] Optional tag `v0.1.2` created.
 
 ## Post-Release
 

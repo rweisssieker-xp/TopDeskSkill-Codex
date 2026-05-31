@@ -1,8 +1,17 @@
 # TOPdesk Skill Suite Plugin Changelog
 
+## 0.1.2
+
+- Sets plugin manifest and package tooling to version `0.1.2`.
+- Adds customer-facing one-pager for value, prerequisites, KPIs, free-tool boundary, and five-day proof.
+- Adds required-doc validation for release-critical plugin documentation.
+
 ## 0.1.0
 
 - Bundles 39 TOPdesk-focused Codex skills.
+- Adds release-ready documentation for installation, handover, commercial model, demo dashboard storytelling, and AI/KI privacy guardrails.
+- Clarifies that the plugin, skills, scripts, templates, and demo assets are free open-source accelerator assets, while TOPdesk, Power BI, hosting, AI provider usage, implementation, support, and managed operation are separate.
+- Adds lifecycle-history demo positioning for status transitions, assignment transitions, daily incident snapshots, dwell-time reporting, and source-to-report reconciliation.
 - Adds plugin manifest for Codex discovery.
 - Adds local marketplace entry support.
 - Adds plugin README, icon, logo, sync, validation, and packaging scripts.

@@ -1,6 +1,6 @@
 {
   "name": "topdesk-skill-suite",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Free open-source TOPdesk-focused Codex skills for service management, OData/API mapping, reporting, migration, security, testing, and enablement.",
   "author": {
     "name": "TOPdesk Skill Suite Maintainers",

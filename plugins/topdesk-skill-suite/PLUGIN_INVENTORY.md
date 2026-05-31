@@ -1,6 +1,6 @@
 ﻿# TOPdesk Skill Suite Plugin Inventory
 
-Generated: 2026-05-31T11:56:14+02:00
+Generated: 2026-05-31T12:15:42+02:00
 
 Skill count: 39
 

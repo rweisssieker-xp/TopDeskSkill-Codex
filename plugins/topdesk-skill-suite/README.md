@@ -12,6 +12,11 @@ European language support: see `docs/LOCALIZATION.md` for localized marketplace 
 
 - `skills/`: bundled `topdesk-*` skills.
 - `.codex-plugin/plugin.json`: plugin manifest.
+- `docs/INSTALLATION_AND_RELEASE.md`: install, release, handover, and production gate.
+- `docs/COMMERCIAL_MODEL.md`: free-tool positioning, billable services, and offer packages.
+- `docs/DEMO_DASHBOARD_STORYBOARD.md`: demo narrative, pages, KPIs, and lifecycle assets.
+- `docs/SECURITY_PRIVACY_AI.md`: privacy, reporting, and AI/KI production guardrails.
+- `docs/ONE_PAGER.md`: short customer-facing value, prerequisites, and five-day proof summary.
 - `scripts/sync_skills.ps1`: refreshes bundled skills from the repository root.
 - `scripts/new_plugin_manifest.ps1`: generates `plugin-skills.manifest.json`.
 - `scripts/new_plugin_inventory.ps1`: generates `PLUGIN_INVENTORY.md`.
@@ -49,6 +54,18 @@ powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\t
 powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\new_plugin_checksums.ps1
 powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\verify_plugin.ps1
 ```
+
+## Release-Ready Path
+
+For a complete handover, use these documents in order:
+
+1. `docs/INSTALLATION_AND_RELEASE.md`
+2. `docs/DEMO_DASHBOARD_STORYBOARD.md`
+3. `docs/COMMERCIAL_MODEL.md`
+4. `docs/SECURITY_PRIVACY_AI.md`
+5. `docs/ONE_PAGER.md`
+
+This keeps the story consistent: install the free plugin, show demo value, explain that the plugin license fee is zero, and then separate customer-owned licenses, tenant access, implementation, training, support, hosting, and AI platform costs.
 
 ## Example Prompts
 
@@ -122,3 +139,15 @@ python .\topdesk-powerbi-dax\scripts\new_dax_measure_pack.py --field-catalog .\t
 python .\topdesk-sla-optimizer\scripts\analyze_sla_backlog.py --incidents .\tenant-output\tenant-rest\snapshots\incidents.json --out-dir .\tenant-output\tenant-rest\sla-analysis
 python .\topdesk-compliance-pii\scripts\scan_pii_catalog.py --field-catalog .\tenant-output\tenant-rest\rest_field_catalog.csv --out-dir .\tenant-output\tenant-rest\pii-review
 ```
+
+## Demo Dashboard Assets
+
+Use the offline lifecycle files before customer data is available:
+
+```text
+skills/topdesk-powerbi/assets/demo-lifecycle/FactIncidentDailySnapshot.csv
+skills/topdesk-powerbi/assets/demo-lifecycle/FactStatusTransition.csv
+skills/topdesk-powerbi/assets/demo-lifecycle/FactAssignmentTransition.csv
+```
+
+Recommended storyline: executive overview, lifecycle flow, assignment flow, data quality, AI/KI insights, and proof-of-value results. See `docs/DEMO_DASHBOARD_STORYBOARD.md`.

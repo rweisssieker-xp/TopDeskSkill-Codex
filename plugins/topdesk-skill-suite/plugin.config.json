@@ -1,6 +1,6 @@
 {
   "name": "topdesk-skill-suite",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "packageName": "topdesk-skill-suite-plugin",
   "expectedSkillCount": 39,
   "requiredAssets": [
@@ -9,6 +9,15 @@
     "assets/screenshot-overview.png",
     "assets/screenshot-powerbi.png",
     "assets/screenshot-ai-governance.png"
+  ],
+  "requiredDocs": [
+    "docs/INSTALLATION_AND_RELEASE.md",
+    "docs/COMMERCIAL_MODEL.md",
+    "docs/DEMO_DASHBOARD_STORYBOARD.md",
+    "docs/SECURITY_PRIVACY_AI.md",
+    "docs/ONE_PAGER.md",
+    "docs/PRIVACY_POLICY.md",
+    "docs/TERMS_OF_SERVICE.md"
   ],
   "requiredScripts": [
     "scripts/sync_skills.ps1",

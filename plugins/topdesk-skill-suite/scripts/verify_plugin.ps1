@@ -1,7 +1,7 @@
 param(
     [string]$Root = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..")).Path,
     [string]$PluginRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path,
-    [string]$Version = "0.1.0"
+    [string]$Version = "0.1.2"
 )
 
 $ErrorActionPreference = "Stop"

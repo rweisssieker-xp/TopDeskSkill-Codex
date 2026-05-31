@@ -90,7 +90,7 @@ A complete TOPdesk delivery and intelligence skill system: tenant-verified, Powe
 - Plugin verification produces a distributable ZIP, package test result, health report, inventory, and SHA256 checksum.
 - The bundle is credential-neutral; tenant secrets are kept out of plugin source.
 - The accelerator assets are free to use; platform licensing, tenant access, hosting, implementation, and support are outside the tool.
-- Release tagged as `v0.1.0`.
+- Release tagged as `v0.1.2`.
 - GitHub workflow validates skill structure and Python scripts.
 - Root indexes document skill use and forward-test prompts.
 - OData and CSV scripts turn tenant artifacts into analysis inputs.

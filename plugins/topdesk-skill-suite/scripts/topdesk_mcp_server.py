@@ -18,7 +18,7 @@ from typing import Any
 
 
 SERVER_NAME = "topdesk-skill-suite"
-SERVER_VERSION = "0.1.0"
+SERVER_VERSION = "0.1.2"
 
 
 def read_message() -> dict[str, Any] | None:
