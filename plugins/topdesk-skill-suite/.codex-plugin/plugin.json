@@ -1,7 +1,7 @@
 {
   "name": "topdesk-skill-suite",
   "version": "0.1.0",
-  "description": "TOPdesk-focused Codex skills for service management, OData/API mapping, reporting, migration, security, testing, and enablement.",
+  "description": "Free open-source TOPdesk-focused Codex skills for service management, OData/API mapping, reporting, migration, security, testing, and enablement.",
   "author": {
     "name": "TOPdesk Skill Suite Maintainers",
     "email": "",
@@ -16,6 +16,8 @@
     "odata",
     "power-bi",
     "migration",
+    "open-source",
+    "free",
     "multilingual",
     "european-languages"
   ],
@@ -23,8 +25,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "TOPdesk Skill Suite",
-    "shortDescription": "TOPdesk implementation, reporting, operations, and enablement skills.",
-    "longDescription": "A bundled TOPdesk skill suite for service-management workflows, OData/API mapping, Power BI reporting, AI assistance, security, operations, migration, enablement, business cases, and template packs.",
+    "shortDescription": "Free open-source TOPdesk implementation, reporting, operations, and enablement skills.",
+    "longDescription": "A free open-source bundled TOPdesk skill suite for service-management workflows, OData/API mapping, Power BI reporting, AI assistance, security, operations, migration, enablement, business cases, and template packs.",
     "developerName": "TOPdesk Skill Suite Maintainers",
     "category": "Productivity",
     "capabilities": [

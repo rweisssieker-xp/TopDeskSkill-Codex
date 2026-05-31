@@ -1,6 +1,8 @@
 # TOPdesk Skill Suite Plugin
 
-Codex plugin bundling TOPdesk-focused skills for service management, OData/API mapping, Power BI reporting, AI/KI feature delivery, AI governance cockpits, proof-of-value sprints, migrations, security, operations, testing, enablement, and business positioning.
+Free open-source Codex plugin bundling TOPdesk-focused skills for service management, OData/API mapping, Power BI reporting, AI/KI feature delivery, AI governance cockpits, proof-of-value sprints, migrations, security, operations, testing, enablement, and business positioning.
+
+License: MIT. Cost: free to install, use, inspect, fork, and adapt under the repository license.
 
 Primary documentation language: `en-US`.
 
