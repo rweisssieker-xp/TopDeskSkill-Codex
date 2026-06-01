@@ -35,7 +35,7 @@ Integration:
 - Who owns recovery when refresh, sync, schema drift, or credentials fail?
 - Are runbooks already documented and tested?
 
-AI/KI:
+AI:
 
 - Which work is repetitive: classification, routing, summaries, replies, knowledge lookup?
 - Is there historical labeled ticket data?
@@ -93,7 +93,7 @@ Weak fit:
 2. Reporting/KPI walkthrough.
 3. Data/API/OData availability.
 4. Workflow and category/routing review.
-5. AI/KI opportunity scan.
+5. AI opportunity scan.
 6. Security and governance constraints.
 7. Lifecycle bottleneck and snapshot-history discussion.
 8. Reconciliation, audit, and no-lock-in requirements.
@@ -106,7 +106,7 @@ Weak fit:
 3. Proposed scope.
 4. TOPdesk data foundation.
 5. Power BI reporting package.
-6. AI/KI assist package.
+6. AI assist package.
 7. Security and governance.
 8. Lifecycle bottleneck and snapshot-history package.
 9. Operational runbooks and support model.

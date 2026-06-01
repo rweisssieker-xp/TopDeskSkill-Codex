@@ -42,7 +42,7 @@ TOPdesk Skill Suite is a Service Intelligence Operating System for delivery work
    - KPI catalog, semantic model guidance, DAX snippets, Power Query patterns, RLS, report specs, model review, refresh, and reconciliation.
    - Includes incident lifecycle facts for status duration, assignment duration, daily snapshots, reassignment rate, and bottleneck analysis.
 
-4. **AI/KI with controls**
+4. **AI with controls**
    - Classification, routing, summaries, draft replies, RAG, duplicate detection, prediction.
    - Includes human review, confidence, audit, PII controls, prompt/model versioning, and feedback loops.
 
@@ -96,7 +96,7 @@ TOPdesk Skill Suite is a Service Intelligence Operating System for delivery work
     - Converts operational friction into improvement backlog items.
 
 20. **AI Adoption Ledger**
-    - Tracks whether AI/KI assistance is accepted, edited, rejected, overridden, trusted, and worth the operating cost.
+    - Tracks whether AI assistance is accepted, edited, rejected, overridden, trusted, and worth the operating cost.
     - Keeps AI value measurable after the pilot demo.
 
 21. **Governed Automation Sandbox**
@@ -135,7 +135,7 @@ TOPdesk Skill Suite is a Service Intelligence Operating System for delivery work
 | Service Desk Digital Twin Light | Run lightweight what-if scenarios on routing, SLA, capacity, cleanup, and AI assistance. | `digital-twin-scenarios.csv`, `digital-twin-readout.md`. |
 | Readiness Score Engine | Score reporting, AI, data trust, automation, operations, and security readiness. | Red/amber/green scorecards, blockers, required actions. |
 | Executive Narrative Builder | Convert technical findings into management-ready stories. | `executive-narrative.md`, `executive-actions.csv`. |
-| Service Intelligence Runtime | Run a full local operating cycle from approved exports and optional connector preflight. | `runtime-plan.json`, `runtime-readout.md`, `runtime-dashboard.html`, `operational-gates.csv`, `runtime-history.jsonl`. |
+| Service Intelligence Runtime | Run a full local operating cycle from approved exports and optional connector preflight. | `runtime-plan.json`, `runtime-readout.md`, `runtime-dashboard.html`, `operational-gates.csv`, `runtime-history.jsonl`, `service-intelligence.sqlite`, `runtime-monitoring.json`, and local status API. |
 | Local Runtime Operations | Persist and monitor repeated local runtime executions. | `service-intelligence.sqlite`, `runtime-monitoring.json`, Windows Scheduled Task registration. |
 
 ## Disruptive Persona Messaging
@@ -171,7 +171,7 @@ TOPdesk Skill Suite is a Service Intelligence Operating System for delivery work
 | Data model/schema | `topdesk-schema` | SQL blueprint, reporting views, history/audit design |
 | Tenant mapping | `topdesk-odata`, `topdesk-tenant-mapping` | Metadata parser, field catalog generator |
 | Power BI | `topdesk-powerbi`, `topdesk-report-factory` | KPI catalog, DAX, M, RLS, lifecycle facts, report specs |
-| AI/KI | `topdesk-ai` | Prompt schemas, RAG, evaluation, governance |
+| AI | `topdesk-ai`, `topdesk-ai-feature-factory`, `topdesk-ai-governance-cockpit`, `topdesk-ai-adoption-ledger` | Prompt schemas, RAG, evaluation, governance, adoption ledger |
 | Security/compliance | `topdesk-security` | PII, DSGVO/GDPR, audit, secrets, RLS |
 | Testing/release | `topdesk-testing` | Validation plans, release gates, regression checks |
 | Operations | `topdesk-operations` | Runbooks, monitoring, backup, refresh failure handling |
@@ -251,4 +251,6 @@ The plugin is designed to be verified and operated, not only demonstrated. The v
 
 ## Maximum Positioning Statement
 
-The TOPdesk Skill Suite is a production-oriented delivery accelerator for TOPdesk intelligence work. It combines domain-specific service-management expertise, tenant-verified schema discovery, lifecycle history, Power BI engineering, AI/KI governance, security controls, operational runbooks, migration guidance, training material, executive value messaging, and release automation into one validated skill ecosystem.
+The TOPdesk Skill Suite is a production-oriented delivery accelerator for TOPdesk intelligence work. It combines domain-specific service-management expertise, tenant-verified schema discovery, lifecycle history, Power BI engineering, AI governance, security controls, operational runbooks, migration guidance, training material, executive value messaging, release automation, and a complete 48-skill feature matrix into one validated skill ecosystem.
+
+For complete US-English marketing coverage across every bundled skill, use `docs/FEATURE_MATRIX.md`.

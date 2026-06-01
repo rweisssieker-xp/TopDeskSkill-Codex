@@ -10,6 +10,7 @@ Use this guide before publishing the TOPdesk Skill Suite outside a local/demo wo
 - Confirm `docs/PRIVACY_POLICY.md` and `docs/TERMS_OF_SERVICE.md` match the intended distribution model.
 - Confirm `docs/PRODUCTION_READINESS.md` is included in release handover material.
 - Confirm `docs/SERVICE_INTELLIGENCE_RUNTIME.md` is included when positioning the suite as an operating model accelerator.
+- Confirm `docs/FEATURE_MATRIX.md` is included when using complete marketing, sales-enablement, partner, or website copy.
 - Confirm all screenshots under `assets/` are intentional for the target marketplace.
 - Confirm demo visuals are labelled as demo/product-shape visuals when not captured from a live tenant.
 
@@ -31,6 +32,12 @@ Expanded positioning:
 
 ```text
 A Service Intelligence Operating System accelerator for TOPdesk: turn tenant evidence into decision-ready findings, lifecycle analytics, drift detection, AI adoption controls, automation safety reviews, readiness scorecards, runtime gates, local scheduling, SQLite run state, monitoring status, improvement backlogs, and executive narratives. The plugin ships free inspectable skills, scripts, templates, runtime orchestration, and demo assets; tenant access, implementation, hosting, Power BI, TOPdesk, and AI provider costs remain separate.
+```
+
+Complete feature coverage:
+
+```text
+The plugin includes a 48-skill TOPdesk capability catalog covering domain workflows, admin configuration, assets, changes, knowledge, major incidents, migration, OData/API, tenant mapping, data quality, Power BI, DAX, semantic modelling, visual design, SLA optimization, process debt, tenant drift, AI governance, AI adoption, automation safety, runtime operations, security, testing, ROI, proof-of-value, battlecards, handbooks, templates, Python, PowerShell, and project delivery.
 ```
 
 Primary prompts:
@@ -76,4 +83,5 @@ Attach or retain:
 - `PLUGIN_HEALTH.md`
 - `PLUGIN_INVENTORY.md`
 - `plugin-skills.manifest.json`
+- `docs/FEATURE_MATRIX.md`
 - A completed release checklist.

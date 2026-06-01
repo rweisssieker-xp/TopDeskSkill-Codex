@@ -11,6 +11,7 @@ The TOPdesk Skill Suite plugin is free open-source software. The commercial valu
 - Demo lifecycle CSV files.
 - AI governance templates and evaluation scaffolds.
 - USP battlecards, proof-of-value templates, and ROI templates.
+- Complete 48-skill US-English feature matrix for marketing, sales enablement, and scoping.
 
 ## Billable Or Separately Owned Components
 
@@ -51,6 +52,7 @@ The TOPdesk Skill Suite plugin is free open-source software. The commercial valu
 - The first business case should measure implementation effort, operating model, and service improvement, not a plugin subscription.
 - The stronger story is service intelligence: decisions, drift, process debt, AI adoption, automation safety, readiness, and executive action from tenant evidence.
 - Disruptive feature packs are delivered as skills, scripts, templates, scorecards, ledgers, runtime orchestration, local scheduling, local state, status API, and readouts. Customer-wide enterprise operation is a deployment and service scope.
+- The complete capability story is documented in `docs/FEATURE_MATRIX.md`, covering all 48 skills with buyer persona, output, and sales angle.
 
 ## Procurement Notes
 

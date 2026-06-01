@@ -1,6 +1,6 @@
 ---
 name: topdesk-usp-battlecards
-description: Create TOPdesk USP packs, persona messaging, competitive battlecards, demo storylines, executive one-pagers, before/after narratives, risk-to-value matrices, offer packaging, case-study templates, and Power BI/AI/KI value propositions. Use when positioning TOPdesk AI, Power BI, OData/API, data quality, governance, workflow, or full skill-suite offerings.
+description: Create TOPdesk USP packs, persona messaging, competitive battlecards, demo storylines, executive one-pagers, before/after narratives, risk-to-value matrices, offer packaging, case-study templates, and Power BI/AI value propositions. Use when positioning TOPdesk AI, Power BI, OData/API, data quality, governance, workflow, or full skill-suite offerings.
 ---
 
 # TOPdesk USP Battlecards

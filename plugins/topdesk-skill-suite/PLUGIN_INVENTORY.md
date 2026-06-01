@@ -1,6 +1,6 @@
 ﻿# TOPdesk Skill Suite Plugin Inventory
 
-Generated: 2026-06-01T16:49:47+02:00
+Generated: 2026-06-01T17:10:35+02:00
 
 Skill count: 48
 
@@ -406,7 +406,7 @@ References:
 
 ### `topdesk-proof-of-value`
 
-Build TOPdesk proof-of-value sprint packs for AI/KI, Power BI, OData/API, data quality, and service-management improvements. Use for PoV scope, inputs, outputs, demo storyline, acceptance criteria, ROI assumptions, Power BI proof dashboards, KPI baselines, implementation plan, stakeholder messaging, and go/no-go decision material.
+Build TOPdesk proof-of-value sprint packs for AI, Power BI, OData/API, data quality, and service-management improvements. Use for PoV scope, inputs, outputs, demo storyline, acceptance criteria, ROI assumptions, Power BI proof dashboards, KPI baselines, implementation plan, stakeholder messaging, and go/no-go decision material.
 
 References:
 - `references/proof-of-value-sprint.md`
@@ -467,7 +467,7 @@ References:
 
 ### `topdesk-roi-business-case`
 
-ROI and business-case modeling for TOPdesk initiatives. Use for benefit models, executive cases, value hypotheses, KPI baselines, time-saved calculations, SLA/reassignment/reporting savings, AI/KI value, Power BI value, integration value, assumptions, risks, and success metrics.
+ROI and business-case modeling for TOPdesk initiatives. Use for benefit models, executive cases, value hypotheses, KPI baselines, time-saved calculations, SLA/reassignment/reporting savings, AI value, Power BI value, integration value, assumptions, risks, and success metrics.
 
 References:
 - `references/roi-business-case.md`
@@ -562,7 +562,7 @@ Assets:
 
 ### `topdesk-usp-battlecards`
 
-Create TOPdesk USP packs, persona messaging, competitive battlecards, demo storylines, executive one-pagers, before/after narratives, risk-to-value matrices, offer packaging, case-study templates, and Power BI/AI/KI value propositions. Use when positioning TOPdesk AI, Power BI, OData/API, data quality, governance, workflow, or full skill-suite offerings.
+Create TOPdesk USP packs, persona messaging, competitive battlecards, demo storylines, executive one-pagers, before/after narratives, risk-to-value matrices, offer packaging, case-study templates, and Power BI/AI value propositions. Use when positioning TOPdesk AI, Power BI, OData/API, data quality, governance, workflow, or full skill-suite offerings.
 
 References:
 - `references/demo-storylines.md`
@@ -578,7 +578,7 @@ Assets:
 
 ### `topdesk-usps`
 
-Create USPs, positioning, stakeholder value propositions, pitch text, business cases, feature-benefit maps, differentiators, roadmap messaging, and executive/operator/application-manager messaging for TOPdesk apps, Power BI reporting, OData/API integrations, and AI/KI service-management features.
+Create USPs, positioning, stakeholder value propositions, pitch text, business cases, feature-benefit maps, differentiators, roadmap messaging, and executive/operator/application-manager messaging for TOPdesk apps, Power BI reporting, OData/API integrations, and AI service-management features.
 
 References:
 - `references/discovery-and-sales.md`

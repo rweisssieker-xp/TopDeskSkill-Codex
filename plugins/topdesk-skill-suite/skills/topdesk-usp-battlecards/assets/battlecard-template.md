@@ -16,5 +16,4 @@
 
 ## Power BI Evidence
 
-## AI/KI Governance Evidence
-
+## AI Governance Evidence

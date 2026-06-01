@@ -43,6 +43,6 @@ When analyzing or designing a TOPdesk workflow, cover:
 - Store external system IDs explicitly when integrating TOPdesk with another app.
 - Separate internal operator notes from end-user-visible communication.
 - Model status history and action logs as append-only records when building a custom app.
-- For AI/KI-assisted workflows, keep the operator in control for customer-visible replies, closure decisions, priority changes, and destructive updates.
-- For AI/KI feature design, load `ai-features.md`.
+- For AI-assisted workflows, keep the operator in control for customer-visible replies, closure decisions, priority changes, and destructive updates.
+- For AI feature design, load `ai-features.md`.
 - For acceptance tests covering these workflows, load `testing-validation.md`.

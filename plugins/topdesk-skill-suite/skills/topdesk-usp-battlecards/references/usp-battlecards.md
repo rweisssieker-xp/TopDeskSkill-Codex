@@ -38,7 +38,7 @@
 - Objections and answers.
 - Demo moment.
 - Power BI evidence.
-- AI/KI governance evidence.
+- AI governance evidence.
 - Reconciliation evidence.
 - Runbook/operations evidence.
 
@@ -57,7 +57,7 @@ Top pains:
 Differentiators:
 
 - Compares previous and current field catalogs, labels, option sets, endpoint availability, and KPI dependencies.
-- Classifies impact for Power BI, AI/KI, automation, security, and operations.
+- Classifies impact for Power BI, AI, automation, security, and operations.
 - Separates harmless metadata changes from changes that require model, prompt, automation, or RLS review.
 
 Proof points:
@@ -515,11 +515,11 @@ Proof points:
 
 - `run_service_intelligence.py` executes the local operating cycle.
 - `topdesk_live_connector.py preflight` checks credential readiness without fetching data.
-- Runtime outputs include `runtime-plan.json`, `runtime-readout.md`, `runtime-dashboard.html`, `operational-gates.csv`, and `runtime-history.jsonl`.
+- Runtime outputs include `runtime-plan.json`, `runtime-readout.md`, `runtime-dashboard.html`, `operational-gates.csv`, `runtime-history.jsonl`, `service-intelligence.sqlite`, `runtime-monitoring.json`, and the local status API.
 
 Objections and answers:
 
-- "Is this now a hosted product?" Response: "No. It is a local runtime and operating model. Hosting, scheduler, secret store, web app, monitoring, and support are scoped separately."
+- "Is this now a hosted product?" Response: "No. It is a local runtime and operating model. Customer-wide hosting, organization auth, enterprise monitoring, and support are scoped separately."
 - "Can it use real TOPdesk data?" Response: "Yes, when the tenant approves credentials, endpoints, purpose, retention, and security controls. Until then it runs from approved exports."
 
 Demo moment:

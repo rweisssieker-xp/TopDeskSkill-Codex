@@ -1,6 +1,6 @@
 ---
 name: topdesk-proof-of-value
-description: Build TOPdesk proof-of-value sprint packs for AI/KI, Power BI, OData/API, data quality, and service-management improvements. Use for PoV scope, inputs, outputs, demo storyline, acceptance criteria, ROI assumptions, Power BI proof dashboards, KPI baselines, implementation plan, stakeholder messaging, and go/no-go decision material.
+description: Build TOPdesk proof-of-value sprint packs for AI, Power BI, OData/API, data quality, and service-management improvements. Use for PoV scope, inputs, outputs, demo storyline, acceptance criteria, ROI assumptions, Power BI proof dashboards, KPI baselines, implementation plan, stakeholder messaging, and go/no-go decision material.
 ---
 
 # TOPdesk Proof Of Value
@@ -30,4 +30,3 @@ Use this skill to package a short, credible TOPdesk proof-of-value sprint.
 ## Scripts
 
 - Use `scripts/new_pov_pack.py` to generate a PoV plan and ROI CSV.
-

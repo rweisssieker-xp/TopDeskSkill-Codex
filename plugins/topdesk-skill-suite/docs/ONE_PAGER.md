@@ -67,6 +67,12 @@ The value does not come from another tool license. It comes from faster analysis
 | Service Intelligence Runtime | `runtime-plan.json`, `runtime-readout.md`, `runtime-dashboard.html`, `operational-gates.csv`, `runtime-history.jsonl`, `service-intelligence.sqlite`, `runtime-monitoring.json`, and local status API. |
 | Runtime Security Layer | DPAPI-backed local secret store for connector preflight and approved exports. |
 
+## Complete Feature Coverage
+
+The full US-English marketing capability catalog is maintained in `docs/FEATURE_MATRIX.md`. It covers all 48 bundled skills with capability, output, persona, and sales angle.
+
+Coverage includes TOPdesk domain workflows, admin configuration, incidents, changes, assets, knowledge, major incidents, migration, enablement, OData/API, tenant mapping, data quality, Power BI, DAX, semantic modelling, visual design, SLA optimization, process debt, tenant drift, AI governance, AI adoption, automation safety, local runtime operations, security, testing, ROI, proof-of-value, battlecards, handbooks, templates, Python, PowerShell, and project delivery.
+
 ## Example KPIs
 
 - Open incidents.

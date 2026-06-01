@@ -5,7 +5,7 @@
 - Day 1: discovery, data availability, KPI baseline.
 - Day 2: tenant mapping and data-quality scan.
 - Day 3: Power BI prototype, semantic model sketch, and lifecycle snapshot/transition proof.
-- Day 4: AI/KI feature pack or automation proof.
+- Day 4: AI feature pack or automation proof.
 - Day 5: demo, ROI, risks, next-step roadmap.
 
 ## Required Inputs

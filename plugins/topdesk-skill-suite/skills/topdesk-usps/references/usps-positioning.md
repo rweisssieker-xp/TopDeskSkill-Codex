@@ -1,12 +1,12 @@
 # USPs and Positioning
 
-Use this file when the user asks for USPs, value propositions, pitch text, stakeholder messaging, product positioning, feature benefits, roadmap framing, or business-case wording for TOPdesk apps, reporting, integrations, or AI/KI features.
+Use this file when the user asks for USPs, value propositions, pitch text, stakeholder messaging, product positioning, feature benefits, roadmap framing, or business-case wording for TOPdesk apps, reporting, integrations, or AI features.
 
 ## Core Positioning
 
 Position the solution as a practical TOPdesk intelligence layer:
 
-- It connects TOPdesk operational workflows, database-ready structure, Power BI analytics, and AI/KI assistance.
+- It connects TOPdesk operational workflows, database-ready structure, Power BI analytics, and AI assistance.
 - It respects TOPdesk as the operational source while making data easier to govern, analyze, automate, and improve.
 - It helps service teams move from reactive ticket handling to measurable, assisted, and auditable service operations.
 
@@ -15,7 +15,7 @@ Position the solution as a practical TOPdesk intelligence layer:
 - **TOPdesk-specific domain model**: Built around incidents, changes, assets, persons, operators, branches, knowledge, SLA, action logs, and supporting files rather than generic ticketing abstractions.
 - **Schema-aware by design**: Separates TOPdesk IDs, local keys, reporting views, history tables, audit events, and AI suggestions so integrations and analytics stay reliable.
 - **Power BI-ready data foundation**: Provides star-schema guidance, DAX measures, RLS patterns, KPI definitions, and reconciliation checks for service reporting.
-- **AI/KI with human control**: Supports classification, routing, summaries, response drafts, semantic search, and SLA-risk prediction while preserving review, audit, privacy, and rollback.
+- **AI with human control**: Supports classification, routing, summaries, response drafts, semantic search, and SLA-risk prediction while preserving review, audit, privacy, and rollback.
 - **OData/API verification first**: Uses tenant metadata, sample payloads, exports, and parser tools instead of guessing field names.
 - **Operationally usable**: Includes runbooks, monitoring, refresh failure handling, deployment checks, and integration reconciliation.
 - **Compliance-conscious**: Treats PII, internal notes, branch restrictions, API credentials, and AI context as sensitive from the start.
@@ -23,7 +23,7 @@ Position the solution as a practical TOPdesk intelligence layer:
 
 ## Max USP Library
 
-- **One connected operating model**: Features, schema, OData/API, Power BI, AI/KI, security, operations, migration, and enablement are designed as one system rather than disconnected workstreams.
+- **One connected operating model**: Features, schema, OData/API, Power BI, AI, security, operations, migration, and enablement are designed as one system rather than disconnected workstreams.
 - **Tenant-proof mapping approach**: Starts from real OData metadata, API samples, and exports, so every customer tenant can be mapped without relying on brittle assumptions.
 - **BI-first operational design**: Operational tables, reporting views, semantic models, and KPI definitions are aligned from the beginning.
 - **AI with evidence and accountability**: Every AI suggestion can carry confidence, explanation, source references, prompt/model version, feedback, and audit status.

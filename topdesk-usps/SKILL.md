@@ -1,6 +1,6 @@
 ---
 name: topdesk-usps
-description: Create USPs, positioning, stakeholder value propositions, pitch text, business cases, feature-benefit maps, differentiators, roadmap messaging, and executive/operator/application-manager messaging for TOPdesk apps, Power BI reporting, OData/API integrations, and AI/KI service-management features.
+description: Create USPs, positioning, stakeholder value propositions, pitch text, business cases, feature-benefit maps, differentiators, roadmap messaging, and executive/operator/application-manager messaging for TOPdesk apps, Power BI reporting, OData/API integrations, and AI service-management features.
 ---
 
 # TOPdesk USPs
@@ -20,7 +20,7 @@ Load:
 ## Workflow
 
 1. Identify audience: executive, service desk lead, operator, application manager, IT/security, customer, or implementation team.
-2. Identify product scope: TOPdesk app, Power BI reporting, OData/API integration, AI/KI assist, workflow redesign, or full platform.
+2. Identify product scope: TOPdesk app, Power BI reporting, OData/API integration, AI assist, workflow redesign, or full platform.
 3. Translate features into operational value: time saved, fewer reassignments, better SLA focus, cleaner data, safer automation, better self-service.
 4. Include proof metrics where possible.
 5. Keep claims grounded in available skills, scripts, templates, data artifacts, and tenant requirements.

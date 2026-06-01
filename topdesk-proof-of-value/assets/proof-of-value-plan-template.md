@@ -10,7 +10,7 @@
 
 ## Power BI Proof
 
-## AI/KI Proof
+## AI Proof
 
 ## ROI Assumptions
 
@@ -19,4 +19,3 @@
 ## Demo Script
 
 ## Next Step Offer
-

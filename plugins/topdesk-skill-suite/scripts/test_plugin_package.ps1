@@ -65,4 +65,15 @@ if (-not (Test-Path -LiteralPath (Join-Path $extractRoot "scripts\topdesk_mcp_se
     throw "Extracted package is missing scripts/topdesk_mcp_server.py"
 }
 
+$configPath = Join-Path $resolvedRoot "plugins\topdesk-skill-suite\plugin.config.json"
+if (Test-Path -LiteralPath $configPath) {
+    $config = Get-Content -LiteralPath $configPath -Raw | ConvertFrom-Json
+    foreach ($doc in $config.requiredDocs) {
+        $docPath = $doc -replace "/", "\"
+        if (-not (Test-Path -LiteralPath (Join-Path $extractRoot $docPath))) {
+            throw "Extracted package is missing required doc $doc"
+        }
+    }
+}
+
 Write-Host "Package test passed for $zip with $skillCount skills"

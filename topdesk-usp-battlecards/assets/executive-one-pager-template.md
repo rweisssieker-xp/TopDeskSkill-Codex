@@ -10,9 +10,8 @@
 
 ## Power BI Proof
 
-## AI/KI Governance
+## AI Governance
 
 ## Risks And Controls
 
 ## Next Step
-

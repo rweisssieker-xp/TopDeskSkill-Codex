@@ -1,5 +1,5 @@
 {
-    "generated_at":  "2026-06-01T16:49:47+02:00",
+    "generated_at":  "2026-06-01T17:10:35+02:00",
     "plugin":  "topdesk-skill-suite",
     "skill_count":  48,
     "skills":  [
@@ -500,7 +500,7 @@
                    {
                        "name":  "topdesk-proof-of-value",
                        "folder":  "topdesk-proof-of-value",
-                       "description":  "Build TOPdesk proof-of-value sprint packs for AI/KI, Power BI, OData/API, data quality, and service-management improvements. Use for PoV scope, inputs, outputs, demo storyline, acceptance criteria, ROI assumptions, Power BI proof dashboards, KPI baselines, implementation plan, stakeholder messaging, and go/no-go decision material.",
+                       "description":  "Build TOPdesk proof-of-value sprint packs for AI, Power BI, OData/API, data quality, and service-management improvements. Use for PoV scope, inputs, outputs, demo storyline, acceptance criteria, ROI assumptions, Power BI proof dashboards, KPI baselines, implementation plan, stakeholder messaging, and go/no-go decision material.",
                        "references":  [
                                           "references/proof-of-value-sprint.md",
                                           "references/roi-and-powerbi-proof.md"
@@ -575,7 +575,7 @@
                    {
                        "name":  "topdesk-roi-business-case",
                        "folder":  "topdesk-roi-business-case",
-                       "description":  "ROI and business-case modeling for TOPdesk initiatives. Use for benefit models, executive cases, value hypotheses, KPI baselines, time-saved calculations, SLA/reassignment/reporting savings, AI/KI value, Power BI value, integration value, assumptions, risks, and success metrics.",
+                       "description":  "ROI and business-case modeling for TOPdesk initiatives. Use for benefit models, executive cases, value hypotheses, KPI baselines, time-saved calculations, SLA/reassignment/reporting savings, AI value, Power BI value, integration value, assumptions, risks, and success metrics.",
                        "references":  [
                                           "references/roi-business-case.md"
                                       ],
@@ -712,7 +712,7 @@
                    {
                        "name":  "topdesk-usp-battlecards",
                        "folder":  "topdesk-usp-battlecards",
-                       "description":  "Create TOPdesk USP packs, persona messaging, competitive battlecards, demo storylines, executive one-pagers, before/after narratives, risk-to-value matrices, offer packaging, case-study templates, and Power BI/AI/KI value propositions. Use when positioning TOPdesk AI, Power BI, OData/API, data quality, governance, workflow, or full skill-suite offerings.",
+                       "description":  "Create TOPdesk USP packs, persona messaging, competitive battlecards, demo storylines, executive one-pagers, before/after narratives, risk-to-value matrices, offer packaging, case-study templates, and Power BI/AI value propositions. Use when positioning TOPdesk AI, Power BI, OData/API, data quality, governance, workflow, or full skill-suite offerings.",
                        "references":  [
                                           "references/demo-storylines.md",
                                           "references/usp-battlecards.md"
@@ -729,7 +729,7 @@
                    {
                        "name":  "topdesk-usps",
                        "folder":  "topdesk-usps",
-                       "description":  "Create USPs, positioning, stakeholder value propositions, pitch text, business cases, feature-benefit maps, differentiators, roadmap messaging, and executive/operator/application-manager messaging for TOPdesk apps, Power BI reporting, OData/API integrations, and AI/KI service-management features.",
+                       "description":  "Create USPs, positioning, stakeholder value propositions, pitch text, business cases, feature-benefit maps, differentiators, roadmap messaging, and executive/operator/application-manager messaging for TOPdesk apps, Power BI reporting, OData/API integrations, and AI service-management features.",
                        "references":  [
                                           "references/discovery-and-sales.md",
                                           "references/features.md",

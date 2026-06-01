@@ -10,6 +10,7 @@
 - REST tenant profiler documented and tested against the demo instance with ignored local output artifacts.
 - API test lab, DAX measure generator, SLA backlog optimizer, and PII/compliance scanner documented and tested against ignored demo profile artifacts.
 - Skill inventory and generated manifest for bundled skills.
+- Complete US-English feature matrix covering all 48 skills with capability, output, buyer persona, and sales angle.
 - Primary `en-US` documentation plus European locale guidance in `docs/LOCALIZATION.md`.
 - Localized marketplace summaries, prompt starters, and translation quality rules for common European locales.
 - TOPdesk domain skills for workflows, admin, incidents, changes, assets, knowledge, security, operations, testing, migration, and enablement.
