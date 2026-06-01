@@ -1,6 +1,6 @@
 # Production Readiness Gates
 
-This plugin is ready as a local/open-source accelerator when `scripts/verify_plugin.ps1` passes.
+This plugin is ready as a local/open-source accelerator when `scripts/validate_plugin.ps1`, `scripts/validate_marketplace_readiness.ps1 -CheckExternalUrls`, and `python scripts/test_mcp_server.py` pass.
 Production use with customer TOPdesk data needs these gates to be completed for the specific tenant.
 
 ## Gate 1: Tenant Access

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-label="Service intelligence overview screenshot">
+  <rect width="1600" height="1000" fill="#f8fafc"/>
+  <rect x="56" y="48" width="1488" height="904" rx="28" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="96" y="116" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="700" fill="#0f172a">Service Intelligence Operating System</text>
+  <text x="96" y="164" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#475569">Decision-ready TOPdesk evidence: drift, process debt, readiness, risk, and next actions.</text>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="96" y="230" width="420" height="190" rx="18" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="128" y="284" font-size="30" font-weight="700" fill="#1e3a8a">Tenant Drift Radar</text>
+    <text x="128" y="330" font-size="23" fill="#334155">Field, category, API, and KPI changes</text>
+    <text x="128" y="382" font-size="48" font-weight="700" fill="#2563eb">12 findings</text>
+    <rect x="590" y="230" width="420" height="190" rx="18" fill="#f0fdfa" stroke="#99f6e4"/>
+    <text x="622" y="284" font-size="30" font-weight="700" fill="#115e59">Process Debt</text>
+    <text x="622" y="330" font-size="23" fill="#334155">Loops, waits, reopens, and ownership gaps</text>
+    <text x="622" y="382" font-size="48" font-weight="700" fill="#0f766e">8 hotspots</text>
+    <rect x="1084" y="230" width="372" height="190" rx="18" fill="#fff7ed" stroke="#fed7aa"/>
+    <text x="1116" y="284" font-size="30" font-weight="700" fill="#9a3412">Readiness Score</text>
+    <text x="1116" y="330" font-size="23" fill="#334155">Reporting, AI, automation, operations</text>
+    <text x="1116" y="382" font-size="48" font-weight="700" fill="#ea580c">74/100</text>
+  </g>
+  <rect x="96" y="490" width="1360" height="300" rx="18" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="128" y="548" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Decision-to-action loop</text>
+  <path d="M180 670h1040" stroke="#2563eb" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="220" cy="670" r="38" fill="#2563eb"/><circle cx="500" cy="670" r="38" fill="#14b8a6"/><circle cx="780" cy="670" r="38" fill="#f59e0b"/><circle cx="1060" cy="670" r="38" fill="#ef4444"/><circle cx="1220" cy="670" r="38" fill="#0f172a"/>
+  <text x="174" y="742" font-family="Segoe UI, Arial, sans-serif" font-size="23" fill="#0f172a">Finding</text>
+  <text x="450" y="742" font-family="Segoe UI, Arial, sans-serif" font-size="23" fill="#0f172a">Evidence</text>
+  <text x="742" y="742" font-family="Segoe UI, Arial, sans-serif" font-size="23" fill="#0f172a">Owner</text>
+  <text x="1014" y="742" font-family="Segoe UI, Arial, sans-serif" font-size="23" fill="#0f172a">Action</text>
+  <text x="1168" y="742" font-family="Segoe UI, Arial, sans-serif" font-size="23" fill="#0f172a">Metric</text>
+  <rect x="96" y="842" width="1360" height="58" rx="12" fill="#0f172a"/>
+  <text x="128" y="880" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#ffffff">No hosted connector claims. The plugin ships skills, scripts, templates, and local evidence generation.</text>
+</svg>

@@ -29,7 +29,7 @@
 - Adds AI feature factory, AI governance cockpit, proof-of-value, and USP battlecard skills with Power BI assets.
 - Adds GitHub manifest URLs, privacy and terms documents.
 - Adds local MCP server declaration and dependency-free TOPdesk helper server.
-- Adds Power BI and AI governance screenshot assets.
+- Adds Power BI and AI governance screenshot assets, now published as text-based SVG files for scanner-friendly marketplace review.
 - Adds release tag helper script.
 - Adds demo TOPdesk base URL for MCP/OData helper configuration.
 - Documents live REST/API test results for the demo instance without storing secrets.

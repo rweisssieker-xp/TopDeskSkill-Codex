@@ -4,16 +4,15 @@ Use this guide before publishing the TOPdesk Skill Suite outside a local/demo wo
 
 ## Required Checks
 
-- Run `scripts/verify_plugin.ps1` from the repository root.
+- Run `scripts/validate_plugin.ps1` from the repository root.
 - Run `scripts/validate_marketplace_readiness.ps1 -CheckExternalUrls` before external publication.
-- Submit the marketplace artifact `dist/topdesk-skill-suite-marketplace-<version>.zip`, not the development repository root. The development repository intentionally contains source, generated evidence, and full skill references that exceed the marketplace scan file-count limit.
-- If publishing from GitHub instead of uploading the ZIP, use the dedicated marketplace export branch or make sure the scanned artifact root contains `.codex-plugin/plugin.json` directly.
+- Publish from the repository root on `main`; it is already the scanner-friendly marketplace tree with `.codex-plugin/plugin.json` directly at the root.
 - Confirm `.codex-plugin/plugin.json` version, display name, category, descriptions, license, repository, homepage, privacy policy, and terms URLs.
 - Confirm `docs/PRIVACY_POLICY.md` and `docs/TERMS_OF_SERVICE.md` match the intended distribution model.
 - Confirm `docs/PRODUCTION_READINESS.md` is included in release handover material.
 - Confirm `docs/SERVICE_INTELLIGENCE_RUNTIME.md` is included when positioning the suite as an operating model accelerator.
 - Confirm `docs/FEATURE_MATRIX.md` is included when using complete marketing, sales-enablement, partner, or website copy.
-- Confirm all screenshots under `assets/` are intentional for the target marketplace.
+- Confirm all SVG screenshots under `assets/` are intentional for the target marketplace.
 - Confirm demo visuals are labelled as demo/product-shape visuals when not captured from a live tenant.
 
 ## Marketplace Copy
@@ -67,7 +66,7 @@ Localized prompt examples:
 
 ## Screenshot Policy
 
-The repository can ship demo screenshots for local/demo publication.
+The repository ships text-based SVG demo screenshots for local/demo publication and scanner-friendly marketplace review.
 For customer-facing marketplace listings, prefer screenshots from:
 
 - The offline demo lifecycle data pack.
@@ -80,12 +79,8 @@ Do not publish screenshots containing customer ticket text, caller data, operato
 
 Attach or retain:
 
-- `dist/topdesk-skill-suite-marketplace-<version>.zip`
-- `dist/topdesk-skill-suite-marketplace-<version>.sha256`
-- `dist/topdesk-skill-suite-plugin-<version>.zip`
-- `dist/topdesk-skill-suite-plugin-<version>.sha256`
-- `PLUGIN_HEALTH.md`
-- `PLUGIN_INVENTORY.md`
-- `plugin-skills.manifest.json`
+- Git commit hash for the submitted `main` branch.
+- Marketplace scan result.
+- Local `scripts/validate_plugin.ps1` output.
 - `docs/FEATURE_MATRIX.md`
 - A completed release checklist.

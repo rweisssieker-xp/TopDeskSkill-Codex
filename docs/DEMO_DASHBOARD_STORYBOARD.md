@@ -7,9 +7,9 @@ Use this storyboard to present the plugin with demo data before connecting a cus
 - `skills/topdesk-powerbi/assets/demo-lifecycle/FactIncidentDailySnapshot.csv`
 - `skills/topdesk-powerbi/assets/demo-lifecycle/FactStatusTransition.csv`
 - `skills/topdesk-powerbi/assets/demo-lifecycle/FactAssignmentTransition.csv`
-- `assets/screenshot-overview.png`
-- `assets/screenshot-powerbi.png`
-- `assets/screenshot-ai-governance.png`
+- `assets/screenshot-overview.svg`
+- `assets/screenshot-powerbi.svg`
+- `assets/screenshot-ai-governance.svg`
 
 ## Demo Narrative
 

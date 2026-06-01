@@ -23,19 +23,20 @@
 
 ## Verification
 
-Use the plugin gate:
+Use the plugin gates:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\verify_plugin.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\validate_plugin.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\validate_marketplace_readiness.ps1 -CheckExternalUrls
+python .\scripts\test_mcp_server.py
 ```
 
-The gate regenerates the plugin docs and package evidence:
+The gates verify the marketplace source:
 
-- `plugin-skills.manifest.json`
-- `PLUGIN_INVENTORY.md`
-- `PLUGIN_HEALTH.md`
-- `dist/topdesk-skill-suite-plugin-<version>.zip`
-- `dist/topdesk-skill-suite-plugin-<version>.sha256`
+- Root `.codex-plugin/plugin.json`
+- 48 bundled skill entry points
+- Marketplace docs and root asset references
+- Local MCP helper handshake
 
 ## Production Gates
 

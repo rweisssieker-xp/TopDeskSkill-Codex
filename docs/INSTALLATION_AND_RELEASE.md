@@ -16,56 +16,40 @@ The plugin does not include or pay for:
 
 ## Local Install
 
-Run from the repository root:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\install_local_plugin.ps1
-```
-
-The script copies the plugin to the local Codex plugin location and updates the local marketplace entry.
+Install from the marketplace submission source or clone the repository root. The marketplace branch layout is the plugin root: `.codex-plugin/plugin.json`, `.mcp.json`, `skills/`, `scripts/`, `docs/`, and `assets/`.
 
 ## Verify Before Release
 
 Run the full plugin gate:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\verify_plugin.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\validate_plugin.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\validate_marketplace_readiness.ps1 -CheckExternalUrls
+python .\scripts\test_mcp_server.py
 ```
 
 Expected result:
 
-- Skills are synchronized into the plugin bundle.
-- PNG assets are generated.
-- Plugin manifest, inventory, and health report are regenerated.
-- Plugin config validation succeeds.
+- The plugin manifest is present at the repository root.
+- Text-based SVG marketplace assets are present.
 - Marketplace readiness validation succeeds.
 - MCP server smoke test passes.
 - All bundled skills validate.
-- Python scripts compile.
-- Plugin zip is created in `dist/`.
-- Package extraction test passes.
-- SHA256 checksum is written.
 
 ## Release Artifact
 
-The release artifact is:
+The release artifact is the `main` branch root:
 
 ```text
-dist/topdesk-skill-suite-plugin-0.1.3.zip
-```
-
-The matching checksum file is:
-
-```text
-dist/topdesk-skill-suite-plugin-0.1.3.sha256
+https://github.com/rweisssieker-xp/TopDeskSkill-Codex
 ```
 
 ## Marketplace Artifact
 
-The public marketplace artifact is the scanner-friendly package:
+The public marketplace artifact is the scanner-friendly repository root on `main`:
 
 ```text
-dist/topdesk-skill-suite-marketplace-0.1.3.zip
+.codex-plugin/plugin.json
 ```
 
 The matching checksum file is:

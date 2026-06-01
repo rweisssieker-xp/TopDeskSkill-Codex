@@ -20,45 +20,22 @@ European language support: see `docs/LOCALIZATION.md` for localized marketplace 
 - `docs/PRODUCTION_READINESS.md`: tenant, data, privacy, operations, and commercial gates for production use.
 - `docs/MARKETPLACE_SUBMISSION.md`: marketplace copy, screenshot policy, and submission evidence.
 - `docs/SERVICE_INTELLIGENCE_RUNTIME.md`: connector, runtime, governance, and local operating model.
-- `scripts/sync_skills.ps1`: refreshes bundled skills from the repository root.
-- `scripts/new_plugin_manifest.ps1`: generates `plugin-skills.manifest.json`.
-- `scripts/new_plugin_inventory.ps1`: generates `PLUGIN_INVENTORY.md`.
-- `scripts/new_plugin_health_report.ps1`: generates `PLUGIN_HEALTH.md`.
-- `scripts/generate_plugin_assets.ps1`: generates PNG icon, logo, and screenshot assets.
-- `scripts/validate_plugin_config.ps1`: checks `plugin.config.json` against the manifest and bundle.
+- `assets/*.svg`: text-based marketplace icon, logo, and demo screenshot assets.
 - `scripts/validate_marketplace_readiness.ps1`: checks marketplace metadata, screenshots, and production-readiness docs.
 - `scripts/validate_plugin.ps1`: validates the plugin manifest and bundled skills.
-- `scripts/package_plugin.ps1`: creates a distributable plugin zip.
-- `scripts/test_plugin_package.ps1`: extracts and smoke-tests the generated zip.
-- `scripts/new_plugin_checksums.ps1`: writes SHA256 checksums for release packages.
 - `scripts/topdesk_mcp_server.py`: local dependency-free MCP server for TOPdesk/OData helper tools.
 - `scripts/test_mcp_server.py`: smoke-tests the MCP server handshake and tool list.
-- `scripts/prepare_git_release.ps1`: creates or confirms a local release tag and prints explicit push commands.
-- `scripts/install_local_plugin.ps1`: installs the plugin into the local Codex plugin location.
-- `scripts/uninstall_local_plugin.ps1`: removes the local plugin installation and marketplace entry.
-- `scripts/set_plugin_version.ps1`: updates `.codex-plugin/plugin.json` version.
-- `scripts/verify_plugin.ps1`: runs sync, inventory generation, validation, and packaging.
 - `.mcp.json`: MCP server declaration for local TOPdesk helper tools.
-- `marketplace.local.example.json`: example marketplace entry for local plugin testing.
 
 ## Useful Commands
 
 Run from the repository root:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\sync_skills.ps1
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\generate_plugin_assets.ps1
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\new_plugin_manifest.ps1
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\new_plugin_inventory.ps1
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\new_plugin_health_report.ps1
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\validate_plugin_config.ps1
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\validate_marketplace_readiness.ps1
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\validate_marketplace_readiness.ps1 -CheckExternalUrls
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\validate_plugin.ps1
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\package_plugin.ps1
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\test_plugin_package.ps1
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\new_plugin_checksums.ps1
-powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\scripts\verify_plugin.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\validate_marketplace_readiness.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\validate_marketplace_readiness.ps1 -CheckExternalUrls
+powershell -ExecutionPolicy Bypass -File .\scripts\validate_plugin.ps1
+python .\scripts\test_mcp_server.py
 ```
 
 ## Release-Ready Path

@@ -7,7 +7,7 @@
     "email": "rweisssieker-xp@users.noreply.github.com",
     "url": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex"
   },
-  "homepage": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/tree/main/plugins/topdesk-skill-suite",
+  "homepage": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex",
   "repository": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex",
   "license": "MIT",
   "keywords": [
@@ -33,9 +33,9 @@
       "Interactive",
       "Write"
     ],
-    "websiteURL": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/tree/main/plugins/topdesk-skill-suite",
-    "privacyPolicyURL": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/blob/main/plugins/topdesk-skill-suite/docs/PRIVACY_POLICY.md",
-    "termsOfServiceURL": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/blob/main/plugins/topdesk-skill-suite/docs/TERMS_OF_SERVICE.md",
+    "websiteURL": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex",
+    "privacyPolicyURL": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/blob/main/docs/PRIVACY_POLICY.md",
+    "termsOfServiceURL": "https://github.com/rweisssieker-xp/TopDeskSkill-Codex/blob/main/docs/TERMS_OF_SERVICE.md",
     "defaultPrompt": [
       "Plan a TOPdesk migration.",
       "Create a TOPdesk Power BI reporting pack.",
@@ -44,12 +44,12 @@
       "Use fr-FR: Planifie une migration TOPdesk."
     ],
     "brandColor": "#2563EB",
-    "composerIcon": "./assets/icon.png",
-    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.svg",
     "screenshots": [
-      "./assets/screenshot-overview.png",
-      "./assets/screenshot-powerbi.png",
-      "./assets/screenshot-ai-governance.png"
+      "./assets/screenshot-overview.svg",
+      "./assets/screenshot-powerbi.svg",
+      "./assets/screenshot-ai-governance.svg"
     ]
   }
 }

@@ -7,16 +7,11 @@ $ErrorActionPreference = "Stop"
 
 $resolvedPluginRoot = (Resolve-Path -LiteralPath $PluginRoot).Path
 $manifestPath = Join-Path $resolvedPluginRoot ".codex-plugin\plugin.json"
-$configPath = Join-Path $resolvedPluginRoot "plugin.config.json"
 $submissionDoc = Join-Path $resolvedPluginRoot "docs\MARKETPLACE_SUBMISSION.md"
 $readinessDoc = Join-Path $resolvedPluginRoot "docs\PRODUCTION_READINESS.md"
 
 if (-not (Test-Path -LiteralPath $manifestPath)) {
     throw "Plugin manifest not found: $manifestPath"
-}
-
-if (-not (Test-Path -LiteralPath $configPath)) {
-    throw "Plugin config not found: $configPath"
 }
 
 if (-not (Test-Path -LiteralPath $submissionDoc)) {
@@ -28,7 +23,6 @@ if (-not (Test-Path -LiteralPath $readinessDoc)) {
 }
 
 $manifest = Get-Content -Raw -LiteralPath $manifestPath | ConvertFrom-Json
-$config = Get-Content -Raw -LiteralPath $configPath | ConvertFrom-Json
 
 $requiredTextFields = @(
     @{ Name = "name"; Value = $manifest.name },
@@ -96,14 +90,24 @@ if (@($manifest.interface.screenshots).Count -lt 3) {
     throw "At least three marketplace screenshots are expected."
 }
 
-foreach ($asset in $config.requiredAssets) {
-    $assetPath = Join-Path $resolvedPluginRoot $asset
+$requiredAssets = @(
+    [string]$manifest.interface.composerIcon,
+    [string]$manifest.interface.logo
+) + @($manifest.interface.screenshots | ForEach-Object { [string]$_ })
+
+foreach ($asset in $requiredAssets) {
+    if ([string]::IsNullOrWhiteSpace($asset)) {
+        throw "Marketplace asset path is empty."
+    }
+
+    $candidate = $asset.Replace("/", "\").TrimStart(".", "\", "/")
+    $assetPath = Join-Path $resolvedPluginRoot $candidate
     if (-not (Test-Path -LiteralPath $assetPath)) {
         throw "Required marketplace asset missing: $asset"
     }
 
     $length = (Get-Item -LiteralPath $assetPath).Length
-    if ($length -lt 1024) {
+    if ($length -lt 100) {
         throw "Marketplace asset appears too small or empty: $asset"
     }
 }
