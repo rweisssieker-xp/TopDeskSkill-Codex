@@ -4,6 +4,7 @@
 
 - Plugin manifest, marketplace example, local install/uninstall, validation, packaging, package test, checksums, and CI workflow.
 - GitHub manifest URLs, privacy policy, terms of service, local MCP declaration, MCP smoke test, and release tag helper.
+- Marketplace submission guide and production readiness gates.
 - Demo TOPdesk base URL documented without storing browser session paths.
 - Live demo REST/API test result documented without storing the application password.
 - REST tenant profiler documented and tested against the demo instance with ignored local output artifacts.
@@ -34,9 +35,9 @@ The gate regenerates the plugin docs and package evidence:
 - `dist/topdesk-skill-suite-plugin-<version>.zip`
 - `dist/topdesk-skill-suite-plugin-<version>.sha256`
 
-## Known Non-Blocking Gaps
+## Production Gates
 
-- Public URLs in `.codex-plugin/plugin.json` point to the configured repository paths; verify them again before publishing outside the local/demo workflow.
-- Screenshots are generated placeholder product visuals, not live Power BI screenshots.
-- The suite provides reusable templates and scripts, not a live TOPdesk connector or hosted MCP server.
+- Public URLs in `.codex-plugin/plugin.json` are validated for shape locally; verify live availability again before external marketplace submission.
+- Generated screenshots are acceptable for local/demo publication. Customer-facing screenshots must come from sanitized demo data or approved customer material.
+- The suite provides reusable templates, scripts, and a local MCP helper. A hosted TOPdesk connector remains a separate implementation and operations decision.
 - `en-US` is the canonical source. European locales are supported through localization guidance and prompt starters, not through duplicated per-skill source files.

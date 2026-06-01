@@ -34,7 +34,7 @@ Start by loading:
 ## Output Requirements
 
 - Include model layout, relationships, measures, page layout, filters, RLS, refresh, and validation notes.
-- Treat sample OData/table names as placeholders until verified against the target tenant.
+- Treat sample OData/table names as examples until verified against the target tenant.
 - Call out PII exposure and branch/customer security risks.
 - For PBIP/PBIR output, document the Desktop preview settings, schema/file contract, generated page count, visual count, and any Desktop-only visual warnings.
 

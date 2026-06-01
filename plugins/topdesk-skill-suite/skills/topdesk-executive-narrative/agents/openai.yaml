@@ -1,0 +1,4 @@
+interface:
+  display_name: "TOPdesk Executive Narrative"
+  short_description: "Generate TOPdesk executive readouts."
+  default_prompt: "Create an executive narrative from TOPdesk findings."

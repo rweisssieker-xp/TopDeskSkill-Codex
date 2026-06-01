@@ -1,22 +1,27 @@
 ﻿# TOPdesk Skill Suite Plugin Inventory
 
-Generated: 2026-05-31T12:15:42+02:00
+Generated: 2026-06-01T06:13:23+02:00
 
-Skill count: 39
+Skill count: 48
 
 | Skill | References | Scripts | Assets |
 | --- | ---: | ---: | ---: |
 | `topdesk-action-sequences` | 1 | 0 | 0 |
 | `topdesk-admin-config` | 1 | 0 | 0 |
 | `topdesk-ai` | 4 | 0 | 0 |
+| `topdesk-ai-adoption-ledger` | 1 | 1 | 0 |
 | `topdesk-ai-feature-factory` | 2 | 1 | 3 |
 | `topdesk-ai-governance-cockpit` | 2 | 1 | 3 |
 | `topdesk-api-test-lab` | 0 | 1 | 0 |
 | `topdesk-assets` | 1 | 0 | 0 |
+| `topdesk-automation-sandbox` | 1 | 1 | 0 |
 | `topdesk-changes` | 1 | 0 | 0 |
 | `topdesk-compliance-pii` | 0 | 1 | 0 |
 | `topdesk-data-quality` | 1 | 0 | 0 |
+| `topdesk-decision-findings` | 1 | 1 | 0 |
+| `topdesk-digital-twin-light` | 1 | 1 | 0 |
 | `topdesk-enablement` | 1 | 0 | 0 |
+| `topdesk-executive-narrative` | 1 | 1 | 0 |
 | `topdesk-expert` | 26 | 3 | 0 |
 | `topdesk-handbook` | 10 | 0 | 0 |
 | `topdesk-integration` | 5 | 1 | 0 |
@@ -29,16 +34,20 @@ Skill count: 39
 | `topdesk-powerbi-dax` | 0 | 1 | 1 |
 | `topdesk-powerbi-modelling` | 2 | 1 | 2 |
 | `topdesk-powershell` | 2 | 1 | 1 |
+| `topdesk-process-debt` | 1 | 1 | 0 |
 | `topdesk-project-delivery` | 1 | 0 | 0 |
 | `topdesk-proof-of-value` | 2 | 1 | 3 |
 | `topdesk-python` | 2 | 1 | 1 |
 | `topdesk-query-powerbi` | 2 | 1 | 1 |
+| `topdesk-readiness-scoring` | 1 | 1 | 0 |
 | `topdesk-report-factory` | 1 | 0 | 0 |
 | `topdesk-roi-business-case` | 1 | 0 | 0 |
 | `topdesk-schema` | 4 | 0 | 1 |
 | `topdesk-security` | 3 | 0 | 0 |
+| `topdesk-service-intelligence-runtime` | 1 | 2 | 1 |
 | `topdesk-sla-optimizer` | 0 | 1 | 0 |
 | `topdesk-template-pack` | 1 | 0 | 2 |
+| `topdesk-tenant-drift` | 1 | 1 | 0 |
 | `topdesk-tenant-mapping` | 1 | 1 | 0 |
 | `topdesk-testing` | 2 | 0 | 1 |
 | `topdesk-usp-battlecards` | 2 | 1 | 3 |
@@ -71,6 +80,16 @@ References:
 - `references/ai-prompts-and-evals.md`
 - `references/security-compliance.md`
 - `references/testing-validation.md`
+
+### `topdesk-ai-adoption-ledger`
+
+Build TOPdesk AI/KI adoption ledgers and monitoring summaries from suggestion logs, operator feedback, acceptance/edit/rejection events, override reasons, confidence, cost estimates, prompt/model versions, and value assumptions.
+
+References:
+- `references/ai-adoption-ledger.md`
+
+Scripts:
+- `scripts/build_ai_adoption_ledger.py`
 
 ### `topdesk-ai-feature-factory`
 
@@ -118,6 +137,16 @@ TOPdesk Asset Management design, schema, analytics, and workflow support. Use fo
 References:
 - `references/asset-management.md`
 
+### `topdesk-automation-sandbox`
+
+Review TOPdesk action sequences, webhooks, scheduled jobs, integration scripts, and automation designs for trigger quality, payload mapping, idempotency, retry behavior, rollback, dead-letter handling, PII, audit, human approval, and production go/no-go risk.
+
+References:
+- `references/automation-sandbox.md`
+
+Scripts:
+- `scripts/review_automation_risk.py`
+
 ### `topdesk-changes`
 
 TOPdesk Change Management design and reporting. Use for change templates, standard/simple/extensive changes, activities, approvals, risk/impact, scheduling, linked incidents/assets, change audit, change KPIs, and change workflow tests.
@@ -139,12 +168,42 @@ TOPdesk data-quality analysis and cleanup planning. Use for missing callers/bran
 References:
 - `references/data-quality.md`
 
+### `topdesk-decision-findings`
+
+Generate decision-ready TOPdesk findings from analysis CSV files, SLA findings, data-quality findings, process-debt outputs, AI governance rows, or manual finding drafts using a standard evidence, impact, risk, action, owner, and validation metric format.
+
+References:
+- `references/decision-findings.md`
+
+Scripts:
+- `scripts/build_decision_findings.py`
+
+### `topdesk-digital-twin-light`
+
+Run lightweight TOPdesk service desk what-if scenario scoring from baseline KPIs and scenario assumptions for routing, SLA thresholds, operator capacity, category cleanup, AI assistance, handoff reduction, and backlog improvement decisions.
+
+References:
+- `references/digital-twin-light.md`
+
+Scripts:
+- `scripts/run_digital_twin_light.py`
+
 ### `topdesk-enablement`
 
 Create training, demos, onboarding, quick-reference material, role-based guides, adoption plans, and enablement content for TOPdesk apps, Power BI reports, integrations, workflows, and AI/KI features.
 
 References:
 - `references/training-demo.md`
+
+### `topdesk-executive-narrative`
+
+Generate management-ready TOPdesk executive narratives from decision-ready findings, readiness scorecards, drift findings, process-debt reports, AI adoption ledgers, automation risk cards, and proof-of-value outputs.
+
+References:
+- `references/executive-narrative.md`
+
+Scripts:
+- `scripts/build_executive_narrative.py`
 
 ### `topdesk-expert`
 
@@ -328,6 +387,16 @@ Scripts:
 Assets:
 - `assets/topdesk-script-template.ps1`
 
+### `topdesk-process-debt`
+
+Analyze TOPdesk lifecycle, incident, SLA, status-transition, assignment-transition, and reopen evidence for process debt such as handoff loops, waiting zones, stale ownership, long runners, category-routing waste, and improvement backlog candidates.
+
+References:
+- `references/process-debt.md`
+
+Scripts:
+- `scripts/analyze_process_debt.py`
+
 ### `topdesk-project-delivery`
 
 Delivery planning for TOPdesk projects. Use for epics, user stories, acceptance criteria, roadmaps, milestones, estimates, dependencies, risks, project governance, delivery streams, and implementation backlogs for TOPdesk apps, Power BI, OData/API, AI/KI, workflow, migration, and enablement work.
@@ -379,6 +448,16 @@ Scripts:
 Assets:
 - `assets/query-powerbi-spec-template.md`
 
+### `topdesk-readiness-scoring`
+
+Score TOPdesk reporting, AI/KI, data trust, automation, security/privacy, tenant mapping, and operations readiness from evidence checklists, proof-of-value inputs, production gates, or project intake artifacts.
+
+References:
+- `references/readiness-scoring.md`
+
+Scripts:
+- `scripts/score_readiness.py`
+
 ### `topdesk-report-factory`
 
 Generate TOPdesk report implementation packs. Use for Power BI report specifications, semantic model plans, DAX measure backlogs, page and visual backlogs, RLS design, refresh plans, reconciliation checks, data-quality checks, and implementation user stories.
@@ -415,6 +494,20 @@ References:
 - `references/security-compliance.md`
 - `references/testing-validation.md`
 
+### `topdesk-service-intelligence-runtime`
+
+Operate the TOPdesk Service Intelligence workflow with connector checks, analyzer orchestration, run history, governance gates, and HTML/Markdown readouts.
+
+References:
+- `references/runtime-operating-model.md`
+
+Scripts:
+- `scripts/run_service_intelligence.py`
+- `scripts/topdesk_live_connector.py`
+
+Assets:
+- `assets/runtime-config.example.json`
+
 ### `topdesk-sla-optimizer`
 
 Use when analyzing TOPdesk incident SLA health, target dates, backlog, overdue work, priority coverage, routing quality, operator-group workload, ageing buckets, operational risk, and service improvement actions from REST snapshots or exports.
@@ -432,6 +525,16 @@ References:
 Assets:
 - `assets/proposal-outline.md`
 - `assets/user-story-template.md`
+
+### `topdesk-tenant-drift`
+
+Compare TOPdesk tenant field catalogs, OData/API exports, option sets, categories, statuses, priorities, operator groups, and KPI dependency maps to detect drift risks for Power BI, AI/KI, automations, security, and operations.
+
+References:
+- `references/tenant-drift.md`
+
+Scripts:
+- `scripts/compare_tenant_drift.py`
 
 ### `topdesk-tenant-mapping`
 

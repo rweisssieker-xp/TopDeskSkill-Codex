@@ -1,7 +1,7 @@
 {
-    "generated_at":  "2026-05-31T12:15:42+02:00",
+    "generated_at":  "2026-06-01T06:13:23+02:00",
     "plugin":  "topdesk-skill-suite",
-    "skill_count":  39,
+    "skill_count":  48,
     "skills":  [
                    {
                        "name":  "topdesk-action-sequences",
@@ -43,6 +43,20 @@
                                       ],
                        "scripts":  [
 
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-ai-adoption-ledger",
+                       "folder":  "topdesk-ai-adoption-ledger",
+                       "description":  "Build TOPdesk AI/KI adoption ledgers and monitoring summaries from suggestion logs, operator feedback, acceptance/edit/rejection events, override reasons, confidence, cost estimates, prompt/model versions, and value assumptions.",
+                       "references":  [
+                                          "references/ai-adoption-ledger.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/build_ai_adoption_ledger.py"
                                    ],
                        "assets":  [
 
@@ -111,6 +125,20 @@
                                   ]
                    },
                    {
+                       "name":  "topdesk-automation-sandbox",
+                       "folder":  "topdesk-automation-sandbox",
+                       "description":  "Review TOPdesk action sequences, webhooks, scheduled jobs, integration scripts, and automation designs for trigger quality, payload mapping, idempotency, retry behavior, rollback, dead-letter handling, PII, audit, human approval, and production go/no-go risk.",
+                       "references":  [
+                                          "references/automation-sandbox.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/review_automation_risk.py"
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
                        "name":  "topdesk-changes",
                        "folder":  "topdesk-changes",
                        "description":  "TOPdesk Change Management design and reporting. Use for change templates, standard/simple/extensive changes, activities, approvals, risk/impact, scheduling, linked incidents/assets, change audit, change KPIs, and change workflow tests.",
@@ -153,6 +181,34 @@
                                   ]
                    },
                    {
+                       "name":  "topdesk-decision-findings",
+                       "folder":  "topdesk-decision-findings",
+                       "description":  "Generate decision-ready TOPdesk findings from analysis CSV files, SLA findings, data-quality findings, process-debt outputs, AI governance rows, or manual finding drafts using a standard evidence, impact, risk, action, owner, and validation metric format.",
+                       "references":  [
+                                          "references/decision-findings.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/build_decision_findings.py"
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-digital-twin-light",
+                       "folder":  "topdesk-digital-twin-light",
+                       "description":  "Run lightweight TOPdesk service desk what-if scenario scoring from baseline KPIs and scenario assumptions for routing, SLA thresholds, operator capacity, category cleanup, AI assistance, handoff reduction, and backlog improvement decisions.",
+                       "references":  [
+                                          "references/digital-twin-light.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/run_digital_twin_light.py"
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
                        "name":  "topdesk-enablement",
                        "folder":  "topdesk-enablement",
                        "description":  "Create training, demos, onboarding, quick-reference material, role-based guides, adoption plans, and enablement content for TOPdesk apps, Power BI reports, integrations, workflows, and AI/KI features.",
@@ -161,6 +217,20 @@
                                       ],
                        "scripts":  [
 
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-executive-narrative",
+                       "folder":  "topdesk-executive-narrative",
+                       "description":  "Generate management-ready TOPdesk executive narratives from decision-ready findings, readiness scorecards, drift findings, process-debt reports, AI adoption ledgers, automation risk cards, and proof-of-value outputs.",
+                       "references":  [
+                                          "references/executive-narrative.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/build_executive_narrative.py"
                                    ],
                        "assets":  [
 
@@ -400,6 +470,20 @@
                                   ]
                    },
                    {
+                       "name":  "topdesk-process-debt",
+                       "folder":  "topdesk-process-debt",
+                       "description":  "Analyze TOPdesk lifecycle, incident, SLA, status-transition, assignment-transition, and reopen evidence for process debt such as handoff loops, waiting zones, stale ownership, long runners, category-routing waste, and improvement backlog candidates.",
+                       "references":  [
+                                          "references/process-debt.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/analyze_process_debt.py"
+                                   ],
+                       "assets":  [
+
+                                  ]
+                   },
+                   {
                        "name":  "topdesk-project-delivery",
                        "folder":  "topdesk-project-delivery",
                        "description":  "Delivery planning for TOPdesk projects. Use for epics, user stories, acceptance criteria, roadmaps, milestones, estimates, dependencies, risks, project governance, delivery streams, and implementation backlogs for TOPdesk apps, Power BI, OData/API, AI/KI, workflow, migration, and enablement work.",
@@ -458,6 +542,20 @@
                                    ],
                        "assets":  [
                                       "assets/query-powerbi-spec-template.md"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-readiness-scoring",
+                       "folder":  "topdesk-readiness-scoring",
+                       "description":  "Score TOPdesk reporting, AI/KI, data trust, automation, security/privacy, tenant mapping, and operations readiness from evidence checklists, proof-of-value inputs, production gates, or project intake artifacts.",
+                       "references":  [
+                                          "references/readiness-scoring.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/score_readiness.py"
+                                   ],
+                       "assets":  [
+
                                   ]
                    },
                    {
@@ -522,6 +620,21 @@
                                   ]
                    },
                    {
+                       "name":  "topdesk-service-intelligence-runtime",
+                       "folder":  "topdesk-service-intelligence-runtime",
+                       "description":  "Operate the TOPdesk Service Intelligence workflow with connector checks, analyzer orchestration, run history, governance gates, and HTML/Markdown readouts.",
+                       "references":  [
+                                          "references/runtime-operating-model.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/run_service_intelligence.py",
+                                       "scripts/topdesk_live_connector.py"
+                                   ],
+                       "assets":  [
+                                      "assets/runtime-config.example.json"
+                                  ]
+                   },
+                   {
                        "name":  "topdesk-sla-optimizer",
                        "folder":  "topdesk-sla-optimizer",
                        "description":  "Use when analyzing TOPdesk incident SLA health, target dates, backlog, overdue work, priority coverage, routing quality, operator-group workload, ageing buckets, operational risk, and service improvement actions from REST snapshots or exports.",
@@ -548,6 +661,20 @@
                        "assets":  [
                                       "assets/proposal-outline.md",
                                       "assets/user-story-template.md"
+                                  ]
+                   },
+                   {
+                       "name":  "topdesk-tenant-drift",
+                       "folder":  "topdesk-tenant-drift",
+                       "description":  "Compare TOPdesk tenant field catalogs, OData/API exports, option sets, categories, statuses, priorities, operator groups, and KPI dependency maps to detect drift risks for Power BI, AI/KI, automations, security, and operations.",
+                       "references":  [
+                                          "references/tenant-drift.md"
+                                      ],
+                       "scripts":  [
+                                       "scripts/compare_tenant_drift.py"
+                                   ],
+                       "assets":  [
+
                                   ]
                    },
                    {

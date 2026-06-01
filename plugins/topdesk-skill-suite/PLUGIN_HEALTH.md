@@ -1,12 +1,12 @@
 ﻿# Plugin Health Report
 
-Generated: 2026-05-31T12:15:42+02:00
+Generated: 2026-06-01T06:13:24+02:00
 
 | Check | Result |
 | --- | --- |
 | Plugin name | topdesk-skill-suite |
-| Version | 0.1.2 |
-| Bundled skills | 39 |
-| PowerShell scripts | 15 |
+| Version | 0.1.3 |
+| Bundled skills | 48 |
+| PowerShell scripts | 16 |
 | PNG assets | 5 |
 | Missing referenced assets | none |

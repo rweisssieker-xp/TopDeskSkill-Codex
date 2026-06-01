@@ -13,7 +13,7 @@ if ($Version -notmatch '^\d+\.\d+\.\d+(-[A-Za-z0-9.-]+)?$') {
 $manifestPath = Join-Path (Resolve-Path -LiteralPath $PluginRoot).Path ".codex-plugin\plugin.json"
 $manifest = Get-Content -Raw -LiteralPath $manifestPath | ConvertFrom-Json
 $manifest.version = $Version
-$manifest | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $manifestPath -Encoding UTF8
+$json = $manifest | ConvertTo-Json -Depth 8
+[System.IO.File]::WriteAllText($manifestPath, $json + [Environment]::NewLine, [System.Text.UTF8Encoding]::new($false))
 
 Write-Host "Set plugin version to $Version"
-

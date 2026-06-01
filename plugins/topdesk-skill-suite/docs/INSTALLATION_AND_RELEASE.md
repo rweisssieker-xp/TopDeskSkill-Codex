@@ -4,7 +4,7 @@ This guide is the short operational path for installing, verifying, and handing 
 
 ## What Is Free
 
-The plugin, bundled skills, scripts, templates, generated demo assets, and local MCP helper are free open-source accelerator assets under the repository license.
+The plugin, bundled skills, scripts, templates, demo assets, and local MCP helper are free open-source accelerator assets under the repository license.
 
 The plugin does not include or pay for:
 
@@ -38,6 +38,7 @@ Expected result:
 - PNG assets are generated.
 - Plugin manifest, inventory, and health report are regenerated.
 - Plugin config validation succeeds.
+- Marketplace readiness validation succeeds.
 - MCP server smoke test passes.
 - All bundled skills validate.
 - Python scripts compile.
@@ -50,18 +51,18 @@ Expected result:
 The release artifact is:
 
 ```text
-dist/topdesk-skill-suite-plugin-0.1.2.zip
+dist/topdesk-skill-suite-plugin-0.1.3.zip
 ```
 
 The matching checksum file is:
 
 ```text
-dist/topdesk-skill-suite-plugin-0.1.2.sha256
+dist/topdesk-skill-suite-plugin-0.1.3.sha256
 ```
 
 ## Customer Handover Checklist
 
-- Confirm whether the customer wants demo-only, tenant-read-only, or production-integrated use.
+- Confirm whether the customer wants demo-data, tenant-read-only, or production-integrated use.
 - Confirm available TOPdesk API/OData permissions.
 - Confirm Power BI Desktop, Service, gateway, and workspace ownership.
 - Confirm whether AI/KI outputs may use customer ticket text.
@@ -72,7 +73,7 @@ dist/topdesk-skill-suite-plugin-0.1.2.sha256
 
 ## Minimum Production Gate
 
-Before using customer data in production reporting or automation:
+Before using customer data in production reporting or automation, also follow `docs/PRODUCTION_READINESS.md`.
 
 - Validate tenant-specific field mappings.
 - Validate lifecycle snapshot completeness.

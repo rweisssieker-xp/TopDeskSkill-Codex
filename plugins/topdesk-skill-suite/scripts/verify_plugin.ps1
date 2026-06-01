@@ -1,7 +1,7 @@
 param(
     [string]$Root = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..")).Path,
     [string]$PluginRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path,
-    [string]$Version = "0.1.2"
+    [string]$Version = "0.1.3"
 )
 
 $ErrorActionPreference = "Stop"
@@ -25,6 +25,9 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 & powershell -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "validate_plugin_config.ps1") -PluginRoot $resolvedPluginRoot
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+& powershell -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "validate_marketplace_readiness.ps1") -PluginRoot $resolvedPluginRoot
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 python (Join-Path $PSScriptRoot "test_mcp_server.py")
