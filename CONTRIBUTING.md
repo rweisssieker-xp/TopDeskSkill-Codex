@@ -25,4 +25,4 @@ Include:
 - changed skills/files
 - reason for change
 - validation output
-- any tenant-specific assumptions or placeholders
+- any tenant-specific assumptions, open evidence gaps, or values that must be replaced before customer use

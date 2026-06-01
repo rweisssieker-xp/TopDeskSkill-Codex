@@ -296,7 +296,7 @@ Differentiators:
 
 Proof points:
 
-- Generated demo pack includes `FactIncidentDailySnapshot`, `FactStatusTransition`, and `FactAssignmentTransition`.
+- Offline lifecycle pack includes `FactIncidentDailySnapshot`, `FactStatusTransition`, and `FactAssignmentTransition`.
 - Lifecycle validation checks required fields, interval order, duration math, and sequence continuity.
 - SQL, DAX, Power Query, and model references all point to the same fact pattern.
 

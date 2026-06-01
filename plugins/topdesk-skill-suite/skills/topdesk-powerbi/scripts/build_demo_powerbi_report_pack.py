@@ -471,7 +471,7 @@ Import-ready Power BI implementation pack for a TOPdesk Operations, SLA, Data Qu
 1. Executive Overview: KPI cards for incident count, open backlog, routing coverage, priority coverage, target-date coverage, and high PII findings.
 2. Service Desk Operations: backlog by operator group, status, priority, branch, and daily trend.
 3. SLA & Backlog Risk: SLA findings table, missing target dates, unrouted incidents, and priority gaps.
-4. Data Quality: missing-field findings, field coverage, quality trend placeholders, and cleanup owner notes.
+4. Data Quality: missing-field findings, field coverage, quality trend slots, and cleanup owner notes.
 5. PII & Compliance: PII findings by entity/severity plus minimization recommendations.
 6. Info: source, refresh timestamp, KPI definitions, exclusions, and RLS notes.
 

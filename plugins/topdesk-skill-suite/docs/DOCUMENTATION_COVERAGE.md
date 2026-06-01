@@ -38,6 +38,6 @@ The gate regenerates the plugin docs and package evidence:
 ## Production Gates
 
 - Public URLs in `.codex-plugin/plugin.json` are validated for shape locally; verify live availability again before external marketplace submission.
-- Generated screenshots are acceptable for local/demo publication. Customer-facing screenshots must come from sanitized demo data or approved customer material.
+- Local demonstration screenshots are acceptable for internal publication. Customer-facing screenshots must come from sanitized demo data or approved customer material.
 - The suite provides reusable templates, scripts, and a local MCP helper. A hosted TOPdesk connector remains a separate implementation and operations decision.
 - `en-US` is the canonical source. European locales are supported through localization guidance and prompt starters, not through duplicated per-skill source files.

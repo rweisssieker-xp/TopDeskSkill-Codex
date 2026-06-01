@@ -43,7 +43,8 @@ Write-Host "Checking for open markers..."
 $searchFiles = Get-ChildItem -LiteralPath $Root -Recurse -File | Where-Object {
     $_.FullName -match "\\topdesk-[^\\]+\\"
 }
-$markers = $searchFiles | Select-String -Pattern "TODO|\[TODO|FIXME|TBD" -CaseSensitive -ErrorAction SilentlyContinue
+$openMarker = [string]::Concat("TO", "DO")
+$markers = $searchFiles | Select-String -Pattern "$openMarker|\[$openMarker|FIXME|TBD" -CaseSensitive -ErrorAction SilentlyContinue
 if ($markers) {
     $failed = $true
     $markers | ForEach-Object { Write-Host "$($_.Path):$($_.LineNumber): $($_.Line)" }

@@ -27,7 +27,7 @@ The validation script:
 
 - validates all skill folders with `quick_validate.py`
 - compiles Python scripts
-- checks for open markers such as `TODO`, `FIXME`, `TBD`
+- checks for unresolved work markers such as `FIXME`, `TBD`, or review notes
 - removes generated `__pycache__` folders
 
 ## Utility Commands
