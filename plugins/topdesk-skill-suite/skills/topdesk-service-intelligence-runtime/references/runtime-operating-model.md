@@ -11,6 +11,7 @@ The runtime turns the TOPdesk skill suite into a repeatable local operating proc
 | Monthly | Readiness, AI adoption, executive narrative | `runtime-readout.md` and `runtime-dashboard.html` | Service intelligence owner |
 | Per change | Automation sandbox and tenant drift comparison | Go/No-Go evidence | Change owner |
 | Scheduled local run | Windows Scheduled Task executes the runtime with approved config. | SQLite state DB and monitoring JSON | Runtime owner |
+| Local status server | HTTP server exposes run status and dashboard from local state. | `/health`, `/api/runs`, `/api/modules`, `/dashboard` | Runtime owner |
 
 ## Production Gates
 
@@ -27,6 +28,7 @@ The runtime turns the TOPdesk skill suite into a repeatable local operating proc
 - **Preflight mode**: verify environment variables and URL shape without exporting data.
 - **Live fetch mode**: fetch selected REST/OData endpoints into local files after tenant approval. This requires explicit credentials and endpoint selection.
 - **Scheduled local mode**: use `Register-ServiceIntelligenceSchedule.ps1` to run the runtime on a controlled Windows host.
+- **Local status server mode**: use `service_intelligence_server.py` to expose health and run status from SQLite and monitoring JSON.
 
 ## Persisted State
 
@@ -34,7 +36,22 @@ When `--state-db` is supplied, the runtime writes `runtime_runs` and `module_run
 
 When `--monitoring-json` is supplied, the runtime writes a compact status document with overall status, connector status, blocker count, module status counts, red gates, amber gates, and evidence paths.
 
+## Secret Store
+
+`topdesk_secret_store.py` writes `TOPDESK_BASE_URL`, `TOPDESK_USERNAME`, and `TOPDESK_APP_PASSWORD` from environment variables into a local Windows DPAPI-protected JSON file. The encrypted values are bound to the Windows user context that created them. `topdesk_live_connector.py` can read that store with `--secret-store`.
+
+## Local API
+
+`service_intelligence_server.py` reads the SQLite state database and monitoring JSON. It serves:
+
+- `/health`: current status and state-file presence.
+- `/api/runs`: recent runtime runs.
+- `/api/modules`: module results.
+- `/dashboard`: browser-readable operational status.
+
+Set `SERVICE_INTELLIGENCE_ADMIN_TOKEN` to require `Authorization: Bearer <token>` for requests.
+
 ## Evidence Boundary
 
-The runtime produces local evidence packs, persisted local state, and monitoring status files. Multi-user hosted storage, enterprise monitoring, and support SLAs require a separate deployment decision, access model, and support agreement.
+The runtime produces local evidence packs, persisted local state, monitoring status files, and a local status API. Multi-user storage, organization-wide monitoring, and support SLAs require customer infrastructure, access model, and support agreement decisions.
 

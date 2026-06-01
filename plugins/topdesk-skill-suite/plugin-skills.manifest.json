@@ -1,5 +1,5 @@
 {
-    "generated_at":  "2026-06-01T06:25:51+02:00",
+    "generated_at":  "2026-06-01T07:27:20+02:00",
     "plugin":  "topdesk-skill-suite",
     "skill_count":  48,
     "skills":  [
@@ -629,7 +629,9 @@
                        "scripts":  [
                                        "scripts/Register-ServiceIntelligenceSchedule.ps1",
                                        "scripts/run_service_intelligence.py",
-                                       "scripts/topdesk_live_connector.py"
+                                       "scripts/service_intelligence_server.py",
+                                       "scripts/topdesk_live_connector.py",
+                                       "scripts/topdesk_secret_store.py"
                                    ],
                        "assets":  [
                                       "assets/runtime-config.example.json"

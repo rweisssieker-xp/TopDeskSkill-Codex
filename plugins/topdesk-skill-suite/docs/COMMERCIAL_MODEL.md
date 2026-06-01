@@ -21,7 +21,7 @@ The TOPdesk Skill Suite plugin is free open-source software. The commercial valu
 - AI provider, model, gateway, or enterprise platform usage.
 - Training, rollout, adoption, support, and managed service.
 - Custom integrations, security review, and compliance documentation.
-- Hosted runtime, managed secret store, central multi-user storage, enterprise monitoring, web application, and support SLA.
+- Customer infrastructure for vault integration, central multi-user storage, organization auth, enterprise monitoring, and support SLA.
 
 ## Offer Packages
 
@@ -50,7 +50,7 @@ The TOPdesk Skill Suite plugin is free open-source software. The commercial valu
 - The customer keeps the assets and can inspect, fork, or adapt them.
 - The first business case should measure implementation effort, operating model, and service improvement, not a plugin subscription.
 - The stronger story is service intelligence: decisions, drift, process debt, AI adoption, automation safety, readiness, and executive action from tenant evidence.
-- Disruptive feature packs are delivered as skills, scripts, templates, scorecards, ledgers, runtime orchestration, and readouts. Hosted operation remains a separate deployment and service scope.
+- Disruptive feature packs are delivered as skills, scripts, templates, scorecards, ledgers, runtime orchestration, local scheduling, local state, status API, and readouts. Customer-wide enterprise operation is a deployment and service scope.
 
 ## Procurement Notes
 

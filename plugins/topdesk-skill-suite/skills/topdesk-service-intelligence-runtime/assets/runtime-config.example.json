@@ -8,7 +8,8 @@
     "mode": "exports",
     "base_url_env": "TOPDESK_BASE_URL",
     "username_env": "TOPDESK_USERNAME",
-    "password_env": "TOPDESK_APP_PASSWORD"
+    "password_env": "TOPDESK_APP_PASSWORD",
+    "secret_store": "tenant-output/runtime/topdesk-secrets.dpapi.json"
   },
   "inputs": {
     "baseline_catalog": "tenant-evidence/baseline-field-catalog.csv",
@@ -45,6 +46,12 @@
       "enabled": false,
       "windows_task_name": "TOPdesk Service Intelligence Runtime",
       "daily_at": "06:30"
+    },
+    "web": {
+      "enabled": false,
+      "host": "127.0.0.1",
+      "port": 8765,
+      "token_env": "SERVICE_INTELLIGENCE_ADMIN_TOKEN"
     }
   }
 }

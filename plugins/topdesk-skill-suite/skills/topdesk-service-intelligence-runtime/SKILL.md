@@ -17,6 +17,8 @@ Use this skill when a user wants to move from individual TOPdesk accelerator scr
 - SQLite run store for persisted runtime and module results.
 - Monitoring JSON for external checks, dashboards, or scheduled-job health probes.
 - Windows Scheduled Task registration script for repeatable local execution.
+- DPAPI-backed local secret store for TOPdesk runtime credentials.
+- Local HTTP status server with health, runs, modules, and dashboard endpoints.
 - HTML and Markdown runtime readouts for stakeholders.
 - Production gates that state what is ready, blocked, or requires tenant-specific credentials.
 
@@ -41,25 +43,38 @@ Use this skill when a user wants to move from individual TOPdesk accelerator scr
    python topdesk-service-intelligence-runtime/scripts/topdesk_live_connector.py preflight
    ```
 
-4. Execute the runtime against approved exports:
+4. Store approved TOPdesk credentials in the local DPAPI secret store when environment variables should not be kept in the task definition:
+
+   ```bash
+   python topdesk-service-intelligence-runtime/scripts/topdesk_secret_store.py set --store out/runtime/topdesk-secrets.dpapi.json
+   python topdesk-service-intelligence-runtime/scripts/topdesk_live_connector.py preflight --secret-store out/runtime/topdesk-secrets.dpapi.json
+   ```
+
+5. Execute the runtime against approved exports:
 
    ```bash
    python topdesk-service-intelligence-runtime/scripts/run_service_intelligence.py --config runtime-config.json --out-dir out/runtime
    ```
 
-5. Persist state and monitoring when operating repeatedly:
+6. Persist state and monitoring when operating repeatedly:
 
    ```bash
    python topdesk-service-intelligence-runtime/scripts/run_service_intelligence.py --config runtime-config.json --out-dir out/runtime --state-db out/runtime/service-intelligence.sqlite --monitoring-json out/runtime/runtime-monitoring.json
    ```
 
-6. Register a local Windows schedule when owner, retention, and disable path are approved:
+7. Serve the local status API and dashboard:
+
+   ```bash
+   python topdesk-service-intelligence-runtime/scripts/service_intelligence_server.py --state-db out/runtime/service-intelligence.sqlite --monitoring-json out/runtime/runtime-monitoring.json
+   ```
+
+8. Register a local Windows schedule when owner, retention, and disable path are approved:
 
    ```powershell
    powershell -ExecutionPolicy Bypass -File topdesk-service-intelligence-runtime/scripts/Register-ServiceIntelligenceSchedule.ps1 -ConfigPath runtime-config.json -OutDir out/runtime -StateDb out/runtime/service-intelligence.sqlite -MonitoringJson out/runtime/runtime-monitoring.json -WhatIf
    ```
 
-7. Review `runtime-readout.md`, `runtime-dashboard.html`, `runtime-plan.json`, `runtime-history.jsonl`, `operational-gates.csv`, `service-intelligence.sqlite`, and `runtime-monitoring.json`.
+9. Review `runtime-readout.md`, `runtime-dashboard.html`, `runtime-plan.json`, `runtime-history.jsonl`, `operational-gates.csv`, `service-intelligence.sqlite`, and `runtime-monitoring.json`.
 
 ## Inputs
 
@@ -70,6 +85,7 @@ The runtime config accepts these optional sections:
 - `modules`: Boolean flags for the analyzers to run.
 - `governance`: Owner, retention, PII policy, approval reference, and production gate state.
 - `connector`: Optional live access mode. Keep `enabled` false until credentials and approval are ready.
+- `runtime.web`: Optional local HTTP server settings.
 
 ## Outputs
 
@@ -80,3 +96,4 @@ The runtime config accepts these optional sections:
 - `runtime-history.jsonl`: append-only run ledger.
 - `service-intelligence.sqlite`: persisted run and module state when `--state-db` is supplied.
 - `runtime-monitoring.json`: latest machine-readable status when `--monitoring-json` is supplied.
+- Local HTTP endpoints: `/health`, `/api/runs`, `/api/modules`, and `/dashboard`.

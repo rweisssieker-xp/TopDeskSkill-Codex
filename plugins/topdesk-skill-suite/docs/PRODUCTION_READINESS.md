@@ -6,7 +6,7 @@ Production use with customer TOPdesk data needs these gates to be completed for 
 ## Gate 1: Tenant Access
 
 - Use a named TOPdesk API user or application credential with the minimum required read/write scope.
-- Store `TOPDESK_BASE_URL`, `TOPDESK_USERNAME`, and `TOPDESK_APP_PASSWORD` in local environment variables or a managed secret store.
+- Store `TOPDESK_BASE_URL`, `TOPDESK_USERNAME`, and `TOPDESK_APP_PASSWORD` in local environment variables, the DPAPI secret store, or a customer-managed vault.
 - Confirm REST and OData permission boundaries before enabling Power BI refreshes, automation, or AI workflows.
 
 ## Gate 2: Real Data Mapping
@@ -38,9 +38,9 @@ Production use with customer TOPdesk data needs these gates to be completed for 
 
 - Run connector preflight before any live export.
 - Keep live export endpoints explicit and approved; do not use broad endpoint crawling by default.
-- Keep runtime configs free of secrets. Use environment variables or a managed secret store.
+- Keep runtime configs free of secrets. Use environment variables, the DPAPI secret store, or a customer-managed vault.
 - Treat `runtime-dashboard.html` as local evidence unless it has been sanitized for publication.
-- Decide whether the customer wants local execution, the implemented Windows Scheduled Task mode, or a separately hosted runtime with enterprise monitoring and support.
+- Decide whether the customer wants local execution, the implemented Windows Scheduled Task mode, the local status API, or customer-wide enterprise operation with organization monitoring and support.
 
 ## Gate 6: Commercial Boundary
 

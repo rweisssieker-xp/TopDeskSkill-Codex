@@ -39,5 +39,5 @@ The gate regenerates the plugin docs and package evidence:
 
 - Public URLs in `.codex-plugin/plugin.json` are validated for shape locally; verify live availability again before external marketplace submission.
 - Local demonstration screenshots are acceptable for internal publication. Customer-facing screenshots must come from sanitized demo data or approved customer material.
-- The suite provides reusable templates, scripts, and a local MCP helper. A hosted TOPdesk connector remains a separate implementation and operations decision.
+- The suite provides reusable templates, scripts, a local MCP helper, connector preflight/export tooling, local runtime state, and a local status API. Customer-wide hosted operation is an infrastructure decision.
 - `en-US` is the canonical source. European locales are supported through localization guidance and prompt starters, not through duplicated per-skill source files.
