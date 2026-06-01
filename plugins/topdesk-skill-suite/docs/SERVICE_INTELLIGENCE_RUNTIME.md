@@ -11,7 +11,8 @@ It is not a hosted SaaS service. It runs locally from approved exports by defaul
 - Orchestrator CLI: `skills/topdesk-service-intelligence-runtime/scripts/run_service_intelligence.py`.
 - Live connector helper: `skills/topdesk-service-intelligence-runtime/scripts/topdesk_live_connector.py`.
 - Runtime operating model: `skills/topdesk-service-intelligence-runtime/references/runtime-operating-model.md`.
-- Outputs: `runtime-plan.json`, `runtime-readout.md`, `runtime-dashboard.html`, `operational-gates.csv`, and `runtime-history.jsonl`.
+- Scheduler registration script: `skills/topdesk-service-intelligence-runtime/scripts/Register-ServiceIntelligenceSchedule.ps1`.
+- Outputs: `runtime-plan.json`, `runtime-readout.md`, `runtime-dashboard.html`, `operational-gates.csv`, `runtime-history.jsonl`, optional SQLite state DB, and optional monitoring JSON.
 
 ## Operating Modes
 
@@ -21,6 +22,7 @@ It is not a hosted SaaS service. It runs locally from approved exports by defaul
 | Exports mode | Run analyzers from approved CSV files. | Local files only. |
 | Connector preflight | Check required environment variables. | No TOPdesk data fetch. |
 | Live export | Fetch one approved REST/OData endpoint to JSON or CSV. | Requires explicit credentials and endpoint. |
+| Scheduled local run | Register the runtime as a Windows Scheduled Task. | Uses approved local config and environment. |
 
 ## Required Environment Variables For Live Access
 
@@ -49,6 +51,13 @@ Create a runtime config from the example, then run:
 ```powershell
 python .\plugins\topdesk-skill-suite\skills\topdesk-service-intelligence-runtime\scripts\run_service_intelligence.py --config .\runtime-config.json --out-dir .\tenant-output\runtime --dry-run
 python .\plugins\topdesk-skill-suite\skills\topdesk-service-intelligence-runtime\scripts\run_service_intelligence.py --config .\runtime-config.json --out-dir .\tenant-output\runtime
+python .\plugins\topdesk-skill-suite\skills\topdesk-service-intelligence-runtime\scripts\run_service_intelligence.py --config .\runtime-config.json --out-dir .\tenant-output\runtime --state-db .\tenant-output\runtime\service-intelligence.sqlite --monitoring-json .\tenant-output\runtime\runtime-monitoring.json
+```
+
+Register a local schedule after governance approval:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\plugins\topdesk-skill-suite\skills\topdesk-service-intelligence-runtime\scripts\Register-ServiceIntelligenceSchedule.ps1 -ConfigPath .\runtime-config.json -OutDir .\tenant-output\runtime -StateDb .\tenant-output\runtime\service-intelligence.sqlite -MonitoringJson .\tenant-output\runtime\runtime-monitoring.json -WhatIf
 ```
 
 ## Governance Rules
@@ -57,16 +66,15 @@ python .\plugins\topdesk-skill-suite\skills\topdesk-service-intelligence-runtime
 - Prefer approved exports until the customer has approved live endpoint use.
 - Run PII review before sharing generated reports, screenshots, prompts, logs, or CSVs.
 - Treat `runtime-dashboard.html` as local evidence unless sanitized for publication.
-- Do not enable unattended scheduling until owner, retention, monitoring, disable path, and support model are documented.
+- Enable local scheduling only after owner, retention, monitoring, disable path, and support model are documented.
 
 ## Remaining Product Deployment Decisions
 
 These are outside the free plugin package and must be scoped per customer:
 
-- Hosted scheduler or workflow runner.
 - Managed secret store.
-- Central database or object storage.
+- Central multi-user database or object storage.
 - Web application with multi-user auth.
-- Monitoring and alerting.
+- Enterprise monitoring and alerting.
 - Support SLA and operating responsibility.
 

@@ -10,7 +10,7 @@ The plugin does not include or pay for:
 
 - TOPdesk tenant licenses or API permissions.
 - Microsoft Power BI Desktop, Service, capacity, gateway, or workspace licenses.
-- Cloud, database, gateway, or scheduler hosting.
+- Cloud hosting, gateway operation, central database operation, or enterprise monitoring.
 - Customer-specific setup, modelling, implementation, training, support, or managed operation.
 - Third-party AI model usage or enterprise AI platform costs.
 

@@ -19,7 +19,7 @@ Der Nutzen entsteht nicht durch eine weitere Tool-Lizenz, sondern durch schnelle
 
 - TOPdesk-Lizenzen, Tenant-Zugriff und API/OData-Berechtigungen.
 - Power BI Desktop, Service, Gateway, Capacity und Workspaces.
-- Hosting, Scheduler, Datenbank oder Gateway-Betrieb.
+- Hosting, Gateway-Betrieb, zentrale Datenbank oder Enterprise-Monitoring.
 - AI/KI-Provider, Modellkosten und Enterprise-AI-Plattform.
 - Implementierung, Anpassung, Training, Support und Managed Service.
 
@@ -41,6 +41,7 @@ Der Nutzen entsteht nicht durch eine weitere Tool-Lizenz, sondern durch schnelle
 | Executive Control Narrative | Management-Storys zeigen Problem, Beleg, Risiko, Wert, Entscheidung und naechste 30 Tage. |
 | Readiness Scoring | Tenant, Reporting, AI, Data Trust, Automation, Security und Operations werden vor Umsetzung bewertet. |
 | Runtime Operating Layer | Connector-Preflight, Modul-Orchestrierung, Run-Historie, Governance-Gates und lokale HTML/Markdown-Readouts. |
+| Local Scheduled Operations | Windows Scheduled Task, SQLite-Run-Store und Monitoring-JSON fuer wiederholbare lokale Ausfuehrung. |
 | Lifecycle-Historisierung | Status- und Bearbeitergruppen-Verlauf wird aus Snapshots und Transition Facts auswertbar. |
 | Power BI Readiness | DAX, Power Query, Demo-Daten, KPI-Katalog und Reporting-Struktur sind vorbereitet. |
 | AI/KI mit Governance | Prompts, Evals, Monitoring und menschliche Freigabe werden mitgedacht. |

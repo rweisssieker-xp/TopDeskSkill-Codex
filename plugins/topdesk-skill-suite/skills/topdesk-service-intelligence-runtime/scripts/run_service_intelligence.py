@@ -8,6 +8,7 @@ import csv
 import html
 import json
 import os
+import sqlite3
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -66,11 +67,21 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--out-dir", type=Path, required=True)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--state-db", type=Path, help="Optional SQLite runtime state database")
+    parser.add_argument("--monitoring-json", type=Path, help="Optional machine-readable monitoring status JSON")
+    parser.add_argument("--fail-on-gate", action="store_true", help="Return a non-zero exit code when an operational gate is red")
     return parser.parse_args(argv)
 
 
 def load_config(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def resolve_optional_path(config_path: Path, raw: str | None) -> Path | None:
+    if not raw:
+        return None
+    path = Path(str(raw))
+    return path if path.is_absolute() else (config_path.parent / path).resolve()
 
 
 def resolve_inputs(config_path: Path, config: dict[str, Any]) -> dict[str, str]:
@@ -181,10 +192,115 @@ def write_gates(out_dir: Path, plan: dict[str, Any]) -> None:
         writer = csv.DictWriter(handle, fieldnames=["gate", "status", "evidence"])
         writer.writeheader()
         writer.writerows(rows)
+    plan["gates"] = rows
+
+
+def run_status(plan: dict[str, Any]) -> str:
+    if any(item.get("status") == "failed" for item in plan["runs"]):
+        return "failed"
+    if plan["blockers"] or any(item.get("status") == "blocked" for item in plan["runs"]):
+        return "blocked"
+    if any(gate.get("status") == "red" for gate in plan.get("gates", [])):
+        return "red"
+    if any(gate.get("status") == "amber" for gate in plan.get("gates", [])):
+        return "amber"
+    return "passed"
+
+
+def write_state_db(path: Path, plan: dict[str, Any], dry_run: bool, out_dir: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    status = run_status(plan)
+    with sqlite3.connect(path) as conn:
+        conn.execute(
+            """
+            create table if not exists runtime_runs (
+                run_id integer primary key autoincrement,
+                generated_at text not null,
+                tenant text,
+                environment text,
+                dry_run integer not null,
+                status text not null,
+                out_dir text not null,
+                blockers integer not null,
+                plan_json text not null
+            )
+            """
+        )
+        conn.execute(
+            """
+            create table if not exists module_runs (
+                run_id integer not null,
+                module text not null,
+                enabled integer not null,
+                status text not null,
+                exit_code integer,
+                out_dir text,
+                stderr text,
+                foreign key(run_id) references runtime_runs(run_id)
+            )
+            """
+        )
+        cursor = conn.execute(
+            """
+            insert into runtime_runs
+            (generated_at, tenant, environment, dry_run, status, out_dir, blockers, plan_json)
+            values (?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                plan["generated_at"],
+                plan.get("tenant", {}).get("name", ""),
+                plan.get("tenant", {}).get("environment", ""),
+                1 if dry_run else 0,
+                status,
+                str(out_dir),
+                len(plan["blockers"]),
+                json.dumps(plan, ensure_ascii=False),
+            ),
+        )
+        run_id = int(cursor.lastrowid)
+        for item in plan["runs"]:
+            conn.execute(
+                """
+                insert into module_runs
+                (run_id, module, enabled, status, exit_code, out_dir, stderr)
+                values (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    run_id,
+                    item.get("module", ""),
+                    1 if item.get("enabled") else 0,
+                    item.get("status", ""),
+                    item.get("exit_code"),
+                    item.get("out_dir", ""),
+                    item.get("stderr", ""),
+                ),
+            )
+
+
+def write_monitoring_json(path: Path, plan: dict[str, Any], dry_run: bool, out_dir: Path, state_db: Path | None) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    status_counts: dict[str, int] = {}
+    for item in plan["runs"]:
+        status_counts[item.get("status", "unknown")] = status_counts.get(item.get("status", "unknown"), 0) + 1
+    payload = {
+        "generated_at": plan["generated_at"],
+        "tenant": plan.get("tenant", {}),
+        "dry_run": dry_run,
+        "status": run_status(plan),
+        "connector_status": plan["connector"]["status"],
+        "blocker_count": len(plan["blockers"]),
+        "module_status_counts": status_counts,
+        "red_gates": [gate for gate in plan.get("gates", []) if gate.get("status") == "red"],
+        "amber_gates": [gate for gate in plan.get("gates", []) if gate.get("status") == "amber"],
+        "out_dir": str(out_dir),
+        "state_db": str(state_db) if state_db else "",
+    }
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def write_readouts(out_dir: Path, plan: dict[str, Any], dry_run: bool) -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
+    write_gates(out_dir, plan)
     (out_dir / "runtime-plan.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
     with (out_dir / "runtime-history.jsonl").open("a", encoding="utf-8") as handle:
         handle.write(json.dumps({"generated_at": plan["generated_at"], "dry_run": dry_run, "runs": plan["runs"], "blockers": plan["blockers"]}, ensure_ascii=False) + "\n")
@@ -238,18 +354,28 @@ code {{ background: #eef2f7; padding: 2px 4px; border-radius: 4px; }}
 </html>
 """
     (out_dir / "runtime-dashboard.html").write_text(dashboard, encoding="utf-8")
-    write_gates(out_dir, plan)
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
     config = load_config(args.config)
+    runtime_config = config.get("runtime") or {}
+    state_db = args.state_db or resolve_optional_path(args.config, runtime_config.get("state_db"))
+    monitoring_json = args.monitoring_json or resolve_optional_path(args.config, runtime_config.get("monitoring_json"))
     plan = build_plan(args.config, config, args.out_dir)
     if not args.dry_run:
         run_modules(plan)
     write_readouts(args.out_dir, plan, args.dry_run)
+    if state_db:
+        write_state_db(state_db, plan, args.dry_run, args.out_dir)
+    if monitoring_json:
+        write_monitoring_json(monitoring_json, plan, args.dry_run, args.out_dir, state_db)
     print(f"Wrote runtime readout to {args.out_dir}")
-    return 0 if not any(item.get("status") == "failed" for item in plan["runs"]) else 1
+    if any(item.get("status") == "failed" for item in plan["runs"]):
+        return 1
+    if args.fail_on_gate and any(gate.get("status") == "red" for gate in plan.get("gates", [])):
+        return 2
+    return 0
 
 
 if __name__ == "__main__":

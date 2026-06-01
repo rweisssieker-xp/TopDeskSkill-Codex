@@ -40,7 +40,7 @@ Production use with customer TOPdesk data needs these gates to be completed for 
 - Keep live export endpoints explicit and approved; do not use broad endpoint crawling by default.
 - Keep runtime configs free of secrets. Use environment variables or a managed secret store.
 - Treat `runtime-dashboard.html` as local evidence unless it has been sanitized for publication.
-- Decide whether the customer wants local execution only, a scheduled job, or a hosted runtime with monitoring and support.
+- Decide whether the customer wants local execution, the implemented Windows Scheduled Task mode, or a separately hosted runtime with enterprise monitoring and support.
 
 ## Gate 6: Commercial Boundary
 

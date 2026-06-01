@@ -10,6 +10,7 @@ The runtime turns the TOPdesk skill suite into a repeatable local operating proc
 | Weekly | Process debt, SLA, drift, and automation-risk checks | Analyzer folders under the run output | Service desk lead |
 | Monthly | Readiness, AI adoption, executive narrative | `runtime-readout.md` and `runtime-dashboard.html` | Service intelligence owner |
 | Per change | Automation sandbox and tenant drift comparison | Go/No-Go evidence | Change owner |
+| Scheduled local run | Windows Scheduled Task executes the runtime with approved config. | SQLite state DB and monitoring JSON | Runtime owner |
 
 ## Production Gates
 
@@ -25,8 +26,15 @@ The runtime turns the TOPdesk skill suite into a repeatable local operating proc
 - **Exports mode**: run all modules from customer-approved CSV exports. This is the default and safest operating mode.
 - **Preflight mode**: verify environment variables and URL shape without exporting data.
 - **Live fetch mode**: fetch selected REST/OData endpoints into local files after tenant approval. This requires explicit credentials and endpoint selection.
+- **Scheduled local mode**: use `Register-ServiceIntelligenceSchedule.ps1` to run the runtime on a controlled Windows host.
+
+## Persisted State
+
+When `--state-db` is supplied, the runtime writes `runtime_runs` and `module_runs` tables to SQLite. This gives operators a queryable local ledger for run status, module status, output directories, stderr, blockers, and the full plan JSON.
+
+When `--monitoring-json` is supplied, the runtime writes a compact status document with overall status, connector status, blocker count, module status counts, red gates, amber gates, and evidence paths.
 
 ## Evidence Boundary
 
-The runtime produces local evidence packs. It does not imply continuous monitoring, production automation, or hosted storage. Those capabilities require a separate deployment decision, secret store, scheduler, monitoring, access model, and support agreement.
+The runtime produces local evidence packs, persisted local state, and monitoring status files. Multi-user hosted storage, enterprise monitoring, and support SLAs require a separate deployment decision, access model, and support agreement.
 

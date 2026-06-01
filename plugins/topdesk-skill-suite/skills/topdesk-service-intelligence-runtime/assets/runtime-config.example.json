@@ -37,6 +37,15 @@
     "pii_policy": "approved exports only",
     "approval_reference": "change-or-project-id",
     "production_gate": "amber"
+  },
+  "runtime": {
+    "state_db": "tenant-output/runtime/service-intelligence.sqlite",
+    "monitoring_json": "tenant-output/runtime/runtime-monitoring.json",
+    "schedule": {
+      "enabled": false,
+      "windows_task_name": "TOPdesk Service Intelligence Runtime",
+      "daily_at": "06:30"
+    }
   }
 }
 

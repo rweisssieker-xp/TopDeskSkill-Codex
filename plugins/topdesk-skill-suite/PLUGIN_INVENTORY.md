@@ -1,6 +1,6 @@
 ﻿# TOPdesk Skill Suite Plugin Inventory
 
-Generated: 2026-06-01T06:20:38+02:00
+Generated: 2026-06-01T06:25:51+02:00
 
 Skill count: 48
 
@@ -44,7 +44,7 @@ Skill count: 48
 | `topdesk-roi-business-case` | 1 | 0 | 0 |
 | `topdesk-schema` | 4 | 0 | 1 |
 | `topdesk-security` | 3 | 0 | 0 |
-| `topdesk-service-intelligence-runtime` | 1 | 2 | 1 |
+| `topdesk-service-intelligence-runtime` | 1 | 3 | 1 |
 | `topdesk-sla-optimizer` | 0 | 1 | 0 |
 | `topdesk-template-pack` | 1 | 0 | 2 |
 | `topdesk-tenant-drift` | 1 | 1 | 0 |
@@ -502,6 +502,7 @@ References:
 - `references/runtime-operating-model.md`
 
 Scripts:
+- `scripts/Register-ServiceIntelligenceSchedule.ps1`
 - `scripts/run_service_intelligence.py`
 - `scripts/topdesk_live_connector.py`
 

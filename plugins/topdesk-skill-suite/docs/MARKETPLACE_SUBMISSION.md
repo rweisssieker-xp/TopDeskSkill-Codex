@@ -30,7 +30,7 @@ A free open-source TOPdesk skill suite for service-management workflows, OData/A
 Expanded positioning:
 
 ```text
-A Service Intelligence Operating System accelerator for TOPdesk: turn tenant evidence into decision-ready findings, lifecycle analytics, drift detection, AI adoption controls, automation safety reviews, readiness scorecards, runtime gates, improvement backlogs, and executive narratives. The plugin ships free inspectable skills, scripts, templates, runtime orchestration, and demo assets; tenant access, implementation, hosting, Power BI, TOPdesk, and AI provider costs remain separate.
+A Service Intelligence Operating System accelerator for TOPdesk: turn tenant evidence into decision-ready findings, lifecycle analytics, drift detection, AI adoption controls, automation safety reviews, readiness scorecards, runtime gates, local scheduling, SQLite run state, monitoring status, improvement backlogs, and executive narratives. The plugin ships free inspectable skills, scripts, templates, runtime orchestration, and demo assets; tenant access, implementation, hosting, Power BI, TOPdesk, and AI provider costs remain separate.
 ```
 
 Primary prompts:

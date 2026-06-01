@@ -14,6 +14,9 @@ Use this skill when a user wants to move from individual TOPdesk accelerator scr
 - Connector preflight checks for `TOPDESK_BASE_URL`, `TOPDESK_USERNAME`, and `TOPDESK_APP_PASSWORD`.
 - Orchestration for Tenant Drift, Process Debt, AI Adoption Ledger, Automation Sandbox, Readiness Scoring, Digital Twin Light, and Executive Narrative.
 - Run history as JSONL so repeated executions can be compared.
+- SQLite run store for persisted runtime and module results.
+- Monitoring JSON for external checks, dashboards, or scheduled-job health probes.
+- Windows Scheduled Task registration script for repeatable local execution.
 - HTML and Markdown runtime readouts for stakeholders.
 - Production gates that state what is ready, blocked, or requires tenant-specific credentials.
 
@@ -44,7 +47,19 @@ Use this skill when a user wants to move from individual TOPdesk accelerator scr
    python topdesk-service-intelligence-runtime/scripts/run_service_intelligence.py --config runtime-config.json --out-dir out/runtime
    ```
 
-5. Review `runtime-readout.md`, `runtime-dashboard.html`, `runtime-plan.json`, `runtime-history.jsonl`, and `operational-gates.csv`.
+5. Persist state and monitoring when operating repeatedly:
+
+   ```bash
+   python topdesk-service-intelligence-runtime/scripts/run_service_intelligence.py --config runtime-config.json --out-dir out/runtime --state-db out/runtime/service-intelligence.sqlite --monitoring-json out/runtime/runtime-monitoring.json
+   ```
+
+6. Register a local Windows schedule when owner, retention, and disable path are approved:
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File topdesk-service-intelligence-runtime/scripts/Register-ServiceIntelligenceSchedule.ps1 -ConfigPath runtime-config.json -OutDir out/runtime -StateDb out/runtime/service-intelligence.sqlite -MonitoringJson out/runtime/runtime-monitoring.json -WhatIf
+   ```
+
+7. Review `runtime-readout.md`, `runtime-dashboard.html`, `runtime-plan.json`, `runtime-history.jsonl`, `operational-gates.csv`, `service-intelligence.sqlite`, and `runtime-monitoring.json`.
 
 ## Inputs
 
@@ -63,3 +78,5 @@ The runtime config accepts these optional sections:
 - `runtime-dashboard.html`: local HTML dashboard for run status and gates.
 - `operational-gates.csv`: gate-by-gate readiness evidence.
 - `runtime-history.jsonl`: append-only run ledger.
+- `service-intelligence.sqlite`: persisted run and module state when `--state-db` is supplied.
+- `runtime-monitoring.json`: latest machine-readable status when `--monitoring-json` is supplied.

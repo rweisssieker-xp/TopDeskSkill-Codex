@@ -21,7 +21,7 @@ The TOPdesk Skill Suite plugin is free open-source software. The commercial valu
 - AI provider, model, gateway, or enterprise platform usage.
 - Training, rollout, adoption, support, and managed service.
 - Custom integrations, security review, and compliance documentation.
-- Hosted runtime, scheduler, managed secret store, central storage, monitoring, web application, and support SLA.
+- Hosted runtime, managed secret store, central multi-user storage, enterprise monitoring, web application, and support SLA.
 
 ## Offer Packages
 
@@ -40,6 +40,7 @@ The TOPdesk Skill Suite plugin is free open-source software. The commercial valu
 | Executive Decision Readout | Turn findings into a management-ready decision story. | Executive narrative, evidence pack, risks, owner list, next 30-day plan. |
 | Service Desk Digital Twin Light | Compare lightweight what-if scenarios before process or routing changes. | `digital-twin-scenarios.csv`, expected KPI movement, pilot recommendation. |
 | Service Intelligence Runtime Setup | Connect the analyzer packs into an operating cadence with connector preflight, local run history, gates, and stakeholder readouts. | Runtime config, dry-run plan, `runtime-dashboard.html`, run ledger, governance gates. |
+| Local Runtime Operations | Operate the runtime on a controlled Windows host with scheduled execution, SQLite state, and monitoring JSON. | Scheduled task registration, `service-intelligence.sqlite`, `runtime-monitoring.json`, operating evidence. |
 | Managed Improvement | Keep reporting, data quality, and AI monitoring useful over time. | Monthly findings, cleanup backlog, KPI tuning, release notes. |
 
 ## Positioning Lines

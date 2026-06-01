@@ -27,6 +27,7 @@ TOPdesk Skill Suite is a Service Intelligence Operating System for delivery work
 - "Lets teams test automation risk before production with trigger, payload, retry, rollback, PII, and audit checks."
 - "Creates a lightweight service desk digital twin for what-if decisions using inspectable TOPdesk evidence."
 - "Builds evidence packs that align service desk, BI, security, finance, and leadership on the same facts."
+- "Runs a local operating loop with scheduled execution, SQLite run state, and monitoring JSON."
 
 ## Top Differentiators
 
@@ -120,7 +121,7 @@ TOPdesk Skill Suite is a Service Intelligence Operating System for delivery work
 
 26. **Service Intelligence Runtime**
     - Orchestrates the analyzer packs into repeatable local runs with connector preflight, run plans, governance gates, run history, and HTML/Markdown readouts.
-    - Gives teams an operating cadence without claiming hosted SaaS operation.
+    - Adds real local operations with optional SQLite state, monitoring JSON, and Windows Scheduled Task registration.
 
 ## Disruptive Feature Packs
 
@@ -135,6 +136,7 @@ TOPdesk Skill Suite is a Service Intelligence Operating System for delivery work
 | Readiness Score Engine | Score reporting, AI, data trust, automation, operations, and security readiness. | Red/amber/green scorecards, blockers, required actions. |
 | Executive Narrative Builder | Convert technical findings into management-ready stories. | `executive-narrative.md`, `executive-actions.csv`. |
 | Service Intelligence Runtime | Run a full local operating cycle from approved exports and optional connector preflight. | `runtime-plan.json`, `runtime-readout.md`, `runtime-dashboard.html`, `operational-gates.csv`, `runtime-history.jsonl`. |
+| Local Runtime Operations | Persist and monitor repeated local runtime executions. | `service-intelligence.sqlite`, `runtime-monitoring.json`, Windows Scheduled Task registration. |
 
 ## Disruptive Persona Messaging
 
@@ -177,6 +179,7 @@ TOPdesk Skill Suite is a Service Intelligence Operating System for delivery work
 | Business case | `topdesk-usps`, `topdesk-roi-business-case` | ROI formulas, stakeholder messaging |
 | Documentation | `topdesk-handbook` | Complete handbook set |
 | Runtime orchestration | `topdesk-service-intelligence-runtime` | Connector preflight, run ledger, gates, HTML/Markdown readouts |
+| Local operations | `topdesk-service-intelligence-runtime` | SQLite state, monitoring JSON, scheduled task registration |
 | Packaging/CI | root scripts and `.github` | Validate-all, workflow, release zip, package test, checksum |
 
 ## Proof Points
