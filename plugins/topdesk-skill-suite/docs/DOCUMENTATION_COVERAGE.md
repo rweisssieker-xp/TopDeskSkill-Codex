@@ -3,6 +3,7 @@
 ## Complete Areas
 
 - Plugin manifest, marketplace example, local install/uninstall, validation, packaging, package test, checksums, and CI workflow.
+- Marketplace-specific scanner package with root `.codex-plugin/plugin.json`, valid author email, 48 skill entry points, core runtime/analyzer scripts, required docs, and file-count guard below 128 files.
 - GitHub manifest URLs, privacy policy, terms of service, local MCP declaration, MCP smoke test, and release tag helper.
 - Marketplace submission guide and production readiness gates.
 - Demo TOPdesk base URL documented without storing browser session paths.

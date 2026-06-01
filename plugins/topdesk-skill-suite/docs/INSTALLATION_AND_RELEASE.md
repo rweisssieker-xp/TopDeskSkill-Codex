@@ -60,6 +60,22 @@ The matching checksum file is:
 dist/topdesk-skill-suite-plugin-0.1.3.sha256
 ```
 
+## Marketplace Artifact
+
+The public marketplace artifact is the scanner-friendly package:
+
+```text
+dist/topdesk-skill-suite-marketplace-0.1.3.zip
+```
+
+The matching checksum file is:
+
+```text
+dist/topdesk-skill-suite-marketplace-0.1.3.sha256
+```
+
+Use the marketplace package for Codex Marketplace submission. It keeps `.codex-plugin/plugin.json` at the artifact root and stays below the marketplace file-count limit while preserving all 48 skill entry points and the core runtime/analyzer scripts.
+
 ## Customer Handover Checklist
 
 - Confirm whether the customer wants demo-data, tenant-read-only, or production-integrated use.

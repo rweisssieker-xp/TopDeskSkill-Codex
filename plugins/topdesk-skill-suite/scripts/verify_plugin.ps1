@@ -42,6 +42,12 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 & powershell -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "test_plugin_package.ps1") -Root $resolvedRoot -Version $Version
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+& powershell -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "package_marketplace_plugin.ps1") -Root $resolvedRoot -PluginRoot $resolvedPluginRoot -Version $Version
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+& powershell -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "test_marketplace_package.ps1") -Root $resolvedRoot -Version $Version
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
 & powershell -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "new_plugin_checksums.ps1") -Root $resolvedRoot -Version $Version
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 

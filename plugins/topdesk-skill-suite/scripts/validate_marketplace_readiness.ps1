@@ -53,6 +53,10 @@ foreach ($field in $requiredTextFields) {
     }
 }
 
+if (-not ([string]$manifest.author.email -match "^[^@\s]+@[^@\s]+\.[^@\s]+$")) {
+    throw "Marketplace author.email must be a valid email address."
+}
+
 foreach ($urlField in @("homepage", "repository")) {
     $url = [string]$manifest.$urlField
     if (-not $url.StartsWith("https://")) {
