@@ -41,6 +41,9 @@ Copy-Item -LiteralPath (Join-Path $resolvedPluginRoot ".mcp.json") -Destination 
 
 foreach ($file in @("README.md", "CHANGELOG.md", "LICENSE", "RELEASE_CHECKLIST.md")) {
     $source = Join-Path $resolvedPluginRoot $file
+    if ($file -eq "LICENSE" -and -not (Test-Path -LiteralPath $source)) {
+        $source = Join-Path $resolvedRoot "LICENSE"
+    }
     if (Test-Path -LiteralPath $source) {
         Copy-Item -LiteralPath $source -Destination (Join-Path $stage $file)
     }
