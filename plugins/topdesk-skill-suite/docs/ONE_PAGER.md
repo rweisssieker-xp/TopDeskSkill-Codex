@@ -1,99 +1,103 @@
 # TOPdesk Skill Suite One-Pager
 
-## Kurzpositionierung
+## Short Positioning
 
-TOPdesk Skill Suite ist ein kostenloses Open-Source-Codex-Plugin fuer TOPdesk-Auswertungen, Power BI, Lifecycle-Historisierung, AI/KI-Governance, Datenqualitaet, Migration, Betrieb und Proof-of-Value-Arbeit.
+TOPdesk Skill Suite is a free open-source Codex plugin for TOPdesk analytics, Power BI, lifecycle historization, AI governance, data quality, migration, operations, and proof-of-value work.
 
-Die erweiterte Positionierung ist ein **Service Intelligence Operating System**: TOPdesk-Daten werden zu Entscheidungen, Drift-Erkennung, Automations-Kontrolle, AI-Adoption, Prozessverbesserung und Management-Evidence.
+The expanded positioning is a **Service Intelligence Operating System**: TOPdesk data becomes decisions, drift detection, automation control, AI adoption evidence, process improvement, and management-grade evidence.
 
-Der Nutzen entsteht nicht durch eine weitere Tool-Lizenz, sondern durch schnellere Analyse, wiederverwendbare Vorlagen, nachvollziehbare KPI-Definitionen und eine kontrollierte Einfuehrung von Reporting, AI/KI und kontinuierlicher Verbesserung.
+The value does not come from another tool license. It comes from faster analysis, reusable templates, inspectable KPI definitions, and controlled introduction of reporting, AI, and continuous improvement.
 
-## Was Kostenlos Ist
+## What Is Free
 
-- Plugin-Paket.
-- 48 TOPdesk Skills.
-- Skripte, Templates, DAX, Power Query, Demo-CSV-Dateien und lokale MCP-Helfer.
-- USP-, Battlecard-, Proof-of-Value- und ROI-Vorlagen.
+- Plugin package.
+- 48 TOPdesk skills.
+- Scripts, templates, DAX, Power Query, offline lifecycle CSV files, and local MCP helpers.
+- Local runtime orchestration, SQLite run state, monitoring JSON, DPAPI secret store, and local status API.
+- USP, battlecard, proof-of-value, and ROI templates.
 
-## Was Separat Ist
+## What Is Separate
 
-- TOPdesk-Lizenzen, Tenant-Zugriff und API/OData-Berechtigungen.
-- Power BI Desktop, Service, Gateway, Capacity und Workspaces.
-- Hosting, Gateway-Betrieb, zentrale Datenbank oder Enterprise-Monitoring.
-- AI/KI-Provider, Modellkosten und Enterprise-AI-Plattform.
-- Implementierung, Anpassung, Training, Support und Managed Service.
+- TOPdesk licenses, tenant access, and API/OData permissions.
+- Power BI Desktop, Service, Gateway, Capacity, and workspaces.
+- Hosting, gateway operation, central database operation, organization auth, or enterprise monitoring.
+- AI provider, model usage, gateway, or enterprise AI platform.
+- Implementation, customization, training, support, and managed service.
 
-## Kern-USPs
+## Core USPs
 
-| USP | Nutzen |
+| USP | Value |
 | --- | --- |
-| Kostenloser Accelerator | Start ohne zusaetzliche Plugin-Lizenz. |
-| Service Intelligence Operating System | TOPdesk wird vom Ticket-System zum steuerbaren Verbesserungs-System. |
-| Decision-to-Action Loop | Findings enthalten Evidenz, Impact, Risiko, Owner, naechste Aktion und Validierungsmetrik. |
-| Tenant Drift Radar | Feld-, Kategorie-, Gruppen-, OData/API- und KPI-Drift wird als Risiko sichtbar. |
-| Process Debt Detector | Handoff-Loops, Wartezonen, Reopen-Muster und Routing-Probleme werden messbar. |
-| AI Adoption Ledger | AI/KI-Nutzung wird mit Acceptance, Edit-Rate, Overrides, Kosten und Nutzenhypothesen gemessen. |
-| Governed Automation Sandbox | TOPdesk-Automationen werden vor Produktion gegen Trigger, Payload, Retry, Rollback, PII und Audit geprueft. |
-| Service Desk Digital Twin Light | Script-basierte What-if-Szenarien bewerten Routing-, SLA-, Kapazitaets-, Kategorie- und AI-Aenderungen. |
-| Evidence Pack For Internal Alignment | Service Desk, BI, Security, Finance und Management arbeiten auf derselben Faktenbasis. |
-| KPI Lineage By Default | KPI-Definition, Quelle, Filterlogik, Grain, Reconciliation und bekannte Abweichungen werden dokumentiert. |
-| Improvement Backlog Generator | Datenqualitaet, Lifecycle, SLA und AI-Evidence werden zu konkreten Verbesserungs-Backlogs. |
-| Executive Control Narrative | Management-Storys zeigen Problem, Beleg, Risiko, Wert, Entscheidung und naechste 30 Tage. |
-| Readiness Scoring | Tenant, Reporting, AI, Data Trust, Automation, Security und Operations werden vor Umsetzung bewertet. |
-| Runtime Operating Layer | Connector-Preflight, Modul-Orchestrierung, Run-Historie, Governance-Gates und lokale HTML/Markdown-Readouts. |
-| Local Scheduled Operations | Windows Scheduled Task, SQLite-Run-Store und Monitoring-JSON fuer wiederholbare lokale Ausfuehrung. |
-| Lifecycle-Historisierung | Status- und Bearbeitergruppen-Verlauf wird aus Snapshots und Transition Facts auswertbar. |
-| Power BI Readiness | DAX, Power Query, Demo-Daten, KPI-Katalog und Reporting-Struktur sind vorbereitet. |
-| AI/KI mit Governance | Prompts, Evals, Monitoring und menschliche Freigabe werden mitgedacht. |
-| Data Trust | Datenqualitaet, unbekannte Dimensionen, fehlende Felder und Reconciliation werden sichtbar. |
-| No Lock-In | Markdown, CSV, Power Query, DAX, Python und PowerShell bleiben inspizierbar und anpassbar. |
-| Five-Day Proof | Schneller Weg von Demo oder Kundenausschnitt zu Entscheidungsgrundlage. |
+| Free Accelerator | Start without an additional plugin license. |
+| Service Intelligence Operating System | Turns TOPdesk from a ticket system into a controlled improvement system. |
+| Decision-to-Action Loop | Findings include evidence, impact, risk, owner, next action, and validation metric. |
+| Tenant Drift Radar | Makes field, category, group, OData/API, and KPI drift visible as risk. |
+| Process Debt Detector | Measures handoff loops, waiting zones, reopen patterns, and routing issues. |
+| AI Adoption Ledger | Measures AI usage via acceptance, edit rate, overrides, cost, and value hypotheses. |
+| Governed Automation Sandbox | Checks TOPdesk automations before production for trigger, payload, retry, rollback, PII, and audit. |
+| Service Desk Digital Twin Light | Script-based what-if scenarios assess routing, SLA, capacity, category, and AI changes. |
+| Evidence Pack For Internal Alignment | Gives service desk, BI, security, finance, and management the same fact base. |
+| KPI Lineage By Default | Documents KPI definition, source, filter logic, grain, reconciliation, and known differences. |
+| Improvement Backlog Generator | Turns data quality, lifecycle, SLA, and AI evidence into concrete improvement backlogs. |
+| Executive Control Narrative | Management stories show problem, evidence, risk, value, decision, and next 30 days. |
+| Readiness Scoring | Scores tenant, reporting, AI, data trust, automation, security, and operations before implementation. |
+| Runtime Operating Layer | Adds connector preflight, module orchestration, run history, governance gates, and local HTML/Markdown readouts. |
+| Local Scheduled Operations | Uses Windows Scheduled Task, SQLite run store, and monitoring JSON for repeatable local execution. |
+| Local Status API | Exposes `/health`, `/api/runs`, `/api/modules`, and `/dashboard` over local runtime state. |
+| Local Secret Store | Stores TOPdesk connector settings through a Windows DPAPI-backed local secret store. |
+| Lifecycle Historization | Makes status and operator-group history analyzable from snapshots and transition facts. |
+| Power BI Readiness | Prepares DAX, Power Query, offline data, KPI catalog, and report structure. |
+| AI With Governance | Includes prompts, evals, monitoring, and human approval patterns. |
+| Data Trust | Makes data quality, unknown dimensions, missing fields, and reconciliation visible. |
+| No Lock-In | Keeps Markdown, CSV, Power Query, DAX, Python, and PowerShell inspectable and adaptable. |
+| Five-Day Proof | Fast path from demo or customer sample to decision evidence. |
 
-## Disruptive Feature-Packs
+## Disruptive Feature Packs
 
 | Pack | Output |
 | --- | --- |
-| Tenant Drift Radar Pack | Drift Report, Findings CSV, Impact-Klassen fuer Power BI, AI, Automation und Security. |
-| Process Debt Analyzer | Priorisierte Prozessschulden mit Evidenz, Owner-Vorschlag und Validierungsmetrik. |
-| Decision-Ready Findings Generator | Standardisiertes Finding-Format fuer Management, Backlog und Proof-of-Value. |
-| AI Adoption Ledger | AI Adoption Cockpit, Review-Fragen, DAX Measures und Eval-Backlog. |
-| Automation Safety Sandbox | Automation Risk Card plus Go/No-Go-Gate. |
-| Service Desk Digital Twin Light | `digital-twin-scenarios.csv` und `digital-twin-readout.md`. |
-| Readiness Score Engine | `readiness-scorecard.csv` und `readiness-scorecard.md`. |
-| Executive Narrative Builder | `executive-narrative.md` und `executive-actions.csv`. |
-| Service Intelligence Runtime | `runtime-plan.json`, `runtime-readout.md`, `runtime-dashboard.html`, `operational-gates.csv`, `runtime-history.jsonl`. |
+| Tenant Drift Radar Pack | Drift report, findings CSV, and impact classes for Power BI, AI, automation, and security. |
+| Process Debt Analyzer | Prioritized process debt findings with evidence, owner suggestion, and validation metric. |
+| Decision-Ready Findings Generator | Standardized finding format for management, backlog, and proof-of-value work. |
+| AI Adoption Ledger | AI adoption cockpit, review questions, DAX measures, and eval backlog. |
+| Automation Safety Sandbox | Automation risk card plus Go/No-Go gate. |
+| Service Desk Digital Twin Light | `digital-twin-scenarios.csv` and `digital-twin-readout.md`. |
+| Readiness Score Engine | `readiness-scorecard.csv` and `readiness-scorecard.md`. |
+| Executive Narrative Builder | `executive-narrative.md` and `executive-actions.csv`. |
+| Service Intelligence Runtime | `runtime-plan.json`, `runtime-readout.md`, `runtime-dashboard.html`, `operational-gates.csv`, `runtime-history.jsonl`, `service-intelligence.sqlite`, `runtime-monitoring.json`, and local status API. |
+| Runtime Security Layer | DPAPI-backed local secret store for connector preflight and approved exports. |
 
-## Beispiel-KPIs
+## Example KPIs
 
-- Offene Incidents.
-- Neue und geschlossene Incidents pro Tag.
-- Medianes Alter offener Incidents.
+- Open incidents.
+- New and closed incidents per day.
+- Median age of open incidents.
 - SLA at risk.
-- Status-Verweildauer.
-- Bearbeitergruppen-Verweildauer.
-- Reopen Rate.
-- Handoff Count pro Incident.
-- Fehlende Kategorie, Filiale, Melder, Zieldatum oder Bearbeitergruppe.
-- AI/KI Acceptance Rate und Override Rate.
+- Status dwell time.
+- Operator-group dwell time.
+- Reopen rate.
+- Handoff count per incident.
+- Missing category, branch, caller, target date, or operator group.
+- AI acceptance rate and override rate.
 
-## 5-Tage-Proof
+## Five-Day Proof
 
-| Tag | Ergebnis |
+| Day | Outcome |
 | --- | --- |
-| 1 | Tenant-/Export-Sichtung, Datenqualitaet, KPI-Zielbild. |
-| 2 | Lifecycle-/Snapshot-Modell und erste Historisierung. |
-| 3 | Power BI KPI- und Datenqualitaetsseiten. |
-| 4 | AI/KI Use-Case-, Eval- und Governance-Check. |
-| 5 | Executive Readout mit Findings, Risiken, Aufwand und naechsten Schritten. |
+| 1 | Tenant/export review, data quality, KPI target picture. |
+| 2 | Lifecycle/snapshot model and first history build. |
+| 3 | Power BI KPI and data-quality pages. |
+| 4 | AI use-case, eval, and governance check. |
+| 5 | Executive readout with findings, risks, effort, and next steps. |
 
-## Voraussetzungen
+## Prerequisites
 
-- TOPdesk-Datenzugang oder Demo-Daten.
-- Optional: TOPdesk API-Umgebungsvariablen fuer Live-Connector-Preflight oder genehmigte Exporte.
-- Power BI Desktop fuer lokale Report-Entwicklung.
-- Freigabe fuer Verarbeitung von Ticket-, Melder- und Operator-Daten.
-- Geklaerte AI/KI-Policy, falls Tickettexte mit AI/KI ausgewertet werden sollen.
+- TOPdesk data access or offline demo data.
+- Optional TOPdesk API environment variables or DPAPI secret store for connector preflight and approved exports.
+- Power BI Desktop for local report development.
+- Approval to process ticket, caller, and operator data.
+- Clear AI policy if ticket text is processed with AI.
 
 ## Call To Action
 
-Start mit Demo-Daten oder read-only Tenant-Profiling. Danach entscheiden: Reporting Foundation, Lifecycle Analytics, AI/KI Evaluation oder Managed Improvement.
+Start with offline demo data or read-only tenant profiling. Then choose Reporting Foundation, Lifecycle Analytics, AI Evaluation, Runtime Operations, or Managed Improvement.

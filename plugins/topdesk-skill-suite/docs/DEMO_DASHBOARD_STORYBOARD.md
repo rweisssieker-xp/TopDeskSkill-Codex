@@ -28,7 +28,7 @@ Use this storyboard to present the plugin with demo data before connecting a cus
 | Lifecycle Flow | How long do incidents stay in each status? | Status dwell-time matrix, transition counts, reopened trend. |
 | Assignment Flow | Which groups hold work longest? | Group dwell-time, handoff count, ageing by group. |
 | Data Quality | Can we trust the KPIs? | Missing fields, unknown dimensions, orphan references, coverage trend. |
-| AI/KI Insights | Which AI suggestions are useful and governed? | Suggestion quality, human acceptance, review queue, exception rate. |
+| AI Insights | Which AI suggestions are useful and governed? | Suggestion quality, human acceptance, review queue, exception rate. |
 | Proof Of Value | What changed in five days? | Findings, effort, ROI assumptions, next-step backlog. |
 
 ## Demo KPIs
@@ -53,5 +53,4 @@ Use this storyboard to present the plugin with demo data before connecting a cus
 - Are assignment groups stable enough for trend reporting?
 - Which statuses count as waiting, active work, resolved, or closed?
 - Which TOPdesk fields are mandatory for trusted KPI reporting?
-- Which AI/KI use cases may use ticket text, and which require anonymization?
-
+- Which AI use cases may use ticket text, and which require anonymization?

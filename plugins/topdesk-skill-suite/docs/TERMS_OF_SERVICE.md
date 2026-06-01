@@ -1,6 +1,6 @@
 # Terms Of Service
 
-This plugin is provided as a local delivery accelerator for TOPdesk-related analysis, documentation, automation, Power BI modelling, AI/KI governance, and business positioning.
+This plugin is provided as a local delivery accelerator for TOPdesk-related analysis, documentation, automation, Power BI modelling, AI governance, and business positioning.
 
 The plugin is free open-source software under the repository license. There are no plugin subscription fees, license fees, or usage fees charged by this project.
 

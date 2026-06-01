@@ -1,6 +1,6 @@
 # Commercial Model
 
-The TOPdesk Skill Suite plugin is free open-source software. The commercial value is not a software license sale; it is the accelerated delivery of reporting, AI/KI governance, lifecycle analytics, migration support, operational enablement, and service intelligence improvement work.
+The TOPdesk Skill Suite plugin is free open-source software. The commercial value is not a software license sale; it is the accelerated delivery of reporting, AI governance, lifecycle analytics, migration support, operational enablement, and service intelligence improvement work.
 
 ## Free Components
 
@@ -9,7 +9,7 @@ The TOPdesk Skill Suite plugin is free open-source software. The commercial valu
 - Local MCP helper scripts.
 - Power BI templates, DAX snippets, and Power Query patterns.
 - Demo lifecycle CSV files.
-- AI/KI governance templates and evaluation scaffolds.
+- AI governance templates and evaluation scaffolds.
 - USP battlecards, proof-of-value templates, and ROI templates.
 
 ## Billable Or Separately Owned Components
@@ -31,7 +31,7 @@ The TOPdesk Skill Suite plugin is free open-source software. The commercial valu
 | Five-Day Proof | Prove value with a bounded dataset and decision-ready findings. | Data profile, lifecycle bottlenecks, KPI shortlist, PoV readout. |
 | Reporting Foundation | Build a controlled Power BI model from TOPdesk data. | Semantic model, core KPIs, refresh approach, data-quality page. |
 | Lifecycle Analytics | Make status and assignment history auditable. | Snapshot pipeline, transition facts, dwell-time KPIs, reconciliation checks. |
-| AI/KI Evaluation | Test AI use cases without uncontrolled automation. | Use-case backlog, prompt/eval pack, monitoring KPIs, governance decision. |
+| AI Evaluation | Test AI use cases without uncontrolled automation. | Use-case backlog, prompt/eval pack, monitoring KPIs, governance decision. |
 | Drift Assessment | Check whether tenant changes threaten reports, AI, automations, or security assumptions. | Drift report, affected KPI/prompt/automation list, remediation backlog. |
 | Process Debt Review | Find service-process debt in handoffs, waiting zones, reopens, stale ownership, and routing. | Process debt findings, improvement backlog, before/after KPI proposal. |
 | AI Adoption Review | Prove whether AI assistance is accepted, edited, rejected, trusted, and worth scaling. | Adoption ledger design, acceptance/edit/override measures, governance readout. |

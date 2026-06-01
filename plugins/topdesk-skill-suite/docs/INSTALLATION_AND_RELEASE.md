@@ -65,7 +65,7 @@ dist/topdesk-skill-suite-plugin-0.1.3.sha256
 - Confirm whether the customer wants demo-data, tenant-read-only, or production-integrated use.
 - Confirm available TOPdesk API/OData permissions.
 - Confirm Power BI Desktop, Service, gateway, and workspace ownership.
-- Confirm whether AI/KI outputs may use customer ticket text.
+- Confirm whether AI outputs may use customer ticket text.
 - Confirm PII handling, retention, and export storage location.
 - Run the demo lifecycle pack before connecting real tenant data.
 - Run tenant profiling with a read-only credential where possible.

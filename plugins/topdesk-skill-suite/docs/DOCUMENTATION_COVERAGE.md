@@ -16,7 +16,7 @@
 - Data and automation skills for OData/API, API smoke testing, tenant mapping, Python, PowerShell, query-to-Power-BI, and data quality.
 - Power BI skills for report building, semantic modelling, visual design, report factory, DAX generation, Power Query, RLS, refresh, reconciliation, and KPI definitions.
 - Operations and governance skills for SLA/backlog analysis, routing quality, PII scanning, data minimization, and compliance review.
-- AI/KI skills for feature design, prompts/evals, governance cockpit, feedback loops, RAG/search, cost/value monitoring, and Power BI AI reporting.
+- AI skills for feature design, prompts/evals, governance cockpit, feedback loops, RAG/search, cost/value monitoring, and Power BI AI reporting.
 - USP and business skills for battlecards, proof-of-value, ROI, executive messaging, handbooks, and delivery planning.
 
 ## Verification
