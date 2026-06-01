@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Report Factory"
-  short_description: "Generate TOPdesk report specs"
-  default_prompt: "Use $topdesk-report-factory to generate TOPdesk Power BI report specs, DAX backlogs, page designs, and validation plans."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "TopDesk Expert"
-  short_description: "TOPdesk schema, BI, and AI guidance"
-  default_prompt: "Use $topdesk-expert to answer TOPdesk feature questions, inspect the app database schema, design Power BI reports, and plan AI/KI features."

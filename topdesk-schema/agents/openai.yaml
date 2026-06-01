@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Schema"
-  short_description: "Database schema design for TOPdesk apps"
-  default_prompt: "Use $topdesk-schema to design TOPdesk app database tables, relationships, indexes, and reporting views."

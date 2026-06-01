@@ -1,33 +1,38 @@
-# Changelog
+# TOPdesk Skill Suite Plugin Changelog
 
-## v0.1.3 - 2026-05-31
+## 0.1.3
 
-- Added disruptive service intelligence skills for tenant drift, process debt, decision-ready findings, AI adoption, automation safety, readiness scoring, digital twin light, executive narrative, and runtime orchestration.
-- Added Service Intelligence Runtime orchestration with connector preflight, local run plans, governance gates, run history, and HTML/Markdown readouts.
-- Expanded USP, battlecard, marketplace, commercial, production-readiness, and one-pager documentation for release.
+- Sets plugin manifest and package tooling to version `0.1.3`.
+- Bundles 48 TOPdesk-focused Codex skills.
+- Adds Service Intelligence Runtime skill and documentation for connector preflight, local run orchestration, governance gates, run history, and runtime readouts.
+- Adds disruptive feature skills for tenant drift, process debt, decision-ready findings, AI adoption ledger, automation safety, readiness scoring, digital twin light, and executive narrative.
+- Expands USP, battlecard, commercial, marketplace, and production-readiness documentation.
 
-## v0.1.2 - 2026-05-31
+## 0.1.2
 
-- Added incident lifecycle historization support with daily snapshots, status transition facts, assignment transition facts, demo lifecycle CSVs, ingestion guidance, and Power Query starter assets.
-- Added AI/KI and reporting USPs for lifecycle analytics, bottleneck detection, KPI explanation, data trust, executive control, no-lock-in delivery, operations readiness, and five-day proof paths.
-- Clarified free-tool positioning: plugin, skills, scripts, templates, and demo assets are free open-source accelerator material; TOPdesk, Power BI, hosting, AI provider usage, implementation, support, and managed operation are separate.
-- Added plugin-ready release documentation for installation, commercial model, demo dashboard storytelling, and security/privacy/AI guardrails.
+- Sets plugin manifest and package tooling to version `0.1.2`.
+- Adds customer-facing one-pager for value, prerequisites, KPIs, free-tool boundary, and five-day proof.
+- Adds required-doc validation for release-critical plugin documentation.
 
-## v0.1.1 - 2026-04-30
+## 0.1.0
 
-- Added maximum skill-suite USP positioning.
-- Added skill manifest and inventory tooling.
-- Added Power BI build and maintenance generator.
-- Added generated Power BI pack support for Power Query, DAX, TMDL skeletons, report specs, and maintenance runbooks.
-
-## v0.1.0 - 2026-04-30
-
-- Added TOPdesk skill suite with 26 validated skills.
-- Added handbook set and indexes.
-- Added OData metadata and CSV export profiling scripts.
-- Added Power BI, SQL, test, and runbook template assets.
-- Added validation script for all skills.
-- Added GitHub repository files, issue/PR templates, and validation workflow.
-- Added install script, release checklist, tenant artifact checklist, and forward-test results scaffold.
-- Added skill reference checker, tenant mapping report pipeline, release packager, and forward-test run sheet generator.
-- Added Power BI implementation pack generator for M queries, DAX, TMDL skeletons, report specs, and maintenance runbooks.
+- Bundles 47 TOPdesk-focused Codex skills.
+- Adds release-ready documentation for installation, handover, commercial model, demo dashboard storytelling, and AI/KI privacy guardrails.
+- Clarifies that the plugin, skills, scripts, templates, and demo assets are free open-source accelerator assets, while TOPdesk, Power BI, hosting, AI provider usage, implementation, support, and managed operation are separate.
+- Adds lifecycle-history demo positioning for status transitions, assignment transitions, daily incident snapshots, dwell-time reporting, and source-to-report reconciliation.
+- Adds plugin manifest for Codex discovery.
+- Adds local marketplace entry support.
+- Adds plugin README, icon, logo, sync, validation, and packaging scripts.
+- Adds plugin-local inventory generation and full verification workflow.
+- Adds advanced Python and PowerShell automation skills.
+- Adds TOPdesk query-to-Power-BI, semantic modelling, and visual design skills.
+- Adds AI feature factory, AI governance cockpit, proof-of-value, and USP battlecard skills with Power BI assets.
+- Adds GitHub manifest URLs, privacy and terms documents.
+- Adds local MCP server declaration and dependency-free TOPdesk helper server.
+- Adds Power BI and AI governance screenshot assets.
+- Adds release tag helper script.
+- Adds demo TOPdesk base URL for MCP/OData helper configuration.
+- Documents live REST/API test results for the demo instance without storing secrets.
+- Adds and documents a REST tenant profiler for field catalog, data-quality, Power BI, and AI readiness analysis.
+- Adds API test lab, Power BI DAX measure pack, SLA optimizer, and PII/compliance scanner skills.
+- Adds offline generators for DAX starter measures, SLA backlog findings, and PII review reports from tenant profile artifacts.

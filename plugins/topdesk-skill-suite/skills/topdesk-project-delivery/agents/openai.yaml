@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Project Delivery"
-  short_description: "Delivery planning for TOPdesk projects"
-  default_prompt: "Use $topdesk-project-delivery to create TOPdesk epics, user stories, roadmaps, estimates, and delivery plans."

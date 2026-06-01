@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Security"
-  short_description: "Security and compliance for TOPdesk"
-  default_prompt: "Use $topdesk-security to handle TOPdesk security, DSGVO, PII, audit, RLS, secrets, and AI governance."

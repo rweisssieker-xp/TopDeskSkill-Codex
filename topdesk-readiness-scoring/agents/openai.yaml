@@ -1,3 +1,0 @@
-display_name: TOPdesk Readiness Scoring
-short_description: Score TOPdesk delivery readiness.
-default_prompt: Create a TOPdesk readiness scorecard from evidence files.

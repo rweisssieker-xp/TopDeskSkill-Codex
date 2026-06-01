@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk USP Battlecards"
-  short_description: "Persona USPs, battlecards, and demo stories."
-  default_prompt: "Create TOPdesk USP battlecards for AI and Power BI."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Admin Config"
-  short_description: "Admin configuration for TOPdesk"
-  default_prompt: "Use $topdesk-admin-config to design TOPdesk categories, statuses, supporting files, operator groups, SSP forms, and configuration governance."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Action Sequences"
-  short_description: "Automation patterns for TOPdesk"
-  default_prompt: "Use $topdesk-action-sequences to design TOPdesk action sequences, webhooks, API calls, safety controls, and error handling."

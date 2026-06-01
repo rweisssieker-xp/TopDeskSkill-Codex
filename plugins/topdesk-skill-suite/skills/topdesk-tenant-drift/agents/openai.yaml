@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Tenant Drift"
-  short_description: "Compare TOPdesk tenant catalogs and detect drift risks."
-  default_prompt: "Compare two TOPdesk field catalogs and create a drift report."

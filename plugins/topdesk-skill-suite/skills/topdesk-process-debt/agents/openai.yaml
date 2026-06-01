@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Process Debt"
-  short_description: "Find handoff, waiting, reopen, and ownership process debt."
-  default_prompt: "Analyze TOPdesk lifecycle exports for process debt."

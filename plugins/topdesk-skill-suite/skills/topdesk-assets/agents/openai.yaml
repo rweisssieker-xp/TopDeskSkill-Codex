@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Assets"
-  short_description: "Asset management for TOPdesk"
-  default_prompt: "Use $topdesk-assets to design TOPdesk asset templates, relations, lifecycle, schema, and asset analytics."

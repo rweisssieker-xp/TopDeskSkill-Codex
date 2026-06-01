@@ -1,5 +1,0 @@
-name: topdesk-sla-optimizer
-model: gpt-5
-instructions: |
-  Convert TOPdesk incident snapshots into SLA, backlog, and routing insights. Keep findings evidence-based and distinguish missing data from real risk.
-

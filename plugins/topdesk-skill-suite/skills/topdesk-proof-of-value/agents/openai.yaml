@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Proof of Value"
-  short_description: "PoV sprint, ROI, and Power BI proof pack."
-  default_prompt: "Create a TOPdesk proof-of-value sprint pack."

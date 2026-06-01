@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk AI Feature Factory"
-  short_description: "AI feature specs with Power BI monitoring."
-  default_prompt: "Create a governed TOPdesk AI feature pack."

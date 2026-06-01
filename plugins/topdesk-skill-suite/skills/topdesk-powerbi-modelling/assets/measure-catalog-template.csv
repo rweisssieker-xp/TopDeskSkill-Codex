@@ -1,6 +1,0 @@
-Measure,Table,Definition,Format,Dependencies,Validation
-Incidents Created,FactIncident,Count of incidents by created date,Whole number,,Reconcile with TOPdesk created count
-Incidents Closed,FactIncident,Count of incidents by closed date,Whole number,,Reconcile with TOPdesk closed count
-Backlog,FactIncident,Open incidents as of selected date,Whole number,Incidents Created; Incidents Closed,Reconcile with TOPdesk open selection
-SLA Met %,FactSla,Met SLA targets divided by evaluated SLA targets,Percentage,SLA Met; SLA Evaluated,Reconcile sample cases
-

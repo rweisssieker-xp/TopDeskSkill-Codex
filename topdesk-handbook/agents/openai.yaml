@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Handbook"
-  short_description: "Complete handbook set for TOPdesk"
-  default_prompt: "Use $topdesk-handbook to create or update TOPdesk admin, operator, Power BI, AI, integration, operations, schema, rollout, training, and executive handbooks."

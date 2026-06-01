@@ -1,6 +1,0 @@
-Estimated Hours Saved = DIVIDE(SUM(FactROI[minutes_saved]), 60)
-Estimated Value = SUMX(FactROI, DIVIDE(FactROI[minutes_saved], 60) * FactROI[hourly_rate])
-PoV Coverage % = DIVIDE(DISTINCTCOUNT(FactPoVArtifact[covered_scope]), DISTINCTCOUNT(DimPoVScope[scope_item]))
-Data Quality Findings = COUNTROWS(FactDataQualityFinding)
-SLA At Risk = CALCULATE(COUNTROWS(FactIncident), FactIncident[sla_risk_flag] = TRUE())
-

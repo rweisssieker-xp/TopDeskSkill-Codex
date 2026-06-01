@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Digital Twin Light"
-  short_description: "Run TOPdesk what-if scenario scoring."
-  default_prompt: "Compare TOPdesk service desk what-if scenarios."

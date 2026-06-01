@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Query Power BI"
-  short_description: "Translate TOPdesk questions into queries and BI specs."
-  default_prompt: "Turn this TOPdesk question into OData, SQL and Power BI measures."

@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 160" role="img" aria-label="TOPdesk Skill Suite logo">
-  <rect width="512" height="160" rx="24" fill="#0F172A"/>
-  <rect x="28" y="34" width="92" height="92" rx="18" fill="#2563EB"/>
-  <path d="M44 55h60v12H80v42H68V67H44z" fill="#FFFFFF"/>
-  <text x="148" y="73" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">TOPdesk</text>
-  <text x="148" y="112" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="500" fill="#93C5FD">Skill Suite</text>
-</svg>
-

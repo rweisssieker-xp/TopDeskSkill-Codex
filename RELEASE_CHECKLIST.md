@@ -1,44 +1,30 @@
 # Release Checklist
 
-Version: `v0.1.2`
-
-## Validation
-
-- [x] All skills validate.
-- [x] Python scripts compile.
-- [x] Open markers checked.
-- [x] `__pycache__` cleaned.
-- [x] GitHub workflow added.
-- [x] Bundled CI validator added.
-- [x] Skill reference checker added.
-- [x] Release package script added.
-- [x] Tenant mapping pipeline added.
-- [x] Forward-test run sheet generator added.
-- [x] Plugin verification workflow added.
-- [x] Plugin handover docs added.
-- [x] Lifecycle history demo assets added.
-
-## Documentation
-
-- [x] README.
-- [x] Skill index.
-- [x] Handbook index.
-- [x] Forward-test prompts.
-- [x] Tenant artifact checklist.
-- [x] Contributing and security docs.
-- [x] Plugin installation and release guide.
-- [x] Free-tool commercial model.
-- [x] Demo dashboard storyboard.
-- [x] Security, privacy, and AI guardrails.
-
-## Release Notes
-
-- [x] Changelog updated.
-- [ ] Git commit created.
-- [ ] Optional tag `v0.1.2` created.
-
-## Post-Release
-
-- [ ] Install selected skills into `$env:USERPROFILE\.codex\skills`.
-- [ ] Run manual forward tests with fresh agent contexts.
-- [ ] Add tenant-specific metadata and exports when available.
+- Run `scripts/sync_skills.ps1`.
+- Run `scripts/generate_plugin_assets.ps1`.
+- Run `scripts/new_plugin_manifest.ps1`.
+- Run `scripts/new_plugin_inventory.ps1`.
+- Run `scripts/new_plugin_health_report.ps1`.
+- Run `scripts/validate_plugin_config.ps1`.
+- Run `scripts/validate_marketplace_readiness.ps1`.
+- Run `scripts/validate_marketplace_readiness.ps1 -CheckExternalUrls` before external publication.
+- Run `scripts/validate_plugin.ps1`.
+- Run `scripts/package_plugin.ps1`.
+- Run `scripts/test_plugin_package.ps1`.
+- Run `scripts/new_plugin_checksums.ps1`.
+- Confirm `dist/topdesk-skill-suite-plugin-<version>.zip` exists.
+- Confirm `dist/topdesk-skill-suite-plugin-<version>.sha256` exists.
+- Review `.codex-plugin/plugin.json` version and user-facing descriptions.
+- Review `PLUGIN_INVENTORY.md` for expected skill count and artifacts.
+- Review `docs/INSTALLATION_AND_RELEASE.md`.
+- Review `docs/COMMERCIAL_MODEL.md`.
+- Review `docs/DEMO_DASHBOARD_STORYBOARD.md`.
+- Review `docs/SECURITY_PRIVACY_AI.md`.
+- Review `docs/ONE_PAGER.md`.
+- Review `docs/PRODUCTION_READINESS.md`.
+- Review `docs/MARKETPLACE_SUBMISSION.md`.
+- Confirm the customer-facing story says plugin license fee is zero and separates third-party licenses, tenant access, implementation, hosting, AI provider usage, support, and managed operation.
+- Confirm lifecycle demo CSVs are present under `skills/topdesk-powerbi/assets/demo-lifecycle`.
+- Confirm privacy guidance covers TOPdesk ticket text, caller data, operator notes, AI prompts, retention, and RLS.
+- Confirm marketplace screenshots are approved demo visuals or sanitized customer-approved captures.
+- Confirm public repository, homepage, privacy policy, and terms URLs are reachable before external publication.

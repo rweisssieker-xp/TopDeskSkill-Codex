@@ -1,4 +1,0 @@
-interface:
-  display_name: "TOPdesk Decision Findings"
-  short_description: "Generate action-ready TOPdesk findings."
-  default_prompt: "Turn TOPdesk analysis rows into decision-ready findings."
